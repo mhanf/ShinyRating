@@ -6,8 +6,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of ShinyRating is to This package is to allows for easy
-creating of rating input controls in Shiny.
+The goal of ShinyRating is to allow for easy creating of rating input
+controls in Shiny.
 
 ## Installation
 
@@ -19,4 +19,4 @@ You can install the development version of ShinyRating from
 devtools::install_github("mhanf/ShinyRating")
 ```
 
-**In development**
+**Work in progress**

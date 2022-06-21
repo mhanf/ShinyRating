@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of ShinyRating is to allows for easy creating of rating input controls in Shiny.
+The goal of ShinyRating is to allow for easy creating of rating input controls in Shiny.
 
 ## Installation
 
