@@ -54,18 +54,13 @@ library(ShinyRating)
 library(bslib)
 # a basic card function 
 card <- function(title,body){
-fluidRow(
-  column(
-    width = 3,
-      tags$div(
-        class = "card text-center",
-        tags$div(class = "card-header primary-text fw-bold",
-                 title),
-        tags$div(
-          class = "card-body",
-          body
-        )
-      )
+  tags$div(
+    class = "card text-center",
+    tags$div(class = "card-header primary-text fw-bold",
+             title),
+    tags$div(
+      class = "card-body",
+      body
     )
   )
 }
@@ -75,40 +70,45 @@ ui <- function(){
     theme = bslib::bs_theme(
       version = 5,
       bootswatch = "flatly"
-      ),
+    ),
     br(),
-    card(title = "A little Survey",
-         body = tagList(
-           br(),
-           ratingInput(
-             inputId = "Mood",
-             label = "How do you feel ?",
-             size = 2,
-             on_color = "info",
-             off_color = "dark",
-             i_name = c("angry","frown","meh","smile","laugh"),
-             i_lib = "font-awesome",
-             anim = "pulse",
-             duration = 1,
-             number = 5,
-             cumul = FALSE,
-             tlp = TRUE,
-             tlp_color = "info",
-             tlp_position = "bottom",
-             tlp_msg = c("Angry","Frown","Neutral","Happy","Excited")
-           ),
-           br(),
-           ratingInput("star",
-                       label = "Where is shinyRating on the fun scale ?",
-                       size = 2,
-                       anim = "tada",
-                       i_name = "star",
-                       on_color = "#D5AB55",
-                       cumul = TRUE
-           ),
-           br(),
-           actionButton("go","Reset",class="btn-success m-1 w-50")
-         )
+    fluidRow(
+      column(
+        width = 3,
+        card(title = "A little Survey",
+             body = tagList(
+               br(),
+               ratingInput(
+                 inputId = "Mood",
+                 label = "How do you feel ?",
+                 size = 2,
+                 on_color = "info",
+                 off_color = "dark",
+                 i_name = c("angry","frown","meh","smile","laugh"),
+                 i_lib = "font-awesome",
+                 anim = "pulse",
+                 duration = 1,
+                 number = 5,
+                 cumul = FALSE,
+                 tlp = TRUE,
+                 tlp_color = "info",
+                 tlp_position = "bottom",
+                 tlp_msg = c("Angry","Frown","Neutral","Happy","Excited")
+               ),
+               br(),
+               ratingInput("star",
+                           label = "Where is shinyRating on the fun scale ?",
+                           size = 2,
+                           anim = "tada",
+                           i_name = "star",
+                           on_color = "#D5AB55",
+                           cumul = TRUE
+               ),
+               br(),
+               actionButton("go","Reset",class="btn-success m-1 w-50")
+             )
+        )
+      )
     )
   )
 }
