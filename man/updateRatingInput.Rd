@@ -4,7 +4,7 @@
 \alias{updateRatingInput}
 \title{Change the value of a rating input on the client}
 \usage{
-updateRatingInput(session, inputId, value)
+updateRatingInput(session, inputId, value = NA)
 }
 \arguments{
 \item{session}{The session object passed to function given to shinyServer. Default is getDefaultReactiveDomain().}

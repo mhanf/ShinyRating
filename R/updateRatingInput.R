@@ -10,7 +10,7 @@
 updateRatingInput <- function(
   session,
   inputId,
-  value
+  value = NA
 ){
   session$sendInputMessage(inputId, list(value = value))
 }

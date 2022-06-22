@@ -19,24 +19,24 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
 // Define an event on click
 $(document).on('click', '.btn_rating', function(evt) {
 // icon
-const el_button = $(evt.target);
+const el_icon = $(evt.target);
 // icon i_number
-const i_number = el_button.attr('i_number');
+const i_number = el_icon.attr('i_number');
 // icon id
-const id = el_button.attr('id');
+const id = el_icon.attr('id');
 // number
-const number = el_button.attr('number');
+const number = el_icon.attr('number');
 // rating_id
-const rating_id = el_button.attr('rating_id');
+const rating_id = el_icon.attr('rating_id');
 // off_color
-const off_color = el_button.attr('off_color');
+const off_color = el_icon.attr('off_color');
 // on_color
-const on_color = el_button.attr('on_color');
+const on_color = el_icon.attr('on_color');
 // el
 const el = $('#' + rating_id)
 // animation
-const anim = el_button.attr('anim');
-const cumul = el_button.attr('cumulation');
+const anim = el_icon.attr('anim');
+const cumul = el_icon.attr('cumulation');
 
 console.log("off :" + off_color)
 console.log("on :" + on_color)

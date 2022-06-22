@@ -1,63 +1,60 @@
+# libraries
 library(shiny)
-library(shinyvalidate)
 library(ShinyRating)
-
+# simple function to create a basic card
+card <- function(title,body){
+    tags$div(
+        class = "card text-center w-25 border-primary",
+        tags$div(class = "card-header bg-primary ",
+                 title,class = "m-0"),
+        tags$div(
+            class = "card-body",
+            body
+        ))
+}
+# ui part
 ui <- function(){
     fluidPage(
-        theme = bslib::bs_theme(version = 5,bootswatch = "simplex"),
+        theme = bslib::bs_theme(version = 5,bootswatch = "flatly"),
         br(),
         br(),
-        h4("Tooltip position",class = "text-primary"),
-        ratingInput(
-            inputId = "test",
-            label = "Comment avez vous trouvez la formation ?",
-            size = 2,
-            width ="auto",
-            on_color = "info",
-            off_color = "dark",
-            i_name = c("angry","frown","meh","smile","laugh"),
-            i_lib = "font-awesome",
-            anim = "tada",
-            duration = 1,
-            number = 5,
-            cumul = FALSE,
-            value = 4,
-            tlp = TRUE,
-            tlp_color = c("info","primary","warning","danger","success"),
-            tlp_position = "bottom",
-            tlp_msg = c("Horrible","Pas ouf","Moyen","Bien", "De la balle")
-        ),
-        textOutput("test_result"),
-        ratingInput("essai",
-                    size = 2,
-                    anim = "tada",
-                    i_name = "star",
-                    on_color = "success",
-                    cumul = TRUE
-        ),
-        textOutput("essai_result"),
-        actionButton("go","Restore")
-    )
+        card(title = "Survey",
+             body = tagList(
+                 br(),
+                 ratingInput(
+                     inputId = "Mood",
+                     label = "How do you feel ?",
+                     size = 2,
+                     width ="auto",
+                     on_color = "info",
+                     off_color = "light",
+                     i_name = c("angry","frown","meh","smile","laugh"),
+                     anim = "pulse",
+                     number = 5,
+                     cumul = FALSE,
+                     tlp = TRUE,
+                     tlp_color = "info",
+                     tlp_position = "bottom",
+                     tlp_msg = c("Angry","Frown","Neutral","Happy","Excited")
+                 ),
+                 br(),
+                 ratingInput("star",
+                             label = "Do you think shinyRating is a fun package ?",
+                             size = 2,
+                             anim = "tada",
+                             i_name = "star",
+                             on_color = "#D5AB55"
+                 ),
+                 actionButton("go","Reset",class="btn-success m-1 w-50")
+             )))
 }
-
+# Server part
 server <- function(input, output, session) {
 
-    iv <- InputValidator$new()
-    iv$add_rule("essai", sv_required())
-    iv$enable()
-
-    observe({
-        output$test_result <- renderText({sprintf("Votre réponse est : %s",input$test)})
-    })
-
-    observe({
-        output$essai_result <- renderText({sprintf("Votre réponse est : %s",input$essai)})
-    })
-
     observeEvent( input$go , {
-        updateRatingInput(session, "test", NA)
-        updateRatingInput(session, "essai", 2)
+        updateRatingInput(session, "star", value = NA)
+        updateRatingInput(session, "Mood", value = NA)
     })
 }
-
+# launch the app
 shinyApp(ui = ui, server = server)
