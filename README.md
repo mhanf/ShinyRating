@@ -4,6 +4,13 @@
 # ShinyRating
 
 <!-- badges: start -->
+
+[![CRAN
+status](https://www.r-pkg.org/badges/version/interfacer)](https://CRAN.R-project.org/package=interfacer)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![License:
+GPLv3](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.org/web/licenses/MIT)
 <!-- badges: end -->
 
 Easy creation of rating input controls in Shiny.
@@ -33,31 +40,39 @@ devtools::install_github("mhanf/ShinyRating")
 ShinyRating exports two main functions: `ratingInput()` and
 `updateRatingInput()`.
 
-An example Shiny app using these functions can be created as follows:
+An Shiny app example using these functions can be created as follows:
 
 ``` r
 # libraries
 library(shiny)
 library(ShinyRating)
+library(bslib)
 # a basic card function 
 card <- function(title,body){
-  tags$div(
-    class = "card text-center w-25 border-primary",
-    tags$div(class = "card-header bg-primary ",
-             title,class = "m-0"),
-    tags$div(
-      class = "card-body",
-      body
+fluidRow(
+  column(
+    width = 3,
+      tags$div(
+        class = "card text-center",
+        tags$div(class = "card-header primary-text fw-bold",
+                 title),
+        tags$div(
+          class = "card-body",
+          body
+        )
+      )
     )
   )
 }
 # ui part
 ui <- function(){
   fluidPage(
-    theme = bslib::bs_theme(version = 5,bootswatch = "flatly"),
+    theme = bslib::bs_theme(
+      version = 5,
+      bootswatch = "flatly"
+      ),
     br(),
-    br(),
-    card(title = "Survey",
+    card(title = "A little Survey",
          body = tagList(
            br(),
            ratingInput(
@@ -65,7 +80,7 @@ ui <- function(){
              label = "How do you feel ?",
              size = 2,
              on_color = "info",
-             off_color = "light",
+             off_color = "dark",
              i_name = c("angry","frown","meh","smile","laugh"),
              i_lib = "font-awesome",
              anim = "pulse",
@@ -79,13 +94,14 @@ ui <- function(){
            ),
            br(),
            ratingInput("star",
-                       label = "Do you think shinyRating is a fun package ?",
+                       label = "Where is shinyRating on the fun scale ?",
                        size = 2,
                        anim = "tada",
                        i_name = "star",
                        on_color = "#D5AB55",
                        cumul = TRUE
            ),
+           br(),
            actionButton("go","Reset",class="btn-success m-1 w-50")
          )
     )
@@ -115,8 +131,15 @@ You can run a gallery and consult vignettes with :
 
 ## Contributions
 
-**Work in progress**
+The developer and maintainer is [mhanf](https://github.com/mhanf).
+External contributions are welcome. Please keep in mind that I am not a
+professional R developer but an enthusiastic R data scientist who plays
+with shiny and js as a pretext to learn new stuffs. Unfortunately, so is
+my code. Please note that the ShinyRating project is released with a
+[Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
 
 ## License
 
-**Work in progress**
+The ShinyRating package as a whole is licensed under the MIT license.
