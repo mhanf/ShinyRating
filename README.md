@@ -109,7 +109,6 @@ ui <- function(){
 }
 # Server part
 server <- function(input, output, session) {
-  
   observeEvent( 
     input$go , {
       updateRatingInput(session, "star")
