@@ -17,6 +17,7 @@
 #' @param tlp_position Tooltip positions
 #' @param tlp_color Tooltip colors
 #' @param cumul Cumulative color for icons (TRUE or FALSE)
+#' @param read_only Read Only mode for icons (TRUE or FALSE)
 #'
 #' @import shiny
 #' @return a rating icon
@@ -42,11 +43,19 @@ createIcon <- function(
   tlp = FALSE,
   tlp_msg = 1,
   tlp_position = "top",
-  tlp_color = "black"
+  tlp_color = "black",
+  read_only = FALSE
 ){
   # prepare the size icon class according to lib
-  if (i_lib == "font-awesome"){ type <-"fa" }
-  else{ type <- "gi" }
+  if (i_lib == "font-awesome"){ type <-"fa" } else{ type <- "gi" }
+  # prepare style for read only condition
+  style <-  sprintf(fmt = "color: %s; --animate-duration: %ss;",
+                    init_color,
+                    duration
+                    )
+  if (isTRUE(read_only)) {
+    style <- paste(style, "pointer-events: none; cursor: default;", sep = " ")
+    }
   # create the icon
   tag <- shiny::icon(
     id = id,
@@ -62,11 +71,7 @@ createIcon <- function(
     anim = anim,
     type="button",
     class= sprintf("m-0 p-0 action-button btn_rating %s-%sx", type, size),
-    style = sprintf(
-      fmt = "color: %s; --animate-duration: %ss;",
-      init_color,
-      duration
-    )
+    style = style
   )
   # add tooltip if needed
   if (tlp == TRUE){

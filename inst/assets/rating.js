@@ -28,27 +28,23 @@ const id = el_icon.attr('id');
 const number = el_icon.attr('number');
 // rating_id
 const rating_id = el_icon.attr('rating_id');
-// off_color
-const off_color = el_icon.attr('off_color');
-// on_color
-const on_color = el_icon.attr('on_color');
 // el
 const el = $('#' + rating_id)
 // animation
 const anim = el_icon.attr('anim');
 const cumul = el_icon.attr('cumulation');
 
-console.log("off :" + off_color)
-console.log("on :" + on_color)
 
-if (cumul == 'true') {
-// change icon color
-$('i[rating_id=' + el.attr('id') + ']').slice(0,i_number).css("color", on_color);
-$('i[rating_id=' + el.attr('id') + ']').slice(i_number, number).css("color", off_color);
-} else {
-$('i[rating_id=' + el.attr('id') + ']').slice(0, number).css("color", off_color);
-$('i[id=' + id + ']').css("color", on_color);
-}
+// change color
+for (var i = 1; i<= number; i++){
+  icon_id = $('i[id=' + rating_id + i + ']');
+  var on_color = icon_id.attr('on_color');
+  var off_color = icon_id.attr('off_color');
+
+  if (cumul == 'true' && i <= i_number) {$('i[id=' + rating_id + i + ']').css("color", on_color);}
+  else if (cumul == 'false' && i == i_number) {$('i[id=' + rating_id + i + ']').css("color", on_color);}
+  else { $('i[id=' + rating_id + i + ']').css("color", off_color);}
+  }
 
 // animation of clicked icon
 animateCSS(id, anim);
@@ -99,21 +95,21 @@ $.extend(rating_input, {
     // var definition
     const i_number = data.value;
     const number = $(el).attr('number')
-    const on_color = $(el).attr('on_color')
-    const off_color = $(el).attr('off_color')
-    const id = $(el).attr('id')
+    const rating_id = $(el).attr('id')
     const cumul = $(el).attr('cumulation');
-
     // set the new value
     this.setValue(el, data.value);
-if (cumul == 'true') {
-    // change icon color
-    $('i[rating_id=' + id + ']').slice(0,i_number).css("color", on_color);
-    $('i[rating_id=' + id + ']').slice(i_number, number).css("color", off_color);
-} else {
-  $('i[rating_id=' + id + ']').slice(0,number).css("color", off_color);
-  $('i[id=' + id + i_number + ']').css("color", on_color);
-}
+
+// change color
+for (var i = 1; i<= number; i++){
+  icon_id = $('i[id=' + rating_id + i + ']');
+  var on_color = icon_id.attr('on_color');
+  var off_color = icon_id.attr('off_color');
+
+  if (cumul == 'true' && i <= i_number) {$('i[id=' + rating_id + i + ']').css("color", on_color);}
+  else if (cumul == 'false' && i == i_number) {$('i[id=' + rating_id + i + ']').css("color", on_color);}
+  else { $('i[id=' + rating_id + i + ']').css("color", off_color);}
+  }
     // fire
     $(el).trigger('fire');
   }

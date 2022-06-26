@@ -19,7 +19,8 @@ createRating(
   tlp = FALSE,
   tlp_msg = 1:number,
   tlp_position = "top",
-  tlp_color = "black"
+  tlp_color = "black",
+  read_only = FALSE
 )
 }
 \arguments{
@@ -52,6 +53,8 @@ createRating(
 \item{tlp_position}{Tooltip positions}
 
 \item{tlp_color}{Tooltip colors}
+
+\item{read_only}{Read Only mode for icons (TRUE or FALSE)}
 }
 \value{
 a icons rating
