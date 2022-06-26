@@ -21,7 +21,6 @@
 #'
 #' @import shiny
 #' @return a rating icon
-#' @export
 #'
 #' @examples
 #' createIcon(id = "icon", rating_id = "rating_id")

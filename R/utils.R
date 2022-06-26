@@ -3,7 +3,6 @@
 #' @param x text
 #'
 #' @return TRUE or FALSE
-#' @export
 #'
 #' @examples
 #' isHex("test")

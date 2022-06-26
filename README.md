@@ -130,7 +130,17 @@ You can run a gallery and consult vignettes with :
 
 ## Prior art & philosophy
 
-**Work in progress**
+The core functionnalities of this package are similar to those of the
+[ShinyRatingInput](https://github.com/stefanwilhelm/ShinyRatingInput).
+This package tries to overcome some of its limitations by being
+compatible with the shinyverse packages developed by Rstudio (mostly
+[shinyvalidate](https://rstudio.github.io/shinyvalidate/) and
+[bslib](https://rstudio.github.io/bslib/)) as well as extending its
+functionnalities (color, size, animation …). The Tooltip functionnality
+is largely inspired from the one of the
+[bsutils](https://github.com/JohnCoene/bsutils) package. The idea to use
+animate.css comes from the
+[shinyanimate](https://github.com/Swechhya/shinyanimate) package.
 
 ## Contributions
 

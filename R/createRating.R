@@ -19,7 +19,6 @@
 #'
 #' @import shiny
 #' @return a icons rating
-#' @export
 #'
 #' @examples
 #' createRating(rating_id = "test")
