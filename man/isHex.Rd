@@ -15,7 +15,3 @@ TRUE or FALSE
 \description{
 Test if a text is a hex color
 }
-\examples{
-isHex("test")
-isHex("#eb4034")
-}

@@ -1,3 +1,65 @@
+
+// Changes color on hover
+$(document).ready(function(){
+var originalColors = [];
+    // function at beginning of hover
+    $(function() {
+        $('.hover_rating').hover(function(){
+          const i_click = $(this)
+          const cumul = $(this).attr('cumulation');
+          const number = $(this).attr('number')
+          const i_number = $(this).attr('i_number')
+          const rating_id = $(this).attr('rating_id')
+          // cumul is true
+          if (cumul == 'true'){
+            for (var i = 1; i<= i_number; i++){
+            var icon_id = $('i[id=' + rating_id + i + ']');
+            originalColors[i-1] = icon_id.css('color');
+            icon_id.css('color', icon_id.attr('on_color'));
+          }
+          // when clicked durng hover
+          i_click.on('click',function(){
+            for (var i = 1; i<= i_number; i++){
+              var icon_id = $('i[id=' + rating_id + i + ']');
+              var color = icon_id.attr('on_color')
+              originalColors[i-1] = color;
+              icon_id.css('color', color)
+            }
+            })
+          }
+          // cumul is false
+          else {
+            originalColors[$(this).index('.hover_rating')] = $(this).css('color');
+            const color = $(this).attr('on_color')
+            $(this).css('color', color);
+            $(this).on('click',function(){
+              originalColors[$(this).index('.hover_rating')] = color;
+            })
+          }
+        },
+        // function at end of hover
+        function(){
+          var i_click = $(this)
+          var cumul = $(this).attr('cumulation');
+          var number = $(this).attr('number')
+          var i_number = $(this).attr('i_number')
+          const rating_id = $(this).attr('rating_id')
+          // cumul is true
+          if (cumul == 'true'){
+            for (var i = 1; i<= i_number; i++){
+              var icon_id = $('i[id=' + rating_id + i + ']');
+              icon_id.css('color', originalColors[i-1]);
+            }
+          }
+          // cumul is false
+          else{
+           $(this).css('color', originalColors[$(this).index('.hover_rating')]);
+          }
+        });
+    });
+});
+
+// animation
 const animateCSS = (element, animation, prefix = 'animate__') =>
 // We create a Promise and return it
   new Promise((resolve, reject) => {
@@ -96,7 +158,6 @@ $.extend(rating_input, {
     const i_number = data.value;
     const number = $(el).attr('number')
     const rating_id = $(el).attr('id')
-    const cumul = $(el).attr('cumulation');
     // set the new value
     this.setValue(el, data.value);
 
@@ -105,9 +166,13 @@ for (var i = 1; i<= number; i++){
   icon_id = $('i[id=' + rating_id + i + ']');
   var on_color = icon_id.attr('on_color');
   var off_color = icon_id.attr('off_color');
-
-  if (cumul == 'true' && i <= i_number) {$('i[id=' + rating_id + i + ']').css("color", on_color);}
-  else if (cumul == 'false' && i == i_number) {$('i[id=' + rating_id + i + ']').css("color", on_color);}
+  var cumul = icon_id.attr('cumulation');
+  if (cumul == 'true' && i <= i_number) {
+    $('i[id=' + rating_id + i + ']').css("color", on_color);
+  }
+  else if (cumul == 'false' && i == i_number) {
+    $('i[id=' + rating_id + i + ']').css("color", on_color);
+  }
   else { $('i[id=' + rating_id + i + ']').css("color", off_color);}
   }
     // fire

@@ -16,12 +16,11 @@
 #' @param tlp_color Tooltip colors
 #' @param cumul Cumulative color for icons (TRUE or FALSE)
 #' @param read_only Read Only mode for icons (TRUE or FALSE)
+#' @param hover Hover for icons (TRUE or FALSE)
 #'
 #' @import shiny
 #' @return a icons rating
 #'
-#' @examples
-#' createRating(rating_id = "test")
 
 createRating <- function(rating_id,
                          i_name = "star",
@@ -38,7 +37,8 @@ createRating <- function(rating_id,
                          tlp_msg = 1:number,
                          tlp_position = "top",
                          tlp_color = "black",
-                         read_only = FALSE
+                         read_only = FALSE,
+                         hover = FALSE
 ){
 
   if(length(i_name) == 1){ i_name <- rep(i_name, number) }
@@ -77,7 +77,8 @@ createRating <- function(rating_id,
       tlp_msg = tlp_msg[i],
       tlp_position = tlp_position[i],
       tlp_color = tlp_color[i],
-      read_only = read_only[i]
+      read_only = read_only[i],
+      hover = hover
     )
   })
 

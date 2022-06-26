@@ -22,7 +22,8 @@ createIcon(
   tlp_msg = 1,
   tlp_position = "top",
   tlp_color = "black",
-  read_only = FALSE
+  read_only = FALSE,
+  hover = FALSE
 )
 }
 \arguments{
@@ -61,13 +62,12 @@ createIcon(
 \item{tlp_color}{Tooltip colors}
 
 \item{read_only}{Read Only mode for icons (TRUE or FALSE)}
+
+\item{hover}{Hover for icons (TRUE or FALSE)}
 }
 \value{
 a rating icon
 }
 \description{
 create an icon
-}
-\examples{
-createIcon(id = "icon", rating_id = "rating_id")
 }

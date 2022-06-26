@@ -20,9 +20,10 @@ Easy creation of rating input controls in Shiny.
 -   Compatible with bslib and optimized for Bootstrap 5
 -   Compatible with server validation of inputs based on shinyvalidate
 -   Large choices of icons from Fontawesome and Glyphicon
--   Easy definition of icon colors (Bootstrap 5 or Hex colors)
+-   Easy definition of icon size and colors (Bootstrap 5 or Hex colors)
 -   Possibility to add Bootstrap 5 colored Tooltips to icons
 -   Read only mode for rating input
+-   Hover capabilities for rating input
 -   Large choice of animations for icons when clicked from animate.css
 -   Possibility to define complex rules of icons coloration, size,
     animation and read only mode
@@ -78,21 +79,22 @@ ui <- function(){
                ratingInput(
                  inputId = "Mood",
                  label = "How do you feel ?",
-                 read_only = c(TRUE, TRUE, TRUE, FALSE, FALSE),
-                 value = 3,
-                 size = c(1,2,3,4,5),
-                 on_color = c("danger","danger","warning","warning","success"),
-                 off_color = c("dark","light","dark","light","dark"),
+                 #read_only = c(TRUE, TRUE, TRUE, FALSE, FALSE),
+                 #value = 3,
+                 size = 3,
+                 on_color = c("danger","warning","dark","info","success"),
+                 off_color = "light",
                  i_name = c("angry","frown","meh","smile","laugh"),
                  i_lib = "font-awesome",
-                 anim = c("tada","pulse","tada","pulse","tada"),
+                 anim = "pulse",
                  duration = 1,
                  number = 5,
                  cumul = FALSE,
                  tlp = TRUE,
-                 tlp_color = c("danger","danger","warning","warning","success"),
+                 tlp_color = c("danger","warning","dark","info","success"),
                  tlp_position = "bottom",
-                 tlp_msg = c("Angry","Frown","Neutral","Happy","Excited")
+                 tlp_msg = c("Angry","Frown","Neutral","Happy","Excited"),
+                 hover = TRUE
                ),
                br(),
                ratingInput("star",
@@ -101,7 +103,8 @@ ui <- function(){
                            anim = "tada",
                            i_name = "star",
                            on_color = "#D5AB55",
-                           cumul = TRUE
+                           cumul = TRUE,
+                           hover = TRUE
                ),
                br(),
                actionButton("go","Reset",class="btn-success m-1 w-50")
@@ -116,9 +119,10 @@ server <- function(input, output, session) {
   observeEvent( 
     input$go , {
       updateRatingInput(session, "star")
-      updateRatingInput(session, "Mood")
+      updateRatingInput(session, "Mood", value = 3)
     }
   )
+  #observe({print(input$Mood)})
 }
 # launch the app
 shinyApp(ui = ui, server = server)

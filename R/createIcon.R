@@ -18,12 +18,11 @@
 #' @param tlp_color Tooltip colors
 #' @param cumul Cumulative color for icons (TRUE or FALSE)
 #' @param read_only Read Only mode for icons (TRUE or FALSE)
+#' @param hover Hover for icons (TRUE or FALSE)
 #'
 #' @import shiny
 #' @return a rating icon
 #'
-#' @examples
-#' createIcon(id = "icon", rating_id = "rating_id")
 
 createIcon <- function(
   id,
@@ -43,18 +42,18 @@ createIcon <- function(
   tlp_msg = 1,
   tlp_position = "top",
   tlp_color = "black",
-  read_only = FALSE
+  read_only = FALSE,
+  hover = FALSE
 ){
-  # prepare the size icon class according to lib
+  # definition of the size class
   if (i_lib == "font-awesome"){ type <-"fa" } else{ type <- "gi" }
-  # prepare style for read only condition
-  style <-  sprintf(fmt = "color: %s; --animate-duration: %ss;",
-                    init_color,
-                    duration
-                    )
-  if (isTRUE(read_only)) {
-    style <- paste(style, "pointer-events: none; cursor: default;", sep = " ")
-    }
+  # definition of the hover class
+  if (isTRUE(hover)){ hover_class <- "hover_rating" }
+  else { hover_class <- "" }
+  # definition of the read only style
+  if (isTRUE(read_only)) { read_style <- "pointer-events: none; cursor: default;" }
+  else { read_style <- "" }
+
   # create the icon
   tag <- shiny::icon(
     id = id,
@@ -69,8 +68,12 @@ createIcon <- function(
     cumulation = tolower(cumul),
     anim = anim,
     type="button",
-    class= sprintf("m-0 p-0 action-button btn_rating %s-%sx", type, size),
-    style = style
+    class= sprintf("m-0 p-0 action-button btn_rating %s-%sx %s", type, size, hover_class),
+    style = sprintf(fmt = "color: %s; --animate-duration: %ss; %s",
+                    init_color,
+                    duration,
+                    read_style
+    )
   )
   # add tooltip if needed
   if (tlp == TRUE){

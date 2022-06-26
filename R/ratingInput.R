@@ -18,6 +18,7 @@
 #' @param tlp_color Tooltip colors
 #' @param cumul Cumulative color for icons (TRUE or FALSE)
 #' @param read_only Read Only mode for icons (TRUE or FALSE)
+#' @param hover Hover for icons (TRUE or FALSE)
 #'
 #' @import shiny
 #' @return A numeric value of the rating input. The default value is NULL unless value is provided.
@@ -44,7 +45,8 @@ ratingInput <- function(
   tlp_msg = 1:number,
   tlp_position = "top",
   tlp_color = "black",
-  read_only = FALSE
+  read_only = FALSE,
+  hover = FALSE
 ){
   # test width
   width <- shiny::validateCssUnit(width)
@@ -131,7 +133,8 @@ ratingInput <- function(
       tlp_msg = tlp_msg,
       tlp_position = tlp_position,
       tlp_color = tlp_color,
-      read_only = read_only
+      read_only = read_only,
+      hover = hover
     )
   )
   # create the hidden numeric input
