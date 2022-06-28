@@ -13,7 +13,12 @@ knitr::opts_chunk$set(
 )
 ```
 
+
 # ShinyRating
+
+<!-- ex : https://metroui.org.ua/rating.html -->
+<!-- ex : https://www.wbotelhos.com/raty -->
+<!-- https://github.com/Monte9/react-native-ratings -->
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/interfacer)](https://CRAN.R-project.org/package=interfacer)
@@ -83,8 +88,11 @@ ui <- function(){
                ratingInput(
                  inputId = "Mood",
                  label = "How do you feel ?",
-                 #read_only = c(TRUE, TRUE, TRUE, FALSE, FALSE),
+                 number = 5,
                  #value = 3,
+                 cumul = FALSE,
+                 hover = TRUE,
+                 #read_only = c(TRUE, TRUE, TRUE, FALSE, FALSE),
                  size = 3,
                  on_color = c("danger","warning","dark","info","success"),
                  off_color = "light",
@@ -92,23 +100,21 @@ ui <- function(){
                  i_lib = "font-awesome",
                  anim = "pulse",
                  duration = 1,
-                 number = 5,
-                 cumul = FALSE,
                  tlp = TRUE,
                  tlp_color = c("danger","warning","dark","info","success"),
                  tlp_position = "bottom",
-                 tlp_msg = c("Angry","Frown","Neutral","Happy","Excited"),
-                 hover = TRUE
+                 tlp_msg = c("Angry","Frown","Neutral","Happy","Excited")
                ),
                br(),
                ratingInput("star",
                            label = "Where is shinyRating on the fun scale ?",
-                           size = 2,
-                           anim = "tada",
+                           # size = 2,
+                           # anim = "tada",
                            i_name = "star",
                            on_color = "#D5AB55",
-                           cumul = TRUE,
-                           hover = TRUE
+                           # cumul = TRUE,
+                           # tlp = TRUE,
+                           # hover = TRUE
                ),
                br(),
                actionButton("go","Reset",class="btn-success m-1 w-50")
@@ -132,9 +138,11 @@ server <- function(input, output, session) {
 shinyApp(ui = ui, server = server)
 ```
 
-You can run a gallery and consult vignettes with :
+You can run a gallery with :
 
-**Work in progress**
+```{r example, eval=FALSE}
+ShinyRating::app_gallery()
+```
 
 ## Prior art & philosophy
 

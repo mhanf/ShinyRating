@@ -7,11 +7,11 @@
 ratingInput(
   inputId,
   number = 5,
-  on_color = "primary",
+  on_color = "success",
   off_color = "dark",
   label = NULL,
-  size = 1,
-  i_name = "cog",
+  size = 2,
+  i_name = "star",
   i_lib = "font-awesome",
   width = "auto",
   value = NA,
@@ -20,7 +20,7 @@ ratingInput(
   cumul = TRUE,
   tlp = FALSE,
   tlp_msg = 1:number,
-  tlp_position = "top",
+  tlp_position = "bottom",
   tlp_color = "black",
   read_only = FALSE,
   hover = FALSE

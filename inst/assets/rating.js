@@ -1,26 +1,22 @@
 
-// Changes color on hover
+// Hover
 $(document).ready(function(){
 var originalColors = [];
     // function at beginning of hover
     $(function() {
         $('.hover_rating').hover(function(){
           const i_click = $(this)
-          const cumul = $(this).attr('cumulation');
-          const number = $(this).attr('number')
-          const i_number = $(this).attr('i_number')
-          const rating_id = $(this).attr('rating_id')
           // cumul is true
-          if (cumul == 'true'){
-            for (var i = 1; i<= i_number; i++){
-            var icon_id = $('i[id=' + rating_id + i + ']');
+          if (i_click.attr('cumulation') == 'true'){
+            for (var i = 1; i<= i_click.attr('i_number'); i++){
+            var icon_id = $('i[id=' + i_click.attr('rating_id') + i + ']');
             originalColors[i-1] = icon_id.css('color');
             icon_id.css('color', icon_id.attr('on_color'));
           }
-          // when clicked durng hover
+          // when clicked during hover
           i_click.on('click',function(){
-            for (var i = 1; i<= i_number; i++){
-              var icon_id = $('i[id=' + rating_id + i + ']');
+            for (var i = 1; i<= i_click.attr('i_number'); i++){
+              var icon_id = $('i[id=' + i_click.attr('rating_id') + i + ']');
               var color = icon_id.attr('on_color')
               originalColors[i-1] = color;
               icon_id.css('color', color)
@@ -39,21 +35,17 @@ var originalColors = [];
         },
         // function at end of hover
         function(){
-          var i_click = $(this)
-          var cumul = $(this).attr('cumulation');
-          var number = $(this).attr('number')
-          var i_number = $(this).attr('i_number')
-          const rating_id = $(this).attr('rating_id')
+          const i_click = $(this)
           // cumul is true
-          if (cumul == 'true'){
-            for (var i = 1; i<= i_number; i++){
-              var icon_id = $('i[id=' + rating_id + i + ']');
+          if (i_click.attr('cumulation') == 'true'){
+            for (var i = 1; i<= $(this).attr('i_number'); i++){
+              var icon_id = $('i[id=' + $(this).attr('rating_id') + i + ']');
               icon_id.css('color', originalColors[i-1]);
             }
           }
           // cumul is false
           else{
-           $(this).css('color', originalColors[$(this).index('.hover_rating')]);
+           i_click.css('color', originalColors[i_click.index('.hover_rating')]);
           }
         });
     });
@@ -74,7 +66,6 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
       node.classList.remove(`${prefix}animated`, animationName);
       resolve('Animation ended');
     }
-
     node.addEventListener('animationend', handleAnimationEnd, {once: true});
   });
 
