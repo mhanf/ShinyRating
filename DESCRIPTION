@@ -4,7 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("matthieu", "Hanf", , "matthieu.hanf@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7133-1323"))
-Description: This package  allows the use of rating widgets in Shiny applications.
+Description: This package  allows the use of rating widgets in R Shiny.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
