@@ -1,4 +1,3 @@
-
 // Hover
 $(document).ready(function(){
 var originalColors = [];

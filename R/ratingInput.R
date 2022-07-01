@@ -1,31 +1,34 @@
-#' Create a rating input control
-#'
-#' @param inputId The input slot that will be used to access the value.
-#' @param number Number of icons in rating input control
-#' @param on_color Color of selected icons (hex or Boostrap 5 color)
-#' @param off_color Color of unselected icons (hex or Boostrap 5 color)
-#' @param label Display label for the control, or NULL for no label.
-#' @param size Size of the icons (1 to 5)
-#' @param i_name Names of the icons. Names with length 1 or equal to range from either Font Awesome (when i_lib="font-awesome") or Bootstrap Glyphicons (when i_lib="glyphicon") may be provided.
+#' Create a rating widget
+#' @description Create a rating widget for usage in a Shiny UI.
+#' @param inputId The rating widget id.
+#' @param number The number of icons in the rating widget.
+#' @param on_color The icon colors when selected (hex or Bootstrap 5 color).
+#' @param off_color The icon colors when deselected (hex or Bootstrap 5 color).
+#' @param label Display label for the control.
+#' @param size The icon sizes (1 to 5).
+#' @param i_name The icon names.
 #' @param i_lib The icon library to use. Either "font-awesome" or "glyphicon".
 #' @param width The width of the input, e.g. '400px', or '100%'; see validateCssUnit()
-#' @param value Initial value.
-#' @param anim Type of animation from animate.css library (https://animate.style/)
-#' @param duration Duration of the animation
-#' @param tlp Tooltip for the icons (TRUE or FALSE)
-#' @param tlp_msg Tooltip messages
-#' @param tlp_position Tooltip positions
-#' @param tlp_color Tooltip colors
-#' @param cumul Cumulative color for icons (TRUE or FALSE)
-#' @param read_only Read Only mode for icons (TRUE or FALSE)
-#' @param hover Hover for icons (TRUE or FALSE)
-#'
+#' @param value The Initial value.
+#' @param anim The type of animations see \href{https://animate.style/}{Animate.css}.
+#' @param duration The animation duration in seconds.
+#' @param tlp Logical, whether or not to use a tooltip for the icon.
+#' @param tlp_msg The character strings to be shown as message in tooltips.
+#' @param tlp_position The tooltip positions, \code{"top"}, \code{"right"}, \code{"bottom"}, or \code{"left"}.
+#' @param tlp_color The tooltip colors, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.
+#' @param cumul Logical, whether or not to use cumulative color for the icons.
+#' @param read_only Logical, whether or not to use a read only mode for the icons.
+#' @param hover Logical, whether or not to use a hover mode for the icons.
 #' @import shiny
-#' @return A numeric value of the rating input. The default value is NULL unless value is provided.
+#' @return A rating widget for usage in Shiny UI.
 #' @export
 #'
 #' @examples
-#' ratingInput(inputId = "like", i_name = "heart", on_color = "danger")
+#' ratingInput(
+#' inputId = "like",
+#' i_name = "heart",
+#' on_color = "danger"
+#' )
 
 ratingInput <- function(
   inputId,

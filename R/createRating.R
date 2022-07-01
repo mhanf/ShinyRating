@@ -9,12 +9,12 @@
 #' @param off_color The icon colors when deselected (hex or Bootstrap 5 color).
 #' @param size The icon sizes (1 to 5).
 #' @param anim The type of animations see \href{https://animate.style/}{Animate.css}.
-#' @param duration The animation durations in seconds.
+#' @param duration The animation duration in seconds.
 #' @param tlp Logical, whether or not to use a tooltip for the icon.
 #' @param tlp_msg The character strings to be shown as message in tooltips.
 #' @param tlp_position The tooltip positions, \code{"top"}, \code{"right"}, \code{"bottom"}, or \code{"left"}.
 #' @param tlp_color The tooltip colors, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.
-#' @param cumul Logical, whether or not to use cumulative color for the icon.
+#' @param cumul Logical, whether or not to use cumulative color for the icons.
 #' @param read_only Logical, whether or not to use a read only mode for the icons.
 #' @param hover Logical, whether or not to use a hover mode for the icons.
 #' @import shiny
