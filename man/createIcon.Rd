@@ -2,7 +2,7 @@
 % Please edit documentation in R/createIcon.R
 \name{createIcon}
 \alias{createIcon}
-\title{create an icon}
+\title{Create an icon}
 \usage{
 createIcon(
   id,
@@ -17,7 +17,7 @@ createIcon(
   size = 2,
   anim = "none",
   duration = 2,
-  cumul = TRUE,
+  cumul = FALSE,
   tlp = FALSE,
   tlp_msg = 1,
   tlp_position = "top",
@@ -27,47 +27,47 @@ createIcon(
 )
 }
 \arguments{
-\item{id}{icon id}
+\item{id}{The icon id.}
 
-\item{i_name}{Name of the icon.}
+\item{i_name}{The icon name.}
 
 \item{i_lib}{The icon library to use. Either "font-awesome" or "glyphicon".}
 
-\item{i_number}{Icon number}
+\item{i_number}{The icon place in the rating widget.}
 
-\item{number}{Number of icons in rating input control}
+\item{number}{The total number of icons in the rating widget.}
 
-\item{rating_id}{Rating input control id}
+\item{rating_id}{The rating widget id.}
 
-\item{on_color}{Selection color of icon (hex or Boostrap 5 color)}
+\item{on_color}{The icon color when selected (hex or Boostrap 5 color).}
 
-\item{off_color}{Default color of icon (hex or Boostrap 5 color)}
+\item{off_color}{The icon color when deselected (hex or Boostrap 5 color).}
 
-\item{init_color}{Initial color of icon (hex or Boostrap 5 color)}
+\item{init_color}{The icon initial color (hex or Boostrap 5 color).}
 
-\item{size}{Size of the icons (1 to 5)}
+\item{size}{The icon size (1 to 5).}
 
-\item{anim}{Type of animation from animate.css library (https://animate.style/)}
+\item{anim}{The type of animation see \href{https://animate.style/}{Animate.css}.}
 
-\item{duration}{Duration of the animation}
+\item{duration}{The animation duration in seconds.}
 
-\item{cumul}{Cumulative color for icons (TRUE or FALSE)}
+\item{cumul}{Logical, whether or not to use cumulative color for the icon.}
 
-\item{tlp}{Tooltip for the icons (TRUE or FALSE)}
+\item{tlp}{Logical, whether or not to use a tooltip for the icon.}
 
-\item{tlp_msg}{Tooltip messages}
+\item{tlp_msg}{The character string to be shown as message in the tooltip.}
 
-\item{tlp_position}{Tooltip positions}
+\item{tlp_position}{The tooltip position, \code{"top"}, \code{"right"}, \code{"bottom"}, or \code{"left"}.}
 
-\item{tlp_color}{Tooltip colors}
+\item{tlp_color}{The tooltip color, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.}
 
-\item{read_only}{Read Only mode for icons (TRUE or FALSE)}
+\item{read_only}{Logical, whether or not to use a read only mode for the icon.}
 
-\item{hover}{Hover for icons (TRUE or FALSE)}
+\item{hover}{Logical, whether or not to use a hover mode for the icon.}
 }
 \value{
-a rating icon
+A \code{shiny.tag} object for usage in \code{\link{createRating}}
 }
 \description{
-create an icon
+Create an icon for usage in \code{\link{createRating}}.
 }
