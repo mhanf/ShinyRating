@@ -2,20 +2,20 @@
 % Please edit documentation in R/updateRatingInput.R
 \name{updateRatingInput}
 \alias{updateRatingInput}
-\title{Change the value of a rating input on the client}
+\title{Change the value of a rating widget on the client}
 \usage{
 updateRatingInput(session, inputId, value = NA)
 }
 \arguments{
 \item{session}{The session object passed to function given to shinyServer. Default is getDefaultReactiveDomain().}
 
-\item{inputId}{The id of the input object.}
+\item{inputId}{The id of the widget.}
 
-\item{value}{Initial value.}
+\item{value}{The new value to assign to the widget.}
 }
 \value{
-an updated value of a rating input
+A widget with an updated value.
 }
 \description{
-Change the value of a rating input on the client
+Change the value of a rating widget on the client
 }

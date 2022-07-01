@@ -15,7 +15,7 @@ createRating(
   size = 2,
   anim = "none",
   duration = 2,
-  cumul = TRUE,
+  cumul = FALSE,
   tlp = FALSE,
   tlp_msg = 1:number,
   tlp_position = "top",
@@ -43,9 +43,9 @@ createRating(
 
 \item{anim}{The type of animations see \href{https://animate.style/}{Animate.css}.}
 
-\item{duration}{The animation durations in seconds.}
+\item{duration}{The animation duration in seconds.}
 
-\item{cumul}{Logical, whether or not to use cumulative color for the icon.}
+\item{cumul}{Logical, whether or not to use cumulative color for the icons.}
 
 \item{tlp}{Logical, whether or not to use a tooltip for the icon.}
 

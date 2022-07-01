@@ -2,7 +2,7 @@
 % Please edit documentation in R/ratingInput.R
 \name{ratingInput}
 \alias{ratingInput}
-\title{Create a rating input control}
+\title{Create a rating widget}
 \usage{
 ratingInput(
   inputId,
@@ -27,50 +27,54 @@ ratingInput(
 )
 }
 \arguments{
-\item{inputId}{The input slot that will be used to access the value.}
+\item{inputId}{The rating widget id.}
 
-\item{number}{Number of icons in rating input control}
+\item{number}{The number of icons in the rating widget.}
 
-\item{on_color}{Color of selected icons (hex or Boostrap 5 color)}
+\item{on_color}{The icon colors when selected (hex or Bootstrap 5 color).}
 
-\item{off_color}{Color of unselected icons (hex or Boostrap 5 color)}
+\item{off_color}{The icon colors when deselected (hex or Bootstrap 5 color).}
 
-\item{label}{Display label for the control, or NULL for no label.}
+\item{label}{Display label for the control.}
 
-\item{size}{Size of the icons (1 to 5)}
+\item{size}{The icon sizes (1 to 5).}
 
-\item{i_name}{Names of the icons. Names with length 1 or equal to range from either Font Awesome (when i_lib="font-awesome") or Bootstrap Glyphicons (when i_lib="glyphicon") may be provided.}
+\item{i_name}{The icon names.}
 
 \item{i_lib}{The icon library to use. Either "font-awesome" or "glyphicon".}
 
 \item{width}{The width of the input, e.g. '400px', or '100\%'; see validateCssUnit()}
 
-\item{value}{Initial value.}
+\item{value}{The Initial value.}
 
-\item{anim}{Type of animation from animate.css library (https://animate.style/)}
+\item{anim}{The type of animations see \href{https://animate.style/}{Animate.css}.}
 
-\item{duration}{Duration of the animation}
+\item{duration}{The animation duration in seconds.}
 
-\item{cumul}{Cumulative color for icons (TRUE or FALSE)}
+\item{cumul}{Logical, whether or not to use cumulative color for the icons.}
 
-\item{tlp}{Tooltip for the icons (TRUE or FALSE)}
+\item{tlp}{Logical, whether or not to use a tooltip for the icon.}
 
-\item{tlp_msg}{Tooltip messages}
+\item{tlp_msg}{The character strings to be shown as message in tooltips.}
 
-\item{tlp_position}{Tooltip positions}
+\item{tlp_position}{The tooltip positions, \code{"top"}, \code{"right"}, \code{"bottom"}, or \code{"left"}.}
 
-\item{tlp_color}{Tooltip colors}
+\item{tlp_color}{The tooltip colors, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.}
 
-\item{read_only}{Read Only mode for icons (TRUE or FALSE)}
+\item{read_only}{Logical, whether or not to use a read only mode for the icons.}
 
-\item{hover}{Hover for icons (TRUE or FALSE)}
+\item{hover}{Logical, whether or not to use a hover mode for the icons.}
 }
 \value{
-A numeric value of the rating input. The default value is NULL unless value is provided.
+A rating widget for usage in Shiny UI.
 }
 \description{
-Create a rating input control
+Create a rating widget for usage in a Shiny UI.
 }
 \examples{
-ratingInput(inputId = "like", i_name = "heart", on_color = "danger")
+ratingInput(
+inputId = "like",
+i_name = "heart",
+on_color = "danger"
+)
 }

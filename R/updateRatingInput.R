@@ -1,10 +1,10 @@
-#' Change the value of a rating input on the client
+#' Change the value of a rating widget on the client
 #'
 #' @param session The session object passed to function given to shinyServer. Default is getDefaultReactiveDomain().
-#' @param inputId The id of the input object.
-#' @param value Initial value.
+#' @param inputId The id of the widget.
+#' @param value The new value to assign to the widget.
 #' @import shiny
-#' @return an updated value of a rating input
+#' @return A widget with an updated value.
 #' @export
 
 updateRatingInput <- function(
