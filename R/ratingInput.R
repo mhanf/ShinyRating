@@ -116,7 +116,6 @@ ratingInput <- function(
   # transform bs color
   on_color[on_color %in% valid_bs5 == TRUE] <- paste0("var(--bs-",on_color[on_color %in% valid_bs5 == TRUE],")")
   off_color[off_color %in% valid_bs5 == TRUE] <- paste0("var(--bs-",off_color[off_color %in% valid_bs5 == TRUE],")")
-
   # create list of clickable icons
   rating_tag <- shiny::tagList(
     shiny::div(label),
