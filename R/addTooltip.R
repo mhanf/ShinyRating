@@ -7,7 +7,6 @@
 #' @importFrom htmltools htmlDependency
 #' @import shiny
 #' @return A \code{shiny.tag} object with a tooltip.
-#' @export
 #' @example addTooltip(
 #' div("test"),
 #' tlp_msg = "test"

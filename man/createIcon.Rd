@@ -39,11 +39,11 @@ createIcon(
 
 \item{rating_id}{The rating widget id.}
 
-\item{on_color}{The icon color when selected (hex or Boostrap 5 color).}
+\item{on_color}{The icon color when selected (hex or Bootstrap 5 color).}
 
-\item{off_color}{The icon color when deselected (hex or Boostrap 5 color).}
+\item{off_color}{The icon color when deselected (hex or Bootstrap 5 color).}
 
-\item{init_color}{The icon initial color (hex or Boostrap 5 color).}
+\item{init_color}{The icon initial color (hex or Bootstrap 5 color).}
 
 \item{size}{The icon size (1 to 5).}
 

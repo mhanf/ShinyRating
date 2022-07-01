@@ -2,7 +2,7 @@
 % Please edit documentation in R/createRating.R
 \name{createRating}
 \alias{createRating}
-\title{Create a icon rating}
+\title{Create rating icons}
 \usage{
 createRating(
   rating_id,
@@ -25,43 +25,43 @@ createRating(
 )
 }
 \arguments{
-\item{rating_id}{Rating input control id}
+\item{rating_id}{The rating widget id.}
 
-\item{i_name}{Name of the icon.}
+\item{i_name}{The icon names.}
 
 \item{i_lib}{The icon library to use. Either "font-awesome" or "glyphicon".}
 
-\item{number}{Number of icons in rating input control.}
+\item{number}{The number of icons in the rating widget.}
 
-\item{init_value}{Initial value.}
+\item{init_value}{The Initial value of the rating widget.}
 
-\item{on_color}{Selection color of icons (hex or Boostrap 5 color)}
+\item{on_color}{The icon colors when selected (hex or Bootstrap 5 color).}
 
-\item{off_color}{Default color of icons (hex or Boostrap 5 color)}
+\item{off_color}{The icon colors when deselected (hex or Bootstrap 5 color).}
 
-\item{size}{Size of the icons (1 to 5)}
+\item{size}{The icon sizes (1 to 5).}
 
-\item{anim}{Type of animation from animate.css library (https://animate.style/)}
+\item{anim}{The type of animations see \href{https://animate.style/}{Animate.css}.}
 
-\item{duration}{Duration of the animation}
+\item{duration}{The animation durations in seconds.}
 
-\item{cumul}{Cumulative color for icons (TRUE or FALSE)}
+\item{cumul}{Logical, whether or not to use cumulative color for the icon.}
 
-\item{tlp}{Tooltip for the icons (TRUE or FALSE)}
+\item{tlp}{Logical, whether or not to use a tooltip for the icon.}
 
-\item{tlp_msg}{Tooltip messages}
+\item{tlp_msg}{The character strings to be shown as message in tooltips.}
 
-\item{tlp_position}{Tooltip positions}
+\item{tlp_position}{The tooltip positions, \code{"top"}, \code{"right"}, \code{"bottom"}, or \code{"left"}.}
 
-\item{tlp_color}{Tooltip colors}
+\item{tlp_color}{The tooltip colors, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.}
 
-\item{read_only}{Read Only mode for icons (TRUE or FALSE)}
+\item{read_only}{Logical, whether or not to use a read only mode for the icons.}
 
-\item{hover}{Hover for icons (TRUE or FALSE)}
+\item{hover}{Logical, whether or not to use a hover mode for the icons.}
 }
 \value{
-a icons rating
+A \code{shiny.tag} object for usage in \code{\link{ratingInput}}
 }
 \description{
-Create a icon rating
+Create rating icons for usage in \code{\link{ratingInput}}.
 }

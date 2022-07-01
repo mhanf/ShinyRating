@@ -7,9 +7,9 @@
 #' @param i_number The icon place in the rating widget.
 #' @param number The total number of icons in the rating widget.
 #' @param rating_id The rating widget id.
-#' @param on_color The icon color when selected (hex or Boostrap 5 color).
-#' @param off_color The icon color when deselected (hex or Boostrap 5 color).
-#' @param init_color The icon initial color (hex or Boostrap 5 color).
+#' @param on_color The icon color when selected (hex or Bootstrap 5 color).
+#' @param off_color The icon color when deselected (hex or Bootstrap 5 color).
+#' @param init_color The icon initial color (hex or Bootstrap 5 color).
 #' @param size The icon size (1 to 5).
 #' @param anim The type of animation see \href{https://animate.style/}{Animate.css}.
 #' @param duration The animation duration in seconds.

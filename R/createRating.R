@@ -1,26 +1,24 @@
-#' Create a icon rating
-#'
-#' @param rating_id Rating input control id
-#' @param i_name Name of the icon.
+#' Create rating icons
+#' @description Create rating icons for usage in \code{\link{ratingInput}}.
+#' @param rating_id The rating widget id.
+#' @param i_name The icon names.
 #' @param i_lib The icon library to use. Either "font-awesome" or "glyphicon".
-#' @param number Number of icons in rating input control.
-#' @param init_value Initial value.
-#' @param on_color Selection color of icons (hex or Boostrap 5 color)
-#' @param off_color Default color of icons (hex or Boostrap 5 color)
-#' @param size Size of the icons (1 to 5)
-#' @param anim Type of animation from animate.css library (https://animate.style/)
-#' @param duration Duration of the animation
-#' @param tlp Tooltip for the icons (TRUE or FALSE)
-#' @param tlp_msg Tooltip messages
-#' @param tlp_position Tooltip positions
-#' @param tlp_color Tooltip colors
-#' @param cumul Cumulative color for icons (TRUE or FALSE)
-#' @param read_only Read Only mode for icons (TRUE or FALSE)
-#' @param hover Hover for icons (TRUE or FALSE)
-#'
+#' @param number The number of icons in the rating widget.
+#' @param init_value The Initial value of the rating widget.
+#' @param on_color The icon colors when selected (hex or Bootstrap 5 color).
+#' @param off_color The icon colors when deselected (hex or Bootstrap 5 color).
+#' @param size The icon sizes (1 to 5).
+#' @param anim The type of animations see \href{https://animate.style/}{Animate.css}.
+#' @param duration The animation durations in seconds.
+#' @param tlp Logical, whether or not to use a tooltip for the icon.
+#' @param tlp_msg The character strings to be shown as message in tooltips.
+#' @param tlp_position The tooltip positions, \code{"top"}, \code{"right"}, \code{"bottom"}, or \code{"left"}.
+#' @param tlp_color The tooltip colors, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.
+#' @param cumul Logical, whether or not to use cumulative color for the icon.
+#' @param read_only Logical, whether or not to use a read only mode for the icons.
+#' @param hover Logical, whether or not to use a hover mode for the icons.
 #' @import shiny
-#' @return a icons rating
-#'
+#' @return A \code{shiny.tag} object for usage in \code{\link{ratingInput}}
 
 createRating <- function(rating_id,
                          i_name = "star",
@@ -40,7 +38,7 @@ createRating <- function(rating_id,
                          read_only = FALSE,
                          hover = FALSE
 ){
-
+  # transform parameters into vectors
   if(length(i_name) == 1){ i_name <- rep(i_name, number) }
   if(length(tlp_msg) == 1){ tlp_msg <- rep(tlp_msg, number) }
   if(length(tlp_position) == 1){ tlp_position <- rep(tlp_position, number) }
@@ -52,13 +50,13 @@ createRating <- function(rating_id,
   if(length(duration) == 1){ duration <- rep(duration, number) }
   if(length(size) == 1){ size <- rep(size, number) }
   if(length(read_only) == 1){ read_only <- rep(read_only, number) }
-
+  # lapply
   tag <- lapply(1: number,function(i){
-
+    # definition of initial color
     if(i <= init_value & !is.na(init_value) & cumul == TRUE){ init_color <- on_color[i] }
     else if (i == init_value & !is.na(init_value) & cumul == FALSE) { init_color <- on_color[i] }
     else { init_color <- off_color[i] }
-
+    # icon creation
     createIcon(
       id = paste0(rating_id,i),
       i_name = as.character(i_name[i]),
@@ -81,9 +79,8 @@ createRating <- function(rating_id,
       hover = hover
     )
   })
-
+  # margin adaptation
   tag <- div(class="m-0 mt-2 p-0", tag)
-
+  # return
   return(tag)
-
 }
