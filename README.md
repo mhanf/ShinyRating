@@ -25,11 +25,10 @@ Easy creation of rating input controls in Shiny.
 -   Large choices of icons from Fontawesome and Glyphicon
 -   Easy definition of icon size and colors (Bootstrap 5 or Hex colors)
 -   Possibility to add Bootstrap 5 colored Tooltips to icons
--   Read only mode for rating input
--   Hover capabilities for rating input
+-   Read only, hover and accumulation modes for rating widgets
 -   Large choice of animations for icons when clicked from animate.css
--   Possibility to define complex rules of icons coloration, size,
-    animation and read only mode
+-   Possibility to define complex rules of icons coloration, size or
+    animation.
 
 ## Installation
 
