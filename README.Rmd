@@ -69,38 +69,38 @@ ui <- function(){
       column(
         width = 12,
         align = "center",
-               br(),
-               ratingInput(
-                 inputId = "Mood",
-                 label = "How do you feel ?",
-                 number = 5,
-                 value = NA,
-                 cumul = FALSE,
-                 hover = TRUE,
-                 size = 3,
-                 on_color = c("danger","warning","dark","info","success"),
-                 off_color = "light",
-                 i_name = c("angry","frown","meh","smile","laugh"),
-                 i_lib = "font-awesome",
-                 anim = "pulse",
-                 duration = 1,
-                 tlp = TRUE,
-                 tlp_color = c("danger","warning","dark","info","success"),
-                 tlp_position = "bottom",
-                 tlp_msg = c("Angry","Frown","Neutral","Happy","Excited")
-               ),
-               br(),
-               ratingInput("star",
-                           label = "Where is shinyRating on the fun scale ?",
-                           anim = "tada",
-                           i_name = "star",
-                           on_color = "#D5AB55",
-                           cumul = TRUE,
-                           hover = TRUE
-               ),
-               br(),
-               actionButton("go","Reset",class="btn-success m-1")
-             )
+        br(),
+        ratingInput(
+          inputId = "Mood",
+          label = "How do you feel ?",
+          number = 5,
+          value = NA,
+          cumul = FALSE,
+          hover = TRUE,
+          size = 3,
+          on_color = c("danger","warning","dark","info","success"),
+          off_color = "light",
+          i_name = c("angry","frown","meh","smile","laugh"),
+          i_lib = "font-awesome",
+          anim = "pulse",
+          duration = 1,
+          tlp = TRUE,
+          tlp_color = c("danger","warning","dark","info","success"),
+          tlp_position = "bottom",
+          tlp_msg = c("Angry","Frown","Neutral","Happy","Excited")
+        ),
+        br(),
+        ratingInput("star",
+                    label = "Where is shinyRating on the fun scale ?",
+                    anim = "tada",
+                    i_name = "star",
+                    on_color = "#D5AB55",
+                    cumul = TRUE,
+                    hover = TRUE
+        ),
+        br(),
+        actionButton("go","Reset",class="btn-success m-1")
+      )
     )
   )
 }
