@@ -8,6 +8,8 @@ test_length(x, number)
 }
 \arguments{
 \item{x}{Vector of values}
+
+\item{number}{Desired number of values}
 }
 \value{
 An error if the vector has a length != 1 and different to a given number
