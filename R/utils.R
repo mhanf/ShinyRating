@@ -7,7 +7,7 @@ isHex <- function(x){
 }
 
 #' Test if a vector has a length == 1 or equal to a given number
-#' @param number
+#' @param number Desired number of values
 #' @param x Vector of values
 #'
 #' @return An error if the vector has a length != 1 and different to a given number

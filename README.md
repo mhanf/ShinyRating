@@ -142,10 +142,10 @@ This package tries to overcome some limitations by being compatible with
 the shinyverse packages developed by Rstudio (mostly
 [shinyvalidate](https://rstudio.github.io/shinyvalidate/) and
 [bslib](https://rstudio.github.io/bslib/)) as well as extending its
-functionnalities (color, size, animation …). The Tooltip functionality
+functionnalities (color, size, animation …). The tooltip functionality
 is inspired from the one of the
 [bsutils](https://github.com/JohnCoene/bsutils) package. The idea to use
-animate.css comes from the
+[animate.css](https://animate.style/) comes from the
 [shinyanimate](https://github.com/Swechhya/shinyanimate) package.
 
 ## Contributions
