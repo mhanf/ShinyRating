@@ -10,7 +10,7 @@ isHex(x)
 \item{x}{text}
 }
 \value{
-TRUE or FALSE
+logical,TRUE or FALSE
 }
 \description{
 Test if a text is a hex color

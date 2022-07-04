@@ -12,9 +12,42 @@ ui <- shiny::navbarPage(
         body = tagList(
           p("To parameter your widgets, you can easily specify the number, size, and type of icons.
             Available icons are those from shiny icon() function."),
-          ratingInput("basic2", label = "size = 3", size = 3),
-          ratingInput("basic3", label = "i_name = 'heart'", i_name = 'heart'),
-          ratingInput("basic4", label = "i_name = 'film', i_lib = 'glyphicon'", i_name = 'film', i_lib = 'glyphicon')
+          # size
+          div(
+            class = "row",
+            div(
+              class="col-md-6",
+              ratingInput("basic1", label = "number = 3", number = 3)
+            ),
+            div(
+              class="col-md-6",
+              ratingInput("basic2", label = "number = 5", number = 5)
+            )
+          ),
+          # size
+          div(
+            class = "row",
+            div(
+              class="col-md-6",
+              ratingInput("basic3", label = "size = 1", size = 1)
+            ),
+            div(
+              class="col-md-6",
+              ratingInput("basic4", label = "size = 3", size = 2)
+            )
+          ),
+          # type
+          div(
+            class = "row",
+            div(
+              class="col-md-6",
+              ratingInput("basic5", label = "i_name = 'heart', i_lib = 'font-awesome'", i_name = 'heart')
+            ),
+            div(
+              class="col-md-6",
+              ratingInput("basic8", label = "i_name = 'cloud', i_lib = 'glyphicon'", i_name = 'cloud', i_lib = 'glyphicon')
+            )
+          )
         )
       ),
       # value
