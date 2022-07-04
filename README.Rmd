@@ -57,18 +57,6 @@ A Shiny app example using these functions can be created as follows:
 library(shiny)
 library(ShinyRating)
 library(bslib)
-# a basic card function 
-card <- function(title,body){
-  tags$div(
-    class = "card text-center",
-    tags$div(class = "card-header primary-text fw-bold",
-             title),
-    tags$div(
-      class = "card-body",
-      body
-    )
-  )
-}
 # ui part
 ui <- function(){
   fluidPage(
@@ -79,9 +67,8 @@ ui <- function(){
     br(),
     fluidRow(
       column(
-        width = 3,
-        card(title = "A little Survey",
-             body = tagList(
+        width = 12,
+        align = "center",
                br(),
                ratingInput(
                  inputId = "Mood",
@@ -112,10 +99,8 @@ ui <- function(){
                            hover = TRUE
                ),
                br(),
-               actionButton("go","Reset",class="btn-success m-1 w-50")
+               actionButton("go","Reset",class="btn-success m-1")
              )
-        )
-      )
     )
   )
 }
