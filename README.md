@@ -20,15 +20,14 @@ Easy creation of rating input controls in Shiny.
 
 ## Features
 
--   Compatible with bslib and optimized for Bootstrap 5
--   Compatible with server validation of inputs based on shinyvalidate
--   Large choices of icons from Fontawesome and Glyphicon
--   Easy definition of icon size and colors (Bootstrap 5 or Hex colors)
--   Possibility to add Bootstrap 5 colored Tooltips to icons
--   Read only, hover and accumulation modes for rating widgets
--   Large choice of animations for icons when clicked from animate.css
--   Possibility to define complex rules of icons coloration, size or
-    animation.
+-   Optimized for [Bootstrap 5](https://getbootstrap.com/) and
+    [bslib](https://rstudio.github.io/bslib/)
+-   Simple definition of the size, type, color and animation of icons
+-   Possibility to add tooltips
+-   Read only, hover and accumulation modes
+-   Possibility to define complex setting rules for icons
+-   Compatible with server validation of inputs based on
+    [shinyanimate](https://github.com/Swechhya/shinyanimate) package
 
 ## Installation
 
@@ -85,7 +84,6 @@ ui <- function(){
                  value = NA,
                  cumul = FALSE,
                  hover = TRUE,
-                 #read_only = c(TRUE, TRUE, TRUE, FALSE, FALSE),
                  size = 3,
                  on_color = c("danger","warning","dark","info","success"),
                  off_color = "light",
@@ -139,12 +137,12 @@ ShinyRating::app_gallery()
 
 The core functionnalities of this package are similar to those of the
 [ShinyRatingInput](https://github.com/stefanwilhelm/ShinyRatingInput).
-This package tries to overcome some of its limitations by being
-compatible with the shinyverse packages developed by Rstudio (mostly
+This package tries to overcome some limitations by being compatible with
+the shinyverse packages developed by Rstudio (mostly
 [shinyvalidate](https://rstudio.github.io/shinyvalidate/) and
 [bslib](https://rstudio.github.io/bslib/)) as well as extending its
-functionnalities (color, size, animation …). The Tooltip functionnality
-is largely inspired from the one of the
+functionnalities (color, size, animation …). The Tooltip functionality
+is inspired from the one of the
 [bsutils](https://github.com/JohnCoene/bsutils) package. The idea to use
 animate.css comes from the
 [shinyanimate](https://github.com/Swechhya/shinyanimate) package.
