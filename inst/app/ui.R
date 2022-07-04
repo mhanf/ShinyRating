@@ -5,12 +5,13 @@ ui <- shiny::navbarPage(
     "Gallery",
     # cards
     div(
-      class="row row-cols-1 row-cols-md-3 g-4",
+      class = "row row-cols-1 row-cols-md-3 g-4",
       # basics
       card_suite(
         title = "Basics",
         body = tagList(
-          p("To parameter your widgets, you can easily specify the number, size, and type of icons. Available icons are those from shiny icon() function."),
+          p("To parameter your widgets, you can easily specify the number, size, and type of icons.
+            Available icons are those from shiny icon() function."),
           ratingInput("basic2", label = "size = 3", size = 3),
           ratingInput("basic3", label = "i_name = 'heart'", i_name = 'heart'),
           ratingInput("basic4", label = "i_name = 'film', i_lib = 'glyphicon'", i_name = 'film', i_lib = 'glyphicon')
