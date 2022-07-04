@@ -1,10 +1,12 @@
 Package: ShinyRating
 Title: Easy Creation Of Rating Widgets In Shiny
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("matthieu", "Hanf", , "matthieu.hanf@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0001-7133-1323"))
 Description: This package  allows the use of rating widgets in R Shiny.
+URL: https://github.com/mhanf/ShinyRating
+BugReports: https://github.com/mhanf/ShinyRating/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

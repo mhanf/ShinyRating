@@ -31,91 +31,166 @@
 #' )
 
 ratingInput <- function(
+  # global parameters
   inputId,
+  label = NULL,
+  width = "auto",
   number = 5,
+  value = NA,
+  cumul = FALSE,
+  read_only = FALSE,
+  hover = FALSE,
+  # icon parameters
   on_color = "success",
   off_color = "dark",
-  label = NULL,
   size = 2,
   i_name = "star",
   i_lib = "font-awesome",
-  width = "auto",
-  value = NA,
   anim = "none",
   duration = 2,
-  cumul = TRUE,
+  # tooltip parameters
   tlp = FALSE,
   tlp_msg = 1:number,
   tlp_position = "bottom",
-  tlp_color = "black",
-  read_only = FALSE,
-  hover = FALSE
+  tlp_color = "black"
 ){
-  # test width
-  width <- shiny::validateCssUnit(width)
-  # valid bootstrap color
-  valid_bs5 <- c("primary","secondary","info","warning","danger","success","light","dark","black","white")
 
-  # # test number
-  # if (is.na(as.numeric(number))) {
-  #   stop("number must be integer")
-  # }
-  # if (as.integer(number) != number) {
-  #   stop("number must be integer")
-  # }
-  # if (number < 0) {
-  #   stop("number must be > 0")
-  # }
-  # # bootstrap color
-  # # test onColor
+  # width
+  width <- shiny::validateCssUnit(width)
+  # test_pos_integer
+  test_pos_integer(number, na_rm = FALSE)
+  test_pos_integer(value, na_rm = TRUE)
+  # test_logical
+  test_logical(tlp)
+  test_logical(cumul)
+  test_logical(read_only)
+  test_logical(hover)
+  ## valid bs color
+  valid_bs5 <- c("primary","secondary","info","warning","danger","success","light","dark","black","white")
+  # test_length
+  test_length(on_color, number)
+  test_length(off_color, number)
+  test_length(size, number)
+  test_length(i_name, number)
+  test_length(i_lib, number)
+  test_length(anim, number)
+  test_length(duration, number)
+  test_length(tlp, number)
+  test_length(tlp_msg, number)
+  test_length(tlp_position, number)
+  test_length(tlp_color, number)
+  # test color
+  lapply(on_color,function(i){
+    if (! i %in% valid_bs5 & !isHex(i)){
+      stop("on_color must be a bootstrap or a hex color")
+    }
+  })
+  lapply(off_color,function(i){
+    if (! i %in% valid_bs5 & !isHex(i)){
+      stop("off_color must be a bootstrap or a hex color")
+    }
+  })
+  # match.arg
+  match.arg(
+    arg = tlp_position,
+    choices = c("top","bottom","left","right"),
+    several.ok = TRUE
+  )
+  match.arg(
+    arg = tlp_color,
+    choices = valid_bs5,
+    several.ok = TRUE
+  )
+  # # test global parameters
+  # # inputId
+  # test_null(inputId)
+  # test_na(inputId)
+  # test_character(inputId)
+  # # label
+  # if (is.character(label) == FALSE & is.null(label) == FALSE){ stop("label must be NULL or a character string") }
+  #
+  # # number
+  # test_null(number)
+  # test_na(number)
+  # test_pos_integer(number)
+  # # value
+  # test_null(number)
+  # test_pos_integer(number)
+  #
+  # # test icon parameters
+  #
+  # ## on_color
+  # if (FALSE %in% is.character(on_color)){ stop("on_color must be a character string") }
+  # test_length(on_color, number)
   # lapply(on_color,function(i){
   #   if (! i %in% valid_bs5 & !isHex(i)){
   #     stop("on_color must be a bootstrap or a hex color")
   #   }
   # })
-  # # test offColor
+  # ## off_color
+  # if (FALSE %in% is.character(off_color)){ stop("off_color must be a character string") }
+  # test_length(off_color, number)
   # lapply(off_color,function(i){
   #   if (! i %in% valid_bs5 & !isHex(i)){
   #     stop("off_color must be a bootstrap or a hex color")
   #   }
   # })
-  # # test i_lib
-  # if (! i_lib %in% c("font-awesome","glyphicon")){
-  #   stop("i_lib must be font-awesome or glyphicon")
-  # }
-  # # test size
-  # if (TRUE %in% is.na(as.numeric(size))) {
-  #   stop("size must be integer")
-  # }
-  # if (as.integer(size) != size) {
-  #   stop("size must be integer")
-  # }
-  # if (size < 0) {
-  #   stop("size must be > 0")
-  # }
-  # if (size > 5) {
-  #   stop("size must be < 6")
-  # }
-  # # test i_name
-  # if (length(i_name) > 1 & length(i_name) != number){
-  #   stop("i_name length must be 1 or equal to number parameter")
-  # }
-  # # test anim
-  # if (is.character(anim) == FALSE){
-  #   stop("anim must be a character string and one valid animate fr")
-  # }
-  # # test duration
-  # if (is.numeric(duration) == FALSE | duration < 0){
-  #   stop("duration must be numeric and > 0")
-  # }
-  # # test cumul
-  # if (is.logical(cumul) == FALSE){
-  #   stop("cumul must be logical (TRUE or FALSE)")
-  # }
-
+  # ## size
+  # test_length(size, number)
+  # match.arg(
+  #   arg = size,
+  #   choices = 1:5,
+  #   several.ok = TRUE
+  # )
+  # ## i_name
+  # test_null(i_name)
+  # test_na(i_name)
+  # test_length(i_name, number)
+  # test_character(i_name)
+  # ## i_lib
+  # test_null(i_lib)
+  # test_na(i_lib)
+  # test_length(i_lib, number)
+  # ## anim
+  # test_null(anim)
+  # test_na(anim)
+  # test_length(anim, number)
+  # test_character(anim)
+  # ## duration
+  # test_null(duration)
+  # test_length(duration, number)
+  # ## tlp
+  # test_null(tlp)
+  # test_na(anim)
+  # test_length(tlp, number)
+  # test_logical(tlp)
+  # ## tlp_msg
+  # test_null(tlp_msg)
+  # test_na(tlp_msg)
+  # test_length(tlp_msg, number)
+  # test_character(tlp_msg)
+  # ## tlp_position
+  # test_null(tlp_position)
+  # test_na(tlp_position)
+  # test_length(tlp_position, number)
+  # match.arg(
+  #   arg = tlp_position,
+  #   choices = c("top","bottom","left","right"),
+  #   several.ok = TRUE
+  #   )
+  # ## tlp_color
+  # test_null(tlp_color)
+  # test_na(tlp_color)
+  # test_length(tlp_color, number)
+  # match.arg(
+  #   arg = tlp_color,
+  #   choices = valid_bs5,
+  #   several.ok = TRUE
+  # )
   # transform bs color
   on_color[on_color %in% valid_bs5 == TRUE] <- paste0("var(--bs-",on_color[on_color %in% valid_bs5 == TRUE],")")
   off_color[off_color %in% valid_bs5 == TRUE] <- paste0("var(--bs-",off_color[off_color %in% valid_bs5 == TRUE],")")
+
   # create list of clickable icons
   rating_tag <- shiny::tagList(
     shiny::div(label),

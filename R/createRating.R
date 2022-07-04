@@ -50,6 +50,7 @@ createRating <- function(rating_id,
   if(length(duration) == 1){ duration <- rep(duration, number) }
   if(length(size) == 1){ size <- rep(size, number) }
   if(length(read_only) == 1){ read_only <- rep(read_only, number) }
+
   # lapply
   tag <- lapply(1: number,function(i){
     # definition of initial color

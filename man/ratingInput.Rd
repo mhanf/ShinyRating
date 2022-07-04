@@ -6,36 +6,46 @@
 \usage{
 ratingInput(
   inputId,
+  label = NULL,
+  width = "auto",
   number = 5,
+  value = NA,
+  cumul = FALSE,
+  read_only = FALSE,
+  hover = FALSE,
   on_color = "success",
   off_color = "dark",
-  label = NULL,
   size = 2,
   i_name = "star",
   i_lib = "font-awesome",
-  width = "auto",
-  value = NA,
   anim = "none",
   duration = 2,
-  cumul = TRUE,
   tlp = FALSE,
   tlp_msg = 1:number,
   tlp_position = "bottom",
-  tlp_color = "black",
-  read_only = FALSE,
-  hover = FALSE
+  tlp_color = "black"
 )
 }
 \arguments{
 \item{inputId}{The rating widget id.}
 
+\item{label}{Display label for the control.}
+
+\item{width}{The width of the input, e.g. '400px', or '100\%'; see validateCssUnit()}
+
 \item{number}{The number of icons in the rating widget.}
+
+\item{value}{The Initial value.}
+
+\item{cumul}{Logical, whether or not to use cumulative color for the icons.}
+
+\item{read_only}{Logical, whether or not to use a read only mode for the icons.}
+
+\item{hover}{Logical, whether or not to use a hover mode for the icons.}
 
 \item{on_color}{The icon colors when selected (hex or Bootstrap 5 color).}
 
 \item{off_color}{The icon colors when deselected (hex or Bootstrap 5 color).}
-
-\item{label}{Display label for the control.}
 
 \item{size}{The icon sizes (1 to 5).}
 
@@ -43,15 +53,9 @@ ratingInput(
 
 \item{i_lib}{The icon library to use. Either "font-awesome" or "glyphicon".}
 
-\item{width}{The width of the input, e.g. '400px', or '100\%'; see validateCssUnit()}
-
-\item{value}{The Initial value.}
-
 \item{anim}{The type of animations see \href{https://animate.style/}{Animate.css}.}
 
 \item{duration}{The animation duration in seconds.}
-
-\item{cumul}{Logical, whether or not to use cumulative color for the icons.}
 
 \item{tlp}{Logical, whether or not to use a tooltip for the icon.}
 
@@ -60,10 +64,6 @@ ratingInput(
 \item{tlp_position}{The tooltip positions, \code{"top"}, \code{"right"}, \code{"bottom"}, or \code{"left"}.}
 
 \item{tlp_color}{The tooltip colors, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.}
-
-\item{read_only}{Logical, whether or not to use a read only mode for the icons.}
-
-\item{hover}{Logical, whether or not to use a hover mode for the icons.}
 }
 \value{
 A rating widget for usage in Shiny UI.

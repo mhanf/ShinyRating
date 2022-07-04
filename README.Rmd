@@ -88,7 +88,7 @@ ui <- function(){
                  inputId = "Mood",
                  label = "How do you feel ?",
                  number = 5,
-                 #value = 3,
+                 value = NA,
                  cumul = FALSE,
                  hover = TRUE,
                  #read_only = c(TRUE, TRUE, TRUE, FALSE, FALSE),
@@ -107,13 +107,11 @@ ui <- function(){
                br(),
                ratingInput("star",
                            label = "Where is shinyRating on the fun scale ?",
-                           # size = 2,
-                           # anim = "tada",
+                           anim = "tada",
                            i_name = "star",
                            on_color = "#D5AB55",
-                           # cumul = TRUE,
-                           # tlp = TRUE,
-                           # hover = TRUE
+                           cumul = TRUE,
+                           hover = TRUE
                ),
                br(),
                actionButton("go","Reset",class="btn-success m-1 w-50")
