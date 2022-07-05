@@ -17,16 +17,17 @@ MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.
 [![R-CMD-check](https://github.com/mhanf/ShinyRating/workflows/R-CMD-check/badge.svg)](https://github.com/mhanf/ShinyRating/actions)
 <!-- badges: end -->
 
-Easy creation of rating input controls in Shiny.
+Easy creation of rating widgets in Shiny.
 
 ## Features
 
 -   Optimized for [Bootstrap 5](https://getbootstrap.com/) and
     [bslib](https://rstudio.github.io/bslib/)
--   Simple definition of the size, type, color and animation of icons
+-   Simple definition of the number, size, type, color and animation of
+    icons
 -   Possibility to add tooltips
 -   Read only, hover and accumulation modes
--   Possibility to define complex setting rules for icons
+-   Possibility to define individual setting rules for icons
 -   Compatible with server validation of inputs based on
     [shinyanimate](https://github.com/Swechhya/shinyanimate) package
 
@@ -85,13 +86,14 @@ ui <- function(){
           tlp_msg = c("Angry","Frown","Neutral","Happy","Excited")
         ),
         br(),
-        ratingInput("star",
-                    label = "Where is shinyRating on the fun scale ?",
-                    anim = "tada",
-                    i_name = "star",
-                    on_color = "#D5AB55",
-                    cumul = TRUE,
-                    hover = TRUE
+        ratingInput(
+          inputId = "star",
+          label = "Where is shinyRating on the fun scale ?",
+          anim = "tada",
+          i_name = "star",
+          on_color = "#D5AB55",
+          cumul = TRUE,
+          hover = TRUE
         ),
         br(),
         actionButton("go","Reset",class="btn-success m-1")
@@ -138,9 +140,9 @@ is inspired from the one of the
 The developer and maintainer is [mhanf](https://github.com/mhanf).
 External contributions are welcome. Please keep in mind that I am not a
 professional R developer but an enthusiastic R data scientist who plays
-with shiny and js as a pretext to learn new stuffs. Unfortunately, so is
-my code. Please note that the ShinyRating project is released with a
-[Contributor Code of
+with shiny and javascript as a pretext to learn new stuffs.
+Unfortunately, so is my code. Please note that the ShinyRating project
+is released with a [Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.
 
