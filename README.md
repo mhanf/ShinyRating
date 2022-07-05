@@ -12,9 +12,10 @@
 status](https://www.r-pkg.org/badges/version/interfacer)](https://CRAN.R-project.org/package=interfacer)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![License:
-MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.org/web/licenses/MIT)
+<!--[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.org/web/licenses/MIT)-->
 [![R-CMD-check](https://github.com/mhanf/ShinyRating/workflows/R-CMD-check/badge.svg)](https://github.com/mhanf/ShinyRating/actions)
+[![License:
+GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://opensource.org/licenses/GPL-3.0)
 <!-- badges: end -->
 
 Easy creation of rating widgets in Shiny.
@@ -148,4 +149,5 @@ By contributing to this project, you agree to abide by its terms.
 
 ## License
 
-The ShinyRating package as a whole is licensed under the MIT license.
+The ShinyRating package as a whole is licensed under the HIPPOCRATIC
+license.

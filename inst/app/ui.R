@@ -85,10 +85,52 @@ ui <- shiny::navbarPage(
         title = "Colors",
         body = tagList(
           p("To parameter your widgets, you can also specify the off and on colors of icons. Colors can be specified as Boostrap 5 names or Hex code."),
-          ratingInput("color1", label = "on_color = 'danger'", on_color = 'danger'),
-          ratingInput("color2", label = "off_color = 'light'", off_color = 'light'),
-          ratingInput("color3", label = "on_color = '#D5AB55'", on_color = '#D5AB55'),
-          ratingInput("color4", label = "off_color = '#add8e6'", off_color = '#add8e6')
+          # on color
+          div(
+            class = "row",
+            div(
+              class="col-md-6",
+              ratingInput("color1", label = "on_color = 'danger'", on_color = 'danger')
+            ),
+            div(
+              class="col-md-6",
+              ratingInput("color2", label = "on_color = '#D5AB55'", on_color = '#D5AB55')
+            )
+          ),
+          # off color
+          div(
+            class = "row",
+            div(
+              class="col-md-6",
+              ratingInput("color3", label = "off_color = 'light'", off_color = 'light')
+            ),
+            div(
+              class="col-md-6",
+              ratingInput("color4", label = "off_color = '#add8e6'", off_color = '#add8e6')
+            )
+          ),
+          # off on color
+          div(
+            class = "row",
+            div(
+              class="col-md-6",
+              ratingInput(
+                inputId = "color5",
+                label = "on_color = '#D5AB55', off_color = 'light'",
+                off_color = 'light',
+                on_color = '#D5AB55'
+                )
+            ),
+            div(
+              class="col-md-6",
+              ratingInput(
+                inputId = "color6",
+                label = "on_color = '#D5AB55', off_color = 'black'",
+                off_color = 'black',
+                on_color = '#D5AB55'
+              )
+            )
+          )
         )
       ),
       # animation
@@ -111,7 +153,7 @@ ui <- shiny::navbarPage(
           ratingInput("tlp1", label = "tlp = TRUE", tlp = TRUE),
           ratingInput("tlp2", label = "tlp = TRUE, tlp_color = 'danger'",tlp = TRUE, tlp_color = "danger"),
           ratingInput("tlp3", label = "tlp = TRUE, tlp_position = 'top'",tlp = TRUE, tlp_position = "top"),
-          ratingInput("tlp4", label = "tlp = TRUE, tlp_msg = c('Very bad','Bad','Neutral','Good','Very good')",tlp = TRUE, tlp_msg = c('Very bad','Bad','Neutral','Good','Very good'))
+          ratingInput("tlp4", label = "tlp = TRUE, tlp_msg = c('One','Two','Three','Four','Five')",tlp = TRUE, tlp_msg = c('One','Two','Three','Four','Five'))
         )
       ),
       # Advanced options
@@ -174,5 +216,7 @@ ui <- shiny::navbarPage(
     ),
     br(),
     br()
-  )
+  ),
+  nav_spacer(),
+  nav_item(tags$a(href="https://github.com/mhanf/ShinyRating", icon("github",class = "fa-1x")))
 )
