@@ -8,10 +8,8 @@ theme <- bslib::bs_theme(
 )
 
 # a basic card function
-card_suite <- function(
-  title,
-  body
-) {
+card_suite <- function(title,
+                       body) {
   div(
     class = "col",
     tags$div(
@@ -19,7 +17,7 @@ card_suite <- function(
       tags$div(
         class = "card-header primary-text fw-bold",
         title
-      ) ,
+      ),
       tags$div(
         class = "card-body",
         body

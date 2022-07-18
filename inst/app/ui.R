@@ -16,11 +16,11 @@ ui <- shiny::navbarPage(
           div(
             class = "row",
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput("basic1", label = "number = 3", number = 3)
             ),
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput("basic2", label = "number = 5", number = 5)
             )
           ),
@@ -28,11 +28,11 @@ ui <- shiny::navbarPage(
           div(
             class = "row",
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput("basic3", label = "size = 1", size = 1)
             ),
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput("basic4", label = "size = 3", size = 2)
             )
           ),
@@ -40,12 +40,12 @@ ui <- shiny::navbarPage(
           div(
             class = "row",
             div(
-              class="col-md-6",
-              ratingInput("basic5", label = "i_name = 'heart', i_lib = 'font-awesome'", i_name = 'heart')
+              class = "col-md-6",
+              ratingInput("basic5", label = "i_name = 'heart', i_lib = 'font-awesome'", i_name = "heart")
             ),
             div(
-              class="col-md-6",
-              ratingInput("basic8", label = "i_name = 'cloud', i_lib = 'glyphicon'", i_name = 'cloud', i_lib = 'glyphicon')
+              class = "col-md-6",
+              ratingInput("basic8", label = "i_name = 'cloud', i_lib = 'glyphicon'", i_name = "cloud", i_lib = "glyphicon")
             )
           )
         )
@@ -58,24 +58,27 @@ ui <- shiny::navbarPage(
           div(
             class = "row",
             div(
-              class="col-md-6",
-              ratingInput("intro1", label = "value = NA")),
+              class = "col-md-6",
+              ratingInput("intro1", label = "value = NA")
+            ),
             div(
-              class="col-md-6",
-              ratingInput("intro2", label = "value = 3",value = 3))),
+              class = "col-md-6",
+              ratingInput("intro2", label = "value = 3", value = 3)
+            )
+          ),
           br(),
           p("This value can be update from the server with the 'value' parameter of updateRatingInput()"),
           div(
             class = "row",
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput("intro3", label = "value = NA", value = 5),
-              actionButton("update1","Reset", class="btn-primary")
+              actionButton("update1", "Reset", class = "btn-primary")
             ),
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput("intro4", label = "value = 3"),
-              actionButton("update2","Update", class="btn-primary")
+              actionButton("update2", "Update", class = "btn-primary")
             )
           )
         )
@@ -89,45 +92,45 @@ ui <- shiny::navbarPage(
           div(
             class = "row",
             div(
-              class="col-md-6",
-              ratingInput("color1", label = "on_color = 'danger'", on_color = 'danger')
+              class = "col-md-6",
+              ratingInput("color1", label = "on_color = 'danger'", on_color = "danger")
             ),
             div(
-              class="col-md-6",
-              ratingInput("color2", label = "on_color = '#D5AB55'", on_color = '#D5AB55')
+              class = "col-md-6",
+              ratingInput("color2", label = "on_color = '#D5AB55'", on_color = "#D5AB55")
             )
           ),
           # off color
           div(
             class = "row",
             div(
-              class="col-md-6",
-              ratingInput("color3", label = "off_color = 'light'", off_color = 'light')
+              class = "col-md-6",
+              ratingInput("color3", label = "off_color = 'light'", off_color = "light")
             ),
             div(
-              class="col-md-6",
-              ratingInput("color4", label = "off_color = '#add8e6'", off_color = '#add8e6')
+              class = "col-md-6",
+              ratingInput("color4", label = "off_color = '#add8e6'", off_color = "#add8e6")
             )
           ),
           # off on color
           div(
             class = "row",
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput(
                 inputId = "color5",
                 label = "on_color = '#D5AB55', off_color = 'light'",
-                off_color = 'light',
-                on_color = '#D5AB55'
-                )
+                off_color = "light",
+                on_color = "#D5AB55"
+              )
             ),
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput(
                 inputId = "color6",
                 label = "on_color = '#D5AB55', off_color = 'black'",
-                off_color = 'black',
-                on_color = '#D5AB55'
+                off_color = "black",
+                on_color = "#D5AB55"
               )
             )
           )
@@ -138,16 +141,16 @@ ui <- shiny::navbarPage(
         title = "Animations & tooltips",
         body = tagList(
           p("To develop emphasis you can add animations on icons click as well as tooltips on hover.
-          Available animations are those from the ", tags$a(href="https://animate.style/", target="_blank", "animate.css"),"website."),
+          Available animations are those from the ", tags$a(href = "https://animate.style/", target = "_blank", "animate.css"), "website."),
           # Animations
           div(
             class = "row",
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput("anim1", label = "anim = 'swing'", anim = "swing")
             ),
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput("anim2", label = "anim = 'swing', duration = 8", anim = "swing", duration = 8)
             )
           ),
@@ -155,26 +158,25 @@ ui <- shiny::navbarPage(
           div(
             class = "row",
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput("tlp1", label = "tlp = TRUE", tlp = TRUE)
             ),
             div(
-              class="col-md-6",
-              ratingInput("tlp2", label = "tlp = TRUE, tlp_color = 'success'",tlp = TRUE, tlp_color = "success")
+              class = "col-md-6",
+              ratingInput("tlp2", label = "tlp = TRUE, tlp_color = 'success'", tlp = TRUE, tlp_color = "success")
             )
           ),
           div(
             class = "row",
             div(
-              class="col-md-6",
-              ratingInput("tlp3", label = "tlp = TRUE, tlp_position = 'top'",tlp = TRUE, tlp_position = "top")
+              class = "col-md-6",
+              ratingInput("tlp3", label = "tlp = TRUE, tlp_position = 'top'", tlp = TRUE, tlp_position = "top")
             ),
             div(
-              class="col-md-6",
-              ratingInput("tlp4", label = "tlp = TRUE, tlp_msg = c('A','B','C','D','E')",tlp = TRUE, tlp_msg = c('A','B','C','D','E'))
+              class = "col-md-6",
+              ratingInput("tlp4", label = "tlp = TRUE, tlp_msg = c('A','B','C','D','E')", tlp = TRUE, tlp_msg = c("A", "B", "C", "D", "E"))
             )
           )
-
         )
       ),
       # Cumul hover
@@ -186,11 +188,11 @@ ui <- shiny::navbarPage(
           div(
             class = "row",
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput("opt1", label = "cumul = TRUE", cumul = TRUE)
             ),
             div(
-              class="col-md-6",
+              class = "col-md-6",
               ratingInput("opt2", label = "cumul = FALSE", cumul = FALSE)
             )
           ),
@@ -198,21 +200,25 @@ ui <- shiny::navbarPage(
           div(
             class = "row",
             div(
-              class="col-md-6",
-              ratingInput("opt3", label = "hover = FALSE" , hover = FALSE)),
+              class = "col-md-6",
+              ratingInput("opt3", label = "hover = FALSE", hover = FALSE)
+            ),
             div(
-              class="col-md-6",
-              ratingInput("opt4", label = "hover = TRUE" , hover = TRUE))
+              class = "col-md-6",
+              ratingInput("opt4", label = "hover = TRUE", hover = TRUE)
+            )
           ),
           # read_only
           div(
             class = "row",
             div(
-              class="col-md-6",
-              ratingInput("opt5", label = "read_only = FALSE" , value = 3, read_only = FALSE)),
+              class = "col-md-6",
+              ratingInput("opt5", label = "read_only = FALSE", value = 3, read_only = FALSE)
+            ),
             div(
-              class="col-md-6",
-              ratingInput("opt6", label = "read_only = TRUE" , value = 3, read_only = TRUE))
+              class = "col-md-6",
+              ratingInput("opt6", label = "read_only = TRUE", value = 3, read_only = TRUE)
+            )
           ),
           ratingInput(
             inputId = "Mood",
@@ -221,16 +227,16 @@ ui <- shiny::navbarPage(
             cumul = FALSE,
             hover = TRUE,
             size = 2,
-            on_color = c("danger","warning","dark","info","success"),
+            on_color = c("danger", "warning", "dark", "info", "success"),
             off_color = "light",
-            i_name = c("angry","frown","meh","smile","laugh"),
+            i_name = c("angry", "frown", "meh", "smile", "laugh"),
             i_lib = "font-awesome",
             anim = "pulse",
             duration = 1,
             tlp = TRUE,
-            tlp_color = c("danger","warning","dark","info","success"),
+            tlp_color = c("danger", "warning", "dark", "info", "success"),
             tlp_position = "bottom",
-            tlp_msg = c("Angry","Frown","Neutral","Happy","Excited")
+            tlp_msg = c("Angry", "Frown", "Neutral", "Happy", "Excited")
           )
         )
       )
@@ -239,5 +245,5 @@ ui <- shiny::navbarPage(
     br()
   ),
   nav_spacer(),
-  nav_item(tags$a(href="https://github.com/mhanf/ShinyRating", icon("github",class = "fa-1x")))
+  nav_item(tags$a(href = "https://github.com/mhanf/ShinyRating", icon("github", class = "fa-1x")))
 )
