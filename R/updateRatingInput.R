@@ -7,11 +7,8 @@
 #' @return A widget with an updated value.
 #' @export
 
-updateRatingInput <- function(
-  session,
-  inputId,
-  value = NA
-){
+updateRatingInput <- function(session,
+                              inputId,
+                              value = NA) {
   session$sendInputMessage(inputId, list(value = value))
 }
-

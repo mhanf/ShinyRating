@@ -36,30 +36,55 @@ createRating <- function(rating_id,
                          tlp_position = "top",
                          tlp_color = "black",
                          read_only = FALSE,
-                         hover = FALSE
-){
+                         hover = FALSE) {
   # transform parameters into vectors
-  if(length(i_name) == 1){ i_name <- rep(i_name, number) }
-  if(length(tlp_msg) == 1){ tlp_msg <- rep(tlp_msg, number) }
-  if(length(tlp_position) == 1){ tlp_position <- rep(tlp_position, number) }
-  if(length(tlp_color) == 1){ tlp_color <- rep(tlp_color, number) }
-  if(length(tlp) == 1){ tlp <- rep(tlp, number) }
-  if(length(off_color) == 1){ off_color <- rep(off_color, number) }
-  if(length(on_color) == 1){ on_color <- rep(on_color, number) }
-  if(length(anim) == 1){ anim <- rep(anim, number) }
-  if(length(duration) == 1){ duration <- rep(duration, number) }
-  if(length(size) == 1){ size <- rep(size, number) }
-  if(length(read_only) == 1){ read_only <- rep(read_only, number) }
+  if (length(i_name) == 1) {
+    i_name <- rep(i_name, number)
+  }
+  if (length(tlp_msg) == 1) {
+    tlp_msg <- rep(tlp_msg, number)
+  }
+  if (length(tlp_position) == 1) {
+    tlp_position <- rep(tlp_position, number)
+  }
+  if (length(tlp_color) == 1) {
+    tlp_color <- rep(tlp_color, number)
+  }
+  if (length(tlp) == 1) {
+    tlp <- rep(tlp, number)
+  }
+  if (length(off_color) == 1) {
+    off_color <- rep(off_color, number)
+  }
+  if (length(on_color) == 1) {
+    on_color <- rep(on_color, number)
+  }
+  if (length(anim) == 1) {
+    anim <- rep(anim, number)
+  }
+  if (length(duration) == 1) {
+    duration <- rep(duration, number)
+  }
+  if (length(size) == 1) {
+    size <- rep(size, number)
+  }
+  if (length(read_only) == 1) {
+    read_only <- rep(read_only, number)
+  }
 
   # lapply
-  tag <- lapply(1: number,function(i){
+  tag <- lapply(1:number, function(i) {
     # definition of initial color
-    if(i <= init_value & !is.na(init_value) & cumul == TRUE){ init_color <- on_color[i] }
-    else if (i == init_value & !is.na(init_value) & cumul == FALSE) { init_color <- on_color[i] }
-    else { init_color <- off_color[i] }
+    if (i <= init_value & !is.na(init_value) & cumul == TRUE) {
+      init_color <- on_color[i]
+    } else if (i == init_value & !is.na(init_value) & cumul == FALSE) {
+      init_color <- on_color[i]
+    } else {
+      init_color <- off_color[i]
+    }
     # icon creation
     createIcon(
-      id = paste0(rating_id,i),
+      id = paste0(rating_id, i),
       i_name = as.character(i_name[i]),
       i_lib = i_lib,
       i_number = i,
@@ -81,7 +106,7 @@ createRating <- function(rating_id,
     )
   })
   # margin adaptation
-  tag <- div(class="m-0 mt-2 p-0", tag)
+  tag <- div(class = "m-0 mt-2 p-0", tag)
   # return
   return(tag)
 }

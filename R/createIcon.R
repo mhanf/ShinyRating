@@ -25,36 +25,43 @@
 #' @return  A \code{shiny.tag} object for usage in \code{\link{createRating}}
 #'
 
-createIcon <- function(
-  id,
-  i_name = "star",
-  i_lib = "font-awesome",
-  i_number = 1,
-  number = 10,
-  rating_id,
-  on_color = "primary",
-  off_color = "dark",
-  init_color = "dark",
-  size = 2,
-  anim = "none",
-  duration = 2,
-  cumul = FALSE,
-  tlp = FALSE,
-  tlp_msg = 1,
-  tlp_position = "top",
-  tlp_color = "black",
-  read_only = FALSE,
-  hover = FALSE
-){
+createIcon <- function(id,
+                       i_name = "star",
+                       i_lib = "font-awesome",
+                       i_number = 1,
+                       number = 10,
+                       rating_id,
+                       on_color = "primary",
+                       off_color = "dark",
+                       init_color = "dark",
+                       size = 2,
+                       anim = "none",
+                       duration = 2,
+                       cumul = FALSE,
+                       tlp = FALSE,
+                       tlp_msg = 1,
+                       tlp_position = "top",
+                       tlp_color = "black",
+                       read_only = FALSE,
+                       hover = FALSE) {
   # definition of the size class
-  if (i_lib == "font-awesome"){  type <-"fa" }
-  else{ type <- "gi" }
+  if (i_lib == "font-awesome") {
+    type <- "fa"
+  } else {
+    type <- "gi"
+  }
   # definition of the hover class
-  if (isTRUE(hover)){ hover_class <- "hover_rating" }
-  else { hover_class <- "" }
+  if (isTRUE(hover)) {
+    hover_class <- "hover_rating"
+  } else {
+    hover_class <- ""
+  }
   # definition of the read only style
-  if (isTRUE(read_only)) {read_style <- "pointer-events: none; cursor: default;" }
-  else { read_style <- "" }
+  if (isTRUE(read_only)) {
+    read_style <- "pointer-events: none; cursor: default;"
+  } else {
+    read_style <- ""
+  }
   # create the icon
   tag <- icon(
     id = id,
@@ -62,7 +69,7 @@ createIcon <- function(
     lib = i_lib,
     i_number = i_number,
     number = number,
-    disabled = 'true',
+    disabled = "true",
     rating_id = rating_id,
     on_color = on_color,
     off_color = off_color,
@@ -83,12 +90,13 @@ createIcon <- function(
     )
   )
   # add tooltip if needed
-  if (isTRUE(tlp)){
+  if (isTRUE(tlp)) {
     tag <- addTooltip(
       tag,
       tlp_color = tlp_color,
       tlp_msg = tlp_msg,
-      tlp_position = tlp_position)
+      tlp_position = tlp_position
+    )
   }
 
   return(tag)

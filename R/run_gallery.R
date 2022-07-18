@@ -6,7 +6,7 @@
 #' @importFrom shiny shinyAppDir
 #' @export
 
-run_gallery <- function(){
+run_gallery <- function() {
   appDir <- system.file("app", package = "ShinyRating")
   shinyAppDir(appDir)
 }

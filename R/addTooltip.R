@@ -12,17 +12,15 @@
 #' tlp_msg = "test"
 #' )
 
-addTooltip <- function(
-  el,
-  tlp_color = "black",
-  tlp_msg,
-  tlp_position = "top"
-) {
+addTooltip <- function(el,
+                       tlp_color = "black",
+                       tlp_msg,
+                       tlp_position = "top") {
   # special case of black and white
   tlp_color_css <- ifelse(
-    tlp_color == "black" | tlp_color == "white" ,
+    tlp_color == "black" | tlp_color == "white",
     tlp_color,
-    sprintf("var(--bs-%s)",tlp_color)
+    sprintf("var(--bs-%s)", tlp_color)
   )
   # tooltip
   tooltip <- tagAppendAttributes(
@@ -34,7 +32,7 @@ addTooltip <- function(
     `data-bs-trigger` = "hover focus",
     role = "button",
     tabindex = "0",
-    `data-bs-custom-class` = sprintf("tooltip-%s",tlp_color)
+    `data-bs-custom-class` = sprintf("tooltip-%s", tlp_color)
   )
   # tooltip dependence
   tooltip_dep <- htmltools::htmlDependency(
@@ -43,7 +41,7 @@ addTooltip <- function(
     package = "ShinyRating",
     src = "assets",
     script = "tooltip.js",
-    stylesheet =  c(file = "tooltip.css")
+    stylesheet = c(file = "tooltip.css")
   )
   # attach dependence
   tooltip <- tagList(tooltip_dep, tooltip)

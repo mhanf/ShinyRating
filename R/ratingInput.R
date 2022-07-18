@@ -25,35 +25,33 @@
 #'
 #' @examples
 #' ratingInput(
-#' inputId = "like",
-#' i_name = "heart",
-#' on_color = "danger"
+#'   inputId = "like",
+#'   i_name = "heart",
+#'   on_color = "danger"
 #' )
-
-ratingInput <- function(
-  # global parameters
-  inputId,
-  label = NULL,
-  width = "auto",
-  number = 5,
-  value = NA,
-  cumul = FALSE,
-  read_only = FALSE,
-  hover = FALSE,
-  # icon parameters
-  on_color = "success",
-  off_color = "dark",
-  size = 2,
-  i_name = "star",
-  i_lib = "font-awesome",
-  anim = "none",
-  duration = 2,
-  # tooltip parameters
-  tlp = FALSE,
-  tlp_msg = 1:number,
-  tlp_position = "bottom",
-  tlp_color = "black"
-){
+#'
+ratingInput <- function( # global parameters
+                        inputId,
+                        label = NULL,
+                        width = "auto",
+                        number = 5,
+                        value = NA,
+                        cumul = FALSE,
+                        read_only = FALSE,
+                        hover = FALSE,
+                        # icon parameters
+                        on_color = "success",
+                        off_color = "dark",
+                        size = 2,
+                        i_name = "star",
+                        i_lib = "font-awesome",
+                        anim = "none",
+                        duration = 2,
+                        # tooltip parameters
+                        tlp = FALSE,
+                        tlp_msg = 1:number,
+                        tlp_position = "bottom",
+                        tlp_color = "black") {
 
   # width
   width <- shiny::validateCssUnit(width)
@@ -66,7 +64,7 @@ ratingInput <- function(
   test_logical(read_only)
   test_logical(hover)
   ## valid bs color
-  valid_bs5 <- c("primary","secondary","info","warning","danger","success","light","dark","black","white")
+  valid_bs5 <- c("primary", "secondary", "info", "warning", "danger", "success", "light", "dark", "black", "white")
   # test_length
   test_length(on_color, number)
   test_length(off_color, number)
@@ -80,20 +78,20 @@ ratingInput <- function(
   test_length(tlp_position, number)
   test_length(tlp_color, number)
   # test color
-  lapply(on_color,function(i){
-    if (! i %in% valid_bs5 & !isHex(i)){
+  lapply(on_color, function(i) {
+    if (!i %in% valid_bs5 & !isHex(i)) {
       stop("on_color must be a bootstrap or a hex color")
     }
   })
-  lapply(off_color,function(i){
-    if (! i %in% valid_bs5 & !isHex(i)){
+  lapply(off_color, function(i) {
+    if (!i %in% valid_bs5 & !isHex(i)) {
       stop("off_color must be a bootstrap or a hex color")
     }
   })
   # match.arg
   match.arg(
     arg = tlp_position,
-    choices = c("top","bottom","left","right"),
+    choices = c("top", "bottom", "left", "right"),
     several.ok = TRUE
   )
   match.arg(
@@ -188,8 +186,8 @@ ratingInput <- function(
   #   several.ok = TRUE
   # )
   # transform bs color
-  on_color[on_color %in% valid_bs5 == TRUE] <- paste0("var(--bs-",on_color[on_color %in% valid_bs5 == TRUE],")")
-  off_color[off_color %in% valid_bs5 == TRUE] <- paste0("var(--bs-",off_color[off_color %in% valid_bs5 == TRUE],")")
+  on_color[on_color %in% valid_bs5 == TRUE] <- paste0("var(--bs-", on_color[on_color %in% valid_bs5 == TRUE], ")")
+  off_color[off_color %in% valid_bs5 == TRUE] <- paste0("var(--bs-", off_color[off_color %in% valid_bs5 == TRUE], ")")
 
   # create list of clickable icons
   rating_tag <- shiny::tagList(
@@ -222,14 +220,16 @@ ratingInput <- function(
       value = value,
       width = width,
       min = 1,
-      max = number))$
+      max = number
+    )
+  )$
     find("label")$
     addClass("m-0 p-0")$
     allTags()
   # add attributes and class to the hidden numeric input
   num_tag <- htmltools::tagQuery(num_tag)$
     find("input")$
-    addAttrs('number' = number)$
+    addAttrs("number" = number)$
     addClass("rating_input")$
     addClass("d-none")$
     addClass("m-0 p-0")$
@@ -241,7 +241,7 @@ ratingInput <- function(
     package = "ShinyRating",
     src = "assets",
     script = "rating.js",
-    stylesheet =  c(file = "rating.css")
+    stylesheet = c(file = "rating.css")
   )
   # animate dependency
   animate_dep <- htmltools::htmlDependency(
@@ -249,7 +249,7 @@ ratingInput <- function(
     version = "4.1.1",
     package = "ShinyRating",
     src = "assets",
-    stylesheet =  c(file = "animate.css")
+    stylesheet = c(file = "animate.css")
   )
   # Attach dependencies
   final_tag <- tagList(rating_dep, animate_dep, num_tag)

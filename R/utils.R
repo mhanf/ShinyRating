@@ -2,7 +2,7 @@
 #' @param x text
 #' @return logical,TRUE or FALSE
 
-isHex <- function(x){
+isHex <- function(x) {
   grepl("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", x)
 }
 
@@ -11,25 +11,25 @@ isHex <- function(x){
 #' @param x Vector of values
 #'
 #' @return An error if the vector has a length != 1 and different to a given number
-test_length <- function(x, number){
-  if ((length(x) > 1 & length(x) != number) | length(x) == 0){
+test_length <- function(x, number) {
+  if ((length(x) > 1 & length(x) != number) | length(x) == 0) {
     stop(
       sprintf(
         "%s length must be 1 or equal to the number parameter: %s",
         deparse(substitute(x)),
         number
-        )
       )
-    }
+    )
+  }
 }
 
 #' Test if a vector of values is null
 #' @param x Vector of values
 #' @return An error if the vector is null
-test_null <- function(x){
-  if (TRUE %in% is.null(x)){
+test_null <- function(x) {
+  if (TRUE %in% is.null(x)) {
     stop(
-    sprintf("%s must not be null", deparse(substitute(x)))
+      sprintf("%s must not be null", deparse(substitute(x)))
     )
   }
 }
@@ -37,10 +37,10 @@ test_null <- function(x){
 #' Test if values in a vector are NA
 #' @param x Vector of values
 #' @return An error if at least one value is NA
-test_na <- function(x){
-  if (TRUE %in% is.na(x)){
+test_na <- function(x) {
+  if (TRUE %in% is.na(x)) {
     stop(
-    sprintf("%s must not be na", deparse(substitute(x)))
+      sprintf("%s must not be na", deparse(substitute(x)))
     )
   }
 }
@@ -48,8 +48,8 @@ test_na <- function(x){
 #' Test if values in a vector are a string
 #' @param x Vector of values
 #' @return An error if at least one value is not a string
-test_character <- function(x){
-  if (FALSE %in% is.character(x) == TRUE){
+test_character <- function(x) {
+  if (FALSE %in% is.character(x) == TRUE) {
     stop(
       sprintf("%s must be a string", deparse(substitute(x)))
     )
@@ -59,8 +59,8 @@ test_character <- function(x){
 #' Test if values in a vector are logical
 #' @param x Vector of values
 #' @return An error if at least one value is not logical
-test_logical <- function(x){
-  if (FALSE %in% is.logical(x) == TRUE){
+test_logical <- function(x) {
+  if (FALSE %in% is.logical(x) == TRUE) {
     stop(
       sprintf("%s must be logical", deparse(substitute(x)))
     )
@@ -71,7 +71,7 @@ test_logical <- function(x){
 #' @param x Vector of values
 #' @param na_rm Logical, are NA be removed ?
 #' @return An error if at least one value is not an integer
-test_pos_integer <- function(x, na_rm = FALSE){
+test_pos_integer <- function(x, na_rm = FALSE) {
   # test na in x
   if ((TRUE %in% is.na(x)) & na_rm == FALSE) {
     stop(
@@ -86,7 +86,7 @@ test_pos_integer <- function(x, na_rm = FALSE){
   # supress na in x
   x <- x[!is.na(x)]
   # test integer in x
-  if (length(x) > 0){
+  if (length(x) > 0) {
     if ((TRUE %in% is.na(as.numeric(x)))) {
       stop(
         sprintf(
@@ -94,16 +94,14 @@ test_pos_integer <- function(x, na_rm = FALSE){
           var
         )
       )
-    }
-    else if (as.integer(x) != x) {
+    } else if (as.integer(x) != x) {
       stop(
         sprintf(
           "ShinyRating Error: %s parameter must be integer",
           var
         )
       )
-    }
-    else if (TRUE %in% (x < 0)) {
+    } else if (TRUE %in% (x < 0)) {
       stop(
         sprintf(
           "ShinyRating Error: %s parameter must be > 0",
@@ -113,8 +111,3 @@ test_pos_integer <- function(x, na_rm = FALSE){
     }
   }
 }
-
-
-
-
-
