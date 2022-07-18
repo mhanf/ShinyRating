@@ -30,7 +30,7 @@ Easy creation of rating widgets in Shiny.
 -   Read only, hover and accumulation modes
 -   Possibility to define individual setting rules for icons
 -   Compatible with server validation of inputs based on
-    [shinyanimate](https://github.com/Swechhya/shinyanimate) package
+    [shinyvalidate](https://rstudio.github.io/shinyvalidate) package
 
 ## Installation
 
@@ -149,5 +149,7 @@ By contributing to this project, you agree to abide by its terms.
 
 ## License
 
-The ShinyRating package as a whole is licensed under the HIPPOCRATIC
+The ShinyRating package as a whole is licensed under the
+[GPLv3](https://www.fsf.org/) license.The animate.css library used in
+this package is licensed under the [HL3](https://firstdonoharm.dev/)
 license.

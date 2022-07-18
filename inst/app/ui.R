@@ -135,28 +135,49 @@ ui <- shiny::navbarPage(
       ),
       # animation
       card_suite(
-        title = "Animations",
+        title = "Animations & tooltips",
         body = tagList(
-          p("To develop emphasis you can add animations on icons click as well as define their duration.
+          p("To develop emphasis you can add animations on icons click as well as tooltips on hover.
           Available animations are those from the ", tags$a(href="https://animate.style/", target="_blank", "animate.css"),"website."),
-          ratingInput("anim1", label = "anim = 'jello'", anim = "jello"),
-          ratingInput("anim2", label = "anim = 'flash'", anim = "flash"),
-          ratingInput("anim3", label = "anim = 'swing'", anim = "swing"),
-          ratingInput("anim4", label = "anim = 'jello', duration = 10", anim = "jello", duration = 10)
+          # Animations
+          div(
+            class = "row",
+            div(
+              class="col-md-6",
+              ratingInput("anim1", label = "anim = 'swing'", anim = "swing")
+            ),
+            div(
+              class="col-md-6",
+              ratingInput("anim2", label = "anim = 'swing', duration = 8", anim = "swing", duration = 8)
+            )
+          ),
+          # tooltips
+          div(
+            class = "row",
+            div(
+              class="col-md-6",
+              ratingInput("tlp1", label = "tlp = TRUE", tlp = TRUE)
+            ),
+            div(
+              class="col-md-6",
+              ratingInput("tlp2", label = "tlp = TRUE, tlp_color = 'success'",tlp = TRUE, tlp_color = "success")
+            )
+          ),
+          div(
+            class = "row",
+            div(
+              class="col-md-6",
+              ratingInput("tlp3", label = "tlp = TRUE, tlp_position = 'top'",tlp = TRUE, tlp_position = "top")
+            ),
+            div(
+              class="col-md-6",
+              ratingInput("tlp4", label = "tlp = TRUE, tlp_msg = c('A','B','C','D','E')",tlp = TRUE, tlp_msg = c('A','B','C','D','E'))
+            )
+          )
+
         )
       ),
-      # tooltips
-      card_suite(
-        title = "Tooltips",
-        body = tagList(
-          p("To develop lisibility, you can add tooltips on icons hover with personalized position, color (only bootstrap 5 colors) and label."),
-          ratingInput("tlp1", label = "tlp = TRUE", tlp = TRUE),
-          ratingInput("tlp2", label = "tlp = TRUE, tlp_color = 'danger'",tlp = TRUE, tlp_color = "danger"),
-          ratingInput("tlp3", label = "tlp = TRUE, tlp_position = 'top'",tlp = TRUE, tlp_position = "top"),
-          ratingInput("tlp4", label = "tlp = TRUE, tlp_msg = c('One','Two','Three','Four','Five')",tlp = TRUE, tlp_msg = c('One','Two','Three','Four','Five'))
-        )
-      ),
-      # Advanced options
+      # Cumul hover
       card_suite(
         title = "Others options",
         body = tagList(
