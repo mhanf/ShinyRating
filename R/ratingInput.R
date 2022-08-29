@@ -5,9 +5,10 @@
 #' @param on_color The icon colors when selected (hex or Bootstrap 5 color).
 #' @param off_color The icon colors when deselected (hex or Bootstrap 5 color).
 #' @param label Display label for the control.
-#' @param size The icon sizes (1 to 5).
-#' @param i_name The icon names.
-#' @param i_lib The icon library to use. Either "font-awesome" or "glyphicon".
+#' @param i_width The icons width in css units.
+#' @param i_height The icons height in css units.
+#' @param i_name The icon name (fontawesome) or path (local).
+#' @param i_lib The icon library to use. Either "fontawesome" or "local".
 #' @param width The width of the input, e.g. '400px', or '100%'; see validateCssUnit()
 #' @param value The Initial value.
 #' @param anim The type of animations see \href{https://animate.style/}{Animate.css}.
@@ -42,9 +43,10 @@ ratingInput <- function( # global parameters
                         # icon parameters
                         on_color = "success",
                         off_color = "dark",
-                        size = 2,
+                        i_width = NULL,
+                        i_height = NULL,
                         i_name = "star",
-                        i_lib = "font-awesome",
+                        i_lib = "fontawesome",
                         anim = "none",
                         duration = 2,
                         # tooltip parameters
@@ -68,7 +70,8 @@ ratingInput <- function( # global parameters
   # test_length
   test_length(on_color, number)
   test_length(off_color, number)
-  test_length(size, number)
+  if (is.null(i_width) == FALSE){test_length(i_width, number)}
+  if (is.null(i_height) == FALSE){test_length(i_height, number)}
   test_length(i_name, number)
   test_length(i_lib, number)
   test_length(anim, number)
@@ -90,6 +93,11 @@ ratingInput <- function( # global parameters
   })
   # match.arg
   match.arg(
+    arg = i_lib,
+    choices = c("fontawesome", "local"),
+    several.ok = TRUE
+  )
+  match.arg(
     arg = tlp_position,
     choices = c("top", "bottom", "left", "right"),
     several.ok = TRUE
@@ -99,6 +107,9 @@ ratingInput <- function( # global parameters
     choices = valid_bs5,
     several.ok = TRUE
   )
+  # test icon dimension
+  shiny::validateCssUnit(i_width)
+  shiny::validateCssUnit(i_height)
   # # test global parameters
   # # inputId
   # test_null(inputId)
@@ -200,7 +211,8 @@ ratingInput <- function( # global parameters
       init_value = value,
       on_color = on_color,
       off_color = off_color,
-      size = size,
+      i_width = i_width,
+      i_height = i_height,
       anim = anim,
       duration = duration,
       cumul = cumul,

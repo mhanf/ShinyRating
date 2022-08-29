@@ -7,14 +7,15 @@
 createIcon(
   id,
   i_name = "star",
-  i_lib = "font-awesome",
+  i_lib = "fontawesome",
   i_number = 1,
   number = 10,
   rating_id,
   on_color = "primary",
   off_color = "dark",
   init_color = "dark",
-  size = 2,
+  i_width = NULL,
+  i_height = NULL,
   anim = "none",
   duration = 2,
   cumul = FALSE,
@@ -29,9 +30,9 @@ createIcon(
 \arguments{
 \item{id}{The icon id.}
 
-\item{i_name}{The icon name.}
+\item{i_name}{The icon name (fontawesome) or path (local).}
 
-\item{i_lib}{The icon library to use. Either "font-awesome" or "glyphicon".}
+\item{i_lib}{The icon library to use. Either "fontawesome" or "local".}
 
 \item{i_number}{The icon place in the rating widget.}
 
@@ -45,7 +46,9 @@ createIcon(
 
 \item{init_color}{The icon initial color (hex or Bootstrap 5 color).}
 
-\item{size}{The icon size (1 to 5).}
+\item{i_width}{The icon width in css units.}
+
+\item{i_height}{The icon height in css units.}
 
 \item{anim}{The type of animation see \href{https://animate.style/}{Animate.css}.}
 

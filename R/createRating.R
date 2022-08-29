@@ -1,13 +1,14 @@
 #' Create rating icons
 #' @description Create rating icons for usage in \code{\link{ratingInput}}.
 #' @param rating_id The rating widget id.
-#' @param i_name The icon names.
-#' @param i_lib The icon library to use. Either "font-awesome" or "glyphicon".
+#' @param i_name The icon name (fontawesome) or path (local).
+#' @param i_lib The icon library to use. Either "fontawesome" or "local".
 #' @param number The number of icons in the rating widget.
 #' @param init_value The Initial value of the rating widget.
 #' @param on_color The icon colors when selected (hex or Bootstrap 5 color).
 #' @param off_color The icon colors when deselected (hex or Bootstrap 5 color).
-#' @param size The icon sizes (1 to 5).
+#' @param i_width The icons width in css units.
+#' @param i_height The icons height in css units.
 #' @param anim The type of animations see \href{https://animate.style/}{Animate.css}.
 #' @param duration The animation duration in seconds.
 #' @param tlp Logical, whether or not to use a tooltip for the icon.
@@ -22,12 +23,14 @@
 
 createRating <- function(rating_id,
                          i_name = "star",
-                         i_lib = "font-awesome",
+                         i_lib = "fontawesome",
                          number = 10,
                          init_value = 0,
                          on_color = "primary",
                          off_color = "dark",
-                         size = 2,
+                         #size = "2em",
+                         i_width = NULL,
+                         i_height = NULL,
                          anim = "none",
                          duration = 2,
                          cumul = FALSE,
@@ -65,13 +68,15 @@ createRating <- function(rating_id,
   if (length(duration) == 1) {
     duration <- rep(duration, number)
   }
-  if (length(size) == 1) {
-    size <- rep(size, number)
+  if (length(i_width) == 1) {
+    i_width <- rep(i_width, number)
+  }
+  if (length(i_height) == 1) {
+    i_height <- rep(i_height, number)
   }
   if (length(read_only) == 1) {
     read_only <- rep(read_only, number)
   }
-
   # lapply
   tag <- lapply(1:number, function(i) {
     # definition of initial color
@@ -93,7 +98,8 @@ createRating <- function(rating_id,
       on_color = on_color[i],
       off_color = off_color[i],
       init_color = init_color,
-      size = size[i],
+      i_width = i_width[i],
+      i_height = i_height[i],
       anim = anim[i],
       duration = duration[i],
       cumul = cumul,
