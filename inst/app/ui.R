@@ -29,11 +29,11 @@ ui <- shiny::navbarPage(
             class = "row",
             div(
               class = "col-md-6",
-              ratingInput("basic3", label = "size = 1", size = 1)
+              ratingInput("basic3", label = "i_width = 1em", i_width = "1em")
             ),
             div(
               class = "col-md-6",
-              ratingInput("basic4", label = "size = 3", size = 2)
+              ratingInput("basic4", label = "i_width = 2em", i_width = "2em")
             )
           ),
           # type
@@ -41,11 +41,11 @@ ui <- shiny::navbarPage(
             class = "row",
             div(
               class = "col-md-6",
-              ratingInput("basic5", label = "i_name = 'heart', i_lib = 'font-awesome'", i_name = "heart")
+              ratingInput("basic5", label = "i_name = 'heart', i_lib = 'fontawesome'", i_name = "heart")
             ),
             div(
               class = "col-md-6",
-              ratingInput("basic8", label = "i_name = 'cloud', i_lib = 'glyphicon'", i_name = "cloud", i_lib = "glyphicon")
+              ratingInput("basic8", label = "i_name = 'cloud', i_lib = 'fontawesome'", i_name = "cloud", i_lib = "fontawesome")
             )
           )
         )
@@ -226,11 +226,11 @@ ui <- shiny::navbarPage(
             number = 5,
             cumul = FALSE,
             hover = TRUE,
-            size = 2,
+            i_width =  "2em",
             on_color = c("danger", "warning", "dark", "info", "success"),
             off_color = "light",
-            i_name = c("angry", "frown", "meh", "smile", "laugh"),
-            i_lib = "font-awesome",
+            i_name = c("face-angry", "face-frown", "face-meh", "face-smile", "face-laugh"),
+            i_lib = "fontawesome",
             anim = "pulse",
             duration = 1,
             tlp = TRUE,

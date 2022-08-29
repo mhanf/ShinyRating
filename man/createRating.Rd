@@ -7,12 +7,13 @@
 createRating(
   rating_id,
   i_name = "star",
-  i_lib = "font-awesome",
+  i_lib = "fontawesome",
   number = 10,
   init_value = 0,
   on_color = "primary",
   off_color = "dark",
-  size = 2,
+  i_width = NULL,
+  i_height = NULL,
   anim = "none",
   duration = 2,
   cumul = FALSE,
@@ -27,9 +28,9 @@ createRating(
 \arguments{
 \item{rating_id}{The rating widget id.}
 
-\item{i_name}{The icon names.}
+\item{i_name}{The icon name (fontawesome) or path (local).}
 
-\item{i_lib}{The icon library to use. Either "font-awesome" or "glyphicon".}
+\item{i_lib}{The icon library to use. Either "fontawesome" or "local".}
 
 \item{number}{The number of icons in the rating widget.}
 
@@ -39,7 +40,9 @@ createRating(
 
 \item{off_color}{The icon colors when deselected (hex or Bootstrap 5 color).}
 
-\item{size}{The icon sizes (1 to 5).}
+\item{i_width}{The icons width in css units.}
+
+\item{i_height}{The icons height in css units.}
 
 \item{anim}{The type of animations see \href{https://animate.style/}{Animate.css}.}
 
