@@ -35,7 +35,7 @@ createIcon <- function(id,
                        on_color = "primary",
                        off_color = "dark",
                        init_color = "dark",
-                       #size = "2em",
+                       # size = "2em",
                        i_width = NULL,
                        i_height = NULL,
                        anim = "none",
@@ -61,17 +61,17 @@ createIcon <- function(id,
     read_style <- ""
   }
   # i_width standardization
-  if (is.null(i_width) == TRUE & is.null(i_height) == TRUE){
-    i_width = "2em"
+  if (is.null(i_width) == TRUE & is.null(i_height) == TRUE) {
+    i_width <- "2em"
   }
   # compilation of svg
-  if (i_lib == "fontawesome"){
+  if (i_lib == "fontawesome") {
     tag <- fontawesome::fa(
       name = i_name,
       height = i_height,
-      width = i_width)
-  }
-  else if (i_lib == "local"){
+      width = i_width
+    )
+  } else if (i_lib == "local") {
     tag <- read_icon(i_name, i_height = i_height, i_width = i_width)
   }
   # span of svg

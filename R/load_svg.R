@@ -9,15 +9,12 @@
 #' @return svg in tag
 #' @export
 
-read_icon <- function(i_name, i_width = "2em", i_height = NULL){
-
-  if (is.null(i_height) == TRUE && is.null(i_width) == FALSE){
+read_icon <- function(i_name, i_width = "2em", i_height = NULL) {
+  if (is.null(i_height) == TRUE && is.null(i_width) == FALSE) {
     style_svg <- sprintf("width:%s;fill:currentColor;stroke:currentColor;", i_width)
-  }
-  else if (is.null(i_height) == FALSE && is.null(i_width) == TRUE){
+  } else if (is.null(i_height) == FALSE && is.null(i_width) == TRUE) {
     style_svg <- sprintf("height:%s;fill:currentColor;stroke:currentColor;", i_height)
-  }
-  else {
+  } else {
     style_svg <- sprintf("height:%s;width:%s;fill:currentColor;stroke:currentColor;", i_height, i_width)
   }
 
@@ -25,9 +22,9 @@ read_icon <- function(i_name, i_width = "2em", i_height = NULL){
   attr <- xml2::xml_attrs(icon)
   xml2::xml_set_attrs(icon, NULL)
   xml2::xml_set_attrs(icon, c(
-    attr[setdiff(names(attr), c("width", "height","fill","stroke"))],
-    style = style_svg)
-  )
+    attr[setdiff(names(attr), c("width", "height", "fill", "stroke"))],
+    style = style_svg
+  ))
   icon <- xml2tags(icon)
   icon
   return(icon)
@@ -42,7 +39,7 @@ read_icon <- function(i_name, i_width = "2em", i_height = NULL){
 #' @export
 #'
 
-xml2tags <- function(x){
+xml2tags <- function(x) {
   out <- htmltools::tag(xml2::xml_name(x), varArgs = as.list(xml2::xml_attrs(x)))
   do.call(
     htmltools::tagAppendChildren,
@@ -50,4 +47,4 @@ xml2tags <- function(x){
   )
 }
 
-#essai = read_icon("C:/Users/mhanf/Downloads/doctor-hospital-medical-svgrepo-com.svg")
+# essai = read_icon("C:/Users/mhanf/Downloads/doctor-hospital-medical-svgrepo-com.svg")

@@ -70,8 +70,12 @@ ratingInput <- function( # global parameters
   # test_length
   test_length(on_color, number)
   test_length(off_color, number)
-  if (is.null(i_width) == FALSE){test_length(i_width, number)}
-  if (is.null(i_height) == FALSE){test_length(i_height, number)}
+  if (is.null(i_width) == FALSE) {
+    test_length(i_width, number)
+  }
+  if (is.null(i_height) == FALSE) {
+    test_length(i_height, number)
+  }
   test_length(i_name, number)
   test_length(i_lib, number)
   test_length(anim, number)
