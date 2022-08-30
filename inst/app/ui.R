@@ -93,11 +93,11 @@ ui <- shiny::navbarPage(
             class = "row",
             div(
               class = "col-md-6",
-              ratingInput("color1", label = "on_color = 'danger'", on_color = "danger")
+              ratingInput("color1", label = "i_on_color = 'danger'", i_on_color = "danger")
             ),
             div(
               class = "col-md-6",
-              ratingInput("color2", label = "on_color = '#D5AB55'", on_color = "#D5AB55")
+              ratingInput("color2", label = "i_on_color = '#D5AB55'", i_on_color = "#D5AB55")
             )
           ),
           # off color
@@ -105,11 +105,11 @@ ui <- shiny::navbarPage(
             class = "row",
             div(
               class = "col-md-6",
-              ratingInput("color3", label = "off_color = 'light'", off_color = "light")
+              ratingInput("color3", label = "i_off_color = 'light'", i_off_color = "light")
             ),
             div(
               class = "col-md-6",
-              ratingInput("color4", label = "off_color = '#add8e6'", off_color = "#add8e6")
+              ratingInput("color4", label = "i_off_color = '#add8e6'", i_off_color = "#add8e6")
             )
           ),
           # off on color
@@ -119,18 +119,18 @@ ui <- shiny::navbarPage(
               class = "col-md-6",
               ratingInput(
                 inputId = "color5",
-                label = "on_color = '#D5AB55', off_color = 'light'",
-                off_color = "light",
-                on_color = "#D5AB55"
+                label = "i_on_color = '#D5AB55', i_off_color = 'light'",
+                i_off_color = "light",
+                i_on_color = "#D5AB55"
               )
             ),
             div(
               class = "col-md-6",
               ratingInput(
                 inputId = "color6",
-                label = "on_color = '#D5AB55', off_color = 'black'",
-                off_color = "black",
-                on_color = "#D5AB55"
+                label = "i_on_color = '#D5AB55', i_off_color = 'black'",
+                i_off_color = "black",
+                i_on_color = "#D5AB55"
               )
             )
           )
@@ -147,11 +147,11 @@ ui <- shiny::navbarPage(
             class = "row",
             div(
               class = "col-md-6",
-              ratingInput("anim1", label = "anim = 'swing'", anim = "swing")
+              ratingInput("anim1", label = "i_anim = 'swing'", i_anim = "swing")
             ),
             div(
               class = "col-md-6",
-              ratingInput("anim2", label = "anim = 'swing', duration = 8", anim = "swing", duration = 8)
+              ratingInput("anim2", label = "i_anim = 'swing', i_duration = 8", i_anim = "swing", i_duration = 8)
             )
           ),
           # tooltips
@@ -174,7 +174,7 @@ ui <- shiny::navbarPage(
             ),
             div(
               class = "col-md-6",
-              ratingInput("tlp4", label = "tlp = TRUE, tlp_msg = c('A','B','C','D','E')", tlp = TRUE, tlp_msg = c("A", "B", "C", "D", "E"))
+              ratingInput("tlp4", label = "tlp = TRUE, i_value = c('A','B','C','D','E')", tlp = TRUE, i_value = c("A", "B", "C", "D", "E"))
             )
           )
         )
@@ -227,16 +227,16 @@ ui <- shiny::navbarPage(
             cumul = FALSE,
             hover = TRUE,
             i_width =  "2em",
-            on_color = c("danger", "warning", "dark", "info", "success"),
-            off_color = "light",
+            i_on_color = c("danger", "warning", "dark", "info", "success"),
+            i_off_color = "light",
             i_name = c("face-angry", "face-frown", "face-meh", "face-smile", "face-laugh"),
             i_lib = "fontawesome",
-            anim = "pulse",
-            duration = 1,
+            i_anim = "pulse",
+            i_duration = 1,
             tlp = TRUE,
             tlp_color = c("danger", "warning", "dark", "info", "success"),
             tlp_position = "bottom",
-            tlp_msg = c("Angry", "Frown", "Neutral", "Happy", "Excited")
+            i_value = c("Angry", "Frown", "Neutral", "Happy", "Excited")
           )
         )
       )

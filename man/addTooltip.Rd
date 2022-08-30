@@ -11,7 +11,7 @@ addTooltip(el, tlp_color = "black", tlp_msg, tlp_position = "top")
 
 \item{tlp_color}{The tooltip color, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.}
 
-\item{tlp_msg}{The character string to be shown as message in the tooltip.}
+\item{tlp_msg}{The character string to be shown as message.}
 
 \item{tlp_position}{The tooltip position, \code{"top"}, \code{"right"}, \code{"bottom"}, or \code{"left"}.}
 }

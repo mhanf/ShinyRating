@@ -4,7 +4,13 @@
 \alias{read_icon}
 \title{load an svg file}
 \usage{
-read_icon(i_name, i_width = "2em", i_height = NULL)
+read_icon(
+  i_name,
+  i_width = "2em",
+  i_height = NULL,
+  i_margin_left = "auto",
+  i_margin_right = "auto"
+)
 }
 \arguments{
 \item{i_name}{svg path}
@@ -12,6 +18,11 @@ read_icon(i_name, i_width = "2em", i_height = NULL)
 \item{i_width}{svg width}
 
 \item{i_height}{svg height}
+
+\item{i_margin_left, i_margin_right}{The length value for the margin that's either
+left or right of the icon. By default, \code{"auto"} is used for both
+properties. If space is needed on either side then a length of \code{"0.2em"} is
+recommended as a starting point.}
 }
 \value{
 svg in tag

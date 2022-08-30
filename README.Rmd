@@ -33,8 +33,8 @@ Easy creation of rating widgets in Shiny.
 ## Features
 
 * Optimized for [Bootstrap 5](https://getbootstrap.com/) 
-* possibility to use [fontawesome 6.1.2](https://fontawesome.com/icons) icons as user-defined SVG images
-* Simple definition of the number, size (height and width), type, color and animation of icons
+* Possibility to use [fontawesome 6.1.2](https://fontawesome.com/icons) icons as well as user-defined SVG images
+* Simple definition of the number, size (height and width), type, margin (left and right), color and animation of icons
 * Possibility to add tooltips
 * Read only, hover and accumulation modes
 * Possibility to define individual setting rules for icons
@@ -73,34 +73,32 @@ ui <- function(){
         align = "center",
         br(),
         ratingInput(
-          inputId = "Mood",
+          inputId = "mood",
           label = "How do you feel ?",
           number = 5,
           value = NA,
           cumul = FALSE,
           hover = TRUE,
-          i_width = "2em",
-          i_height = "2em",
-          on_color = c("danger","warning","dark","info","success"),
-          off_color = "light",
+          i_on_color = c("danger","warning","dark","info","success"),
+          i_off_color = "light",
           i_name = c("face-angry","face-frown","face-meh","face-smile","face-laugh"),
           i_lib = "fontawesome",
-          anim = "pulse",
-          duration = 1,
+          i_anim = "pulse",
+          i_duration = 1,
           tlp = TRUE,
           tlp_color = c("danger","warning","dark","info","success"),
           tlp_position = "bottom",
-          tlp_msg = c("Angry","Frown","Neutral","Happy","Excited")
+          i_value = c("Angry","Frown","Neutral","Happy","Excited")
         ),
         br(),
         ratingInput(
           inputId = "star",
           label = "Where is shinyRating on the fun scale ?",
-          anim = "tada",
+          i_anim = "tada",
           i_width = "2em",
           i_name = "star",
           i_lib = "fontawesome",
-          on_color = "#D5AB55",
+          i_on_color = "#D5AB55",
           cumul = TRUE,
           hover = TRUE
         ),
@@ -110,13 +108,19 @@ ui <- function(){
           label = "What is your favorite animal ?",
           i_width = "2.5em",
           i_name = c("cow","hippo","otter","cat","dog"),
-          anim = "heartBeat",
-          off_color = "black",
+          i_anim = "heartBeat",
+          i_margin_left = "0.5em",
+          i_margin_right = "0.5em",
+          i_off_color = "black",
           tlp = TRUE,
-          tlp_msg = c("Cow","Hippo","Otter","Cat","Dog")
+          i_value = c("Cow","Hippo","Otter","Cat","Dog")
         ),
         br(),
-        actionButton("go","Reset",class="btn-success m-1")
+        actionButton("go","Reset",class="btn-success m-1"),
+        br(),
+        textOutput("rating1"),
+        textOutput("rating2"),
+        textOutput("rating3")
       )
     )
   )
@@ -126,11 +130,17 @@ server <- function(input, output, session) {
   observeEvent( 
     input$go , {
       updateRatingInput(session, "star")
-      updateRatingInput(session, "Mood", value = 3)
+      updateRatingInput(session, "mood", value = "Angry")
       updateRatingInput(session, "animal")
     }
   )
-  #observe({print(input$Mood)})
+  observe({
+    
+    output$rating1 <- renderText(paste0("response mood: ",input$mood))
+    output$rating2 <- renderText(paste0("response star: ",input$star))
+    output$rating3 <- renderText(paste0("response animal: ",input$animal))
+    
+    })
 }
 # launch the app
 shinyApp(ui = ui, server = server)
@@ -144,7 +154,7 @@ ShinyRating::app_gallery()
 
 ## Prior art & philosophy
 
-The core functionnalities of this package are similar to those of the [ShinyRatingInput](https://github.com/stefanwilhelm/ShinyRatingInput). This package tries to overcome some limitations by being compatible with the shinyverse packages developed by Rstudio (mostly [shinyvalidate](https://rstudio.github.io/shinyvalidate/) [bslib](https://rstudio.github.io/bslib/)) and [fontawesome](https://github.com/rstudio/fontawesome) as well as extending its functionnalities (color, size, animation ...). The tooltip functionality is inspired from the one of the [bsutils](https://github.com/JohnCoene/bsutils) package. SVG loading functionnalities are strongly inspired from the ones of [icons](https://github.com/mitchelloharawild/icons) package.The idea to use [animate.css](https://animate.style/) comes from the [shinyanimate](https://github.com/Swechhya/shinyanimate) package.
+The core functionnalities of this package are similar to those of the [ShinyRatingInput](https://github.com/stefanwilhelm/ShinyRatingInput). This package tries to overcome some limitations by being compatible with the shinyverse packages developed by Rstudio (mostly [shinyvalidate](https://rstudio.github.io/shinyvalidate/), [bslib](https://rstudio.github.io/bslib/) and [fontawesome](https://github.com/rstudio/fontawesome)) as well as extending its functionnalities (color, size, animation ...). The tooltip functionality is inspired from the one of the [bsutils](https://github.com/JohnCoene/bsutils) package. SVG loading functionnalities are strongly inspired from the ones of [icons](https://github.com/mitchelloharawild/icons) package.The idea to use [animate.css](https://animate.style/) comes from the [shinyanimate](https://github.com/Swechhya/shinyanimate) package.
 
 ## Contributions
 
