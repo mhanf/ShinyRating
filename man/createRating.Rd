@@ -10,15 +10,17 @@ createRating(
   i_lib = "fontawesome",
   number = 10,
   init_value = 0,
-  on_color = "primary",
-  off_color = "dark",
+  i_on_color = "primary",
+  i_off_color = "dark",
   i_width = NULL,
   i_height = NULL,
-  anim = "none",
-  duration = 2,
+  i_anim = "none",
+  i_duration = 2,
   cumul = FALSE,
   tlp = FALSE,
-  tlp_msg = 1:number,
+  i_value = 1:number,
+  i_margin_left = "auto",
+  i_margin_right = "auto",
   tlp_position = "top",
   tlp_color = "black",
   read_only = FALSE,
@@ -36,23 +38,28 @@ createRating(
 
 \item{init_value}{The Initial value of the rating widget.}
 
-\item{on_color}{The icon colors when selected (hex or Bootstrap 5 color).}
+\item{i_on_color}{The icon colors when selected (hex or Bootstrap 5 color).}
 
-\item{off_color}{The icon colors when deselected (hex or Bootstrap 5 color).}
+\item{i_off_color}{The icon colors when deselected (hex or Bootstrap 5 color).}
 
 \item{i_width}{The icons width in css units.}
 
 \item{i_height}{The icons height in css units.}
 
-\item{anim}{The type of animations see \href{https://animate.style/}{Animate.css}.}
+\item{i_anim}{The type of animations see \href{https://animate.style/}{Animate.css}.}
 
-\item{duration}{The animation duration in seconds.}
+\item{i_duration}{The animation duration in seconds.}
 
 \item{cumul}{Logical, whether or not to use cumulative color for the icons.}
 
 \item{tlp}{Logical, whether or not to use a tooltip for the icon.}
 
-\item{tlp_msg}{The character strings to be shown as message in tooltips.}
+\item{i_value}{The character strings to be shown as message.}
+
+\item{i_margin_left, i_margin_right}{The length value for the margin that's either
+left or right of the icon. By default, \code{"auto"} is used for both
+properties. If space is needed on either side then a length of \code{"0.2em"} is
+recommended as a starting point.}
 
 \item{tlp_position}{The tooltip positions, \code{"top"}, \code{"right"}, \code{"bottom"}, or \code{"left"}.}
 

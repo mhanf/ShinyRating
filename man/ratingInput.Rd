@@ -13,16 +13,18 @@ ratingInput(
   cumul = FALSE,
   read_only = FALSE,
   hover = FALSE,
-  on_color = "success",
-  off_color = "dark",
+  i_on_color = "success",
+  i_off_color = "dark",
   i_width = NULL,
   i_height = NULL,
   i_name = "star",
   i_lib = "fontawesome",
-  anim = "none",
-  duration = 2,
+  i_anim = "none",
+  i_duration = 2,
+  i_value = 1:number,
+  i_margin_left = "auto",
+  i_margin_right = "auto",
   tlp = FALSE,
-  tlp_msg = 1:number,
   tlp_position = "bottom",
   tlp_color = "black"
 )
@@ -44,9 +46,9 @@ ratingInput(
 
 \item{hover}{Logical, whether or not to use a hover mode for the icons.}
 
-\item{on_color}{The icon colors when selected (hex or Bootstrap 5 color).}
+\item{i_on_color}{The icon colors when selected (hex or Bootstrap 5 color).}
 
-\item{off_color}{The icon colors when deselected (hex or Bootstrap 5 color).}
+\item{i_off_color}{The icon colors when deselected (hex or Bootstrap 5 color).}
 
 \item{i_width}{The icons width in css units.}
 
@@ -56,13 +58,18 @@ ratingInput(
 
 \item{i_lib}{The icon library to use. Either "fontawesome" or "local".}
 
-\item{anim}{The type of animations see \href{https://animate.style/}{Animate.css}.}
+\item{i_anim}{The type of animations see \href{https://animate.style/}{Animate.css}.}
 
-\item{duration}{The animation duration in seconds.}
+\item{i_duration}{The animation duration in seconds.}
+
+\item{i_value}{The character strings to be shown as message.}
+
+\item{i_margin_left, i_margin_right}{The length value for the margin that's either
+left or right of the icon. By default, \code{"auto"} is used for both
+properties. If space is needed on either side then a length of \code{"0.2em"} is
+recommended as a starting point.}
 
 \item{tlp}{Logical, whether or not to use a tooltip for the icon.}
-
-\item{tlp_msg}{The character strings to be shown as message in tooltips.}
 
 \item{tlp_position}{The tooltip positions, \code{"top"}, \code{"right"}, \code{"bottom"}, or \code{"left"}.}
 
@@ -78,7 +85,7 @@ Create a rating widget for usage in a Shiny UI.
 ratingInput(
   inputId = "like",
   i_name = "heart",
-  on_color = "danger"
+  i_on_color = "danger"
 )
 
 }

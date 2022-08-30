@@ -6,29 +6,43 @@
 \usage{
 createIcon(
   id,
+  number = 10,
+  rating_id,
+  cumul = FALSE,
+  tlp = FALSE,
+  read_only = FALSE,
+  hover = FALSE,
   i_name = "star",
   i_lib = "fontawesome",
   i_number = 1,
-  number = 10,
-  rating_id,
-  on_color = "primary",
-  off_color = "dark",
+  i_on_color = "primary",
+  i_off_color = "dark",
   init_color = "dark",
   i_width = NULL,
   i_height = NULL,
-  anim = "none",
-  duration = 2,
-  cumul = FALSE,
-  tlp = FALSE,
-  tlp_msg = 1,
+  i_anim = "none",
+  i_duration = 2,
+  i_value = 1,
+  i_margin_left = "auto",
+  i_margin_right = "auto",
   tlp_position = "top",
-  tlp_color = "black",
-  read_only = FALSE,
-  hover = FALSE
+  tlp_color = "black"
 )
 }
 \arguments{
 \item{id}{The icon id.}
+
+\item{number}{The total number of icons in the rating widget.}
+
+\item{rating_id}{The rating widget id.}
+
+\item{cumul}{Logical, whether or not to use cumulative color for the icon.}
+
+\item{tlp}{Logical, whether or not to use a tooltip for the icon.}
+
+\item{read_only}{Logical, whether or not to use a read only mode for the icon.}
+
+\item{hover}{Logical, whether or not to use a hover mode for the icon.}
 
 \item{i_name}{The icon name (fontawesome) or path (local).}
 
@@ -36,13 +50,9 @@ createIcon(
 
 \item{i_number}{The icon place in the rating widget.}
 
-\item{number}{The total number of icons in the rating widget.}
+\item{i_on_color}{The icon color when selected (hex or Bootstrap 5 color).}
 
-\item{rating_id}{The rating widget id.}
-
-\item{on_color}{The icon color when selected (hex or Bootstrap 5 color).}
-
-\item{off_color}{The icon color when deselected (hex or Bootstrap 5 color).}
+\item{i_off_color}{The icon color when deselected (hex or Bootstrap 5 color).}
 
 \item{init_color}{The icon initial color (hex or Bootstrap 5 color).}
 
@@ -50,23 +60,20 @@ createIcon(
 
 \item{i_height}{The icon height in css units.}
 
-\item{anim}{The type of animation see \href{https://animate.style/}{Animate.css}.}
+\item{i_anim}{The type of animation see \href{https://animate.style/}{Animate.css}.}
 
-\item{duration}{The animation duration in seconds.}
+\item{i_duration}{The animation duration in seconds.}
 
-\item{cumul}{Logical, whether or not to use cumulative color for the icon.}
+\item{i_value}{The character string to be shown as message.}
 
-\item{tlp}{Logical, whether or not to use a tooltip for the icon.}
-
-\item{tlp_msg}{The character string to be shown as message in the tooltip.}
+\item{i_margin_left, i_margin_right}{The length value for the margin that's either
+left or right of the icon. By default, \code{"auto"} is used for both
+properties. If space is needed on either side then a length of \code{"0.2em"} is
+recommended as a starting point.}
 
 \item{tlp_position}{The tooltip position, \code{"top"}, \code{"right"}, \code{"bottom"}, or \code{"left"}.}
 
 \item{tlp_color}{The tooltip color, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.}
-
-\item{read_only}{Logical, whether or not to use a read only mode for the icon.}
-
-\item{hover}{Logical, whether or not to use a hover mode for the icon.}
 }
 \value{
 A \code{shiny.tag} object for usage in \code{\link{createRating}}

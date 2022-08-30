@@ -4,25 +4,34 @@
 #' @param i_width svg width
 #' @param i_height svg height
 #' @param i_name svg path
-#'
+#' @param i_margin_left,i_margin_right The length value for the margin that's either
+#' left or right of the icon. By default, \code{"auto"} is used for both
+#' properties. If space is needed on either side then a length of \code{"0.2em"} is
+#' recommended as a starting point.
 #' @importFrom xml2 read_xml xml_attrs xml_set_attrs
 #' @return svg in tag
 #' @export
 
-read_icon <- function(i_name, i_width = "2em", i_height = NULL) {
+read_icon <- function(i_name,
+                      i_width = "2em",
+                      i_height = NULL,
+                      i_margin_left = "auto",
+                      i_margin_right = "auto") {
+  style_svg <- sprintf("fill:currentColor; stroke:currentColor; display:inline-block; margin-left:%s; margin-right:%s;", i_margin_left, i_margin_right)
+
   if (is.null(i_height) == TRUE && is.null(i_width) == FALSE) {
-    style_svg <- sprintf("width:%s;fill:currentColor;stroke:currentColor;", i_width)
+    style_svg <- sprintf("width:%s; %s", i_width, style_svg)
   } else if (is.null(i_height) == FALSE && is.null(i_width) == TRUE) {
-    style_svg <- sprintf("height:%s;fill:currentColor;stroke:currentColor;", i_height)
+    style_svg <- sprintf("height:%s; %s", i_height, style_svg)
   } else {
-    style_svg <- sprintf("height:%s;width:%s;fill:currentColor;stroke:currentColor;", i_height, i_width)
+    style_svg <- sprintf("height:%s; width:%s; %s", i_height, i_width, style_svg)
   }
 
   icon <- xml2::read_xml(i_name)
   attr <- xml2::xml_attrs(icon)
   xml2::xml_set_attrs(icon, NULL)
   xml2::xml_set_attrs(icon, c(
-    attr[setdiff(names(attr), c("width", "height", "fill", "stroke"))],
+    attr[setdiff(names(attr), c("width", "height", "fill", "stroke", "display"))],
     style = style_svg
   ))
   icon <- xml2tags(icon)

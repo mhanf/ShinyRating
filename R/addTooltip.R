@@ -2,7 +2,7 @@
 #' @description Add a tooltip to a \code{shiny.tag}.
 #' @param el A \code{shiny.tag} object
 #' @param tlp_color The tooltip color, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.
-#' @param tlp_msg The character string to be shown as message in the tooltip.
+#' @param tlp_msg The character string to be shown as message.
 #' @param tlp_position The tooltip position, \code{"top"}, \code{"right"}, \code{"bottom"}, or \code{"left"}.
 #' @importFrom htmltools htmlDependency
 #' @import shiny
