@@ -110,10 +110,12 @@ ui <- function(){
           i_margin_right = "0.5em",
           i_off_color = "black",
           tlp = TRUE,
+          tlp_color = "white",
           i_value = c("Cow","Hippo","Otter","Cat","Dog")
         ),
         br(),
         actionButton("go","Reset",class="btn-success m-1"),
+        actionButton("update","Update",class="btn-success m-1"),
         br(),
         textOutput("rating1"),
         textOutput("rating2"),
@@ -127,16 +129,21 @@ server <- function(input, output, session) {
   observeEvent( 
     input$go , {
       updateRatingInput(session, "star")
-      updateRatingInput(session, "mood", value = "Angry")
+      updateRatingInput(session, "mood")
       updateRatingInput(session, "animal")
     }
   )
+  observeEvent( 
+    input$update , {
+      updateRatingInput(session, "star",value = 5)
+      updateRatingInput(session, "mood", value = "Excited")
+      updateRatingInput(session, "animal", value = "Cat")
+    }
+  )
   observe({
-    
     output$rating1 <- renderText(paste0("response mood: ",input$mood))
     output$rating2 <- renderText(paste0("response star: ",input$star))
     output$rating3 <- renderText(paste0("response animal: ",input$animal))
-    
     })
 }
 # launch the app
@@ -146,7 +153,7 @@ shinyApp(ui = ui, server = server)
 You can run a gallery with :
 
 ``` r
-ShinyRating::app_gallery()
+ShinyRating::run_gallery()
 ```
 
 ## Prior art & philosophy

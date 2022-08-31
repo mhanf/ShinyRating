@@ -50,7 +50,6 @@ var originalColors = [];
         });
     });
 });
-
 // animation
 const animateCSS = (element, animation, prefix = 'animate__') =>
 // We create a Promise and return it
@@ -68,8 +67,6 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
     }
     node.addEventListener('animationend', handleAnimationEnd, {once: true});
   });
-
-
 // Define an event on click
 $(document).on('click', '.btn_rating', function() {
 // icon
@@ -89,8 +86,6 @@ const el = $('#' + rating_id)
 // animation
 const i_anim = el_icon.attr('i_anim');
 const cumul = el_icon.attr('cumulation');
-
-
 // change color
 for (var i = 1; i<= number; i++){
   icon_id = $('span[id=' + rating_id + i + ']');
@@ -101,16 +96,14 @@ for (var i = 1; i<= number; i++){
   else if (cumul == 'false' && i == i_number) {$('span[id=' + rating_id + i + ']').css("color", i_on_color);}
   else { $('span[id=' + rating_id + i + ']').css("color", i_off_color);}
   }
-
 // animation of clicked icon
 animateCSS(id, i_anim);
 // change input value
-el.text(i_value);
+// el.text(i_value);
 el.attr('value', i_value);
 // trigger
 el.trigger('fire');
 })
-
 // Create a new InputBinding object
 var rating_input = new Shiny.InputBinding();
 // Extend this object with methods
@@ -131,7 +124,7 @@ $.extend(rating_input, {
   },
   // Used to change the value when update for example
   setValue: function(el, value) {
-    $(el).text(value);
+    //$(el).text(value);
     $(el).attr('value', value);
   },
   // Register the event, and validate callback
@@ -163,26 +156,23 @@ $.extend(rating_input, {
     else{
       i_value = ""
     }
-
-
-
-
     // set the new value
     this.setValue(el, i_value);
     // change color
     for (var i = 1; i<= number; i++){
-      icon_id = $('span[id=' + rating_id + i + ']');
+      var icon_id = $('span[id=' + rating_id + i + ']');
       var i_on_color = icon_id.attr('i_on_color');
       var i_off_color = icon_id.attr('i_off_color');
       var cumul = icon_id.attr('cumulation');
       if (cumul == 'true' && i <= i_number) {
-        $('span[id=' + rating_id + i + ']').css("color", i_on_color);
-
+        icon_id.css("color", i_on_color);
       }
       else if (cumul == 'false' && i == i_number) {
-        $('span[id=' + rating_id + i + ']').css("color", i_on_color);
+        icon_id.css("color", i_on_color);
       }
-      else { $('span[id=' + rating_id + i + ']').css("color", i_off_color);}
+      else {
+        icon_id.css("color", i_off_color);
+      }
     }
     // fire
     $(el).trigger('fire');

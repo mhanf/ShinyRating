@@ -3,247 +3,227 @@ ui <- shiny::navbarPage(
   theme = theme,
   tabPanel(
     "Gallery",
-    # cards
-    div(
-      class = "row row-cols-1 row-cols-md-3 g-4",
-      # basics
-      card_suite(
-        title = "Basics",
-        body = tagList(
-          p("To parameter your widgets, you can easily specify the number, size, and type of icons.
-            Available icons are those from shiny icon() function."),
-          # size
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("basic1", label = "number = 3", number = 3)
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("basic2", label = "number = 5", number = 5)
-            )
-          ),
-          # size
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("basic3", label = "i_width = 1em", i_width = "1em")
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("basic4", label = "i_width = 2em", i_width = "2em")
-            )
-          ),
-          # type
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("basic5", label = "i_name = 'heart', i_lib = 'fontawesome'", i_name = "heart")
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("basic8", label = "i_name = 'cloud', i_lib = 'fontawesome'", i_name = "cloud", i_lib = "fontawesome")
+    bslib::navs_pill_list(
+      well = FALSE,
+      fluid = FALSE,
+      widths = c(2, 10),
+      # basics page
+      nav("Basics",
+          card_suite(
+            title = "Basics",
+            body = tagList(
+              div(class = "fw-bold m-1 text-success",
+                  "The number of icons is set with the ",
+                  tags$code("number"),
+                  " parameter."
+              ),
+              # number
+              fluidRow(
+                ratingInput2(inputId = "basic1", label = "number = 3", number = 3),
+                ratingInput2(inputId = "basic2", label = "number = 5", number = 5),
+                ratingInput2(inputId = "basic3", label = "number = 7", number = 7)
+              ),
+              br(),
+              div(class = "fw-bold m-1 text-success",
+                  "The width and height of icons are specified with the ",
+                  tags$code("i_width"),
+                  " and ",
+                  tags$code("i_height"),
+                  " parameters (CSS units)."
+              ),
+              # size
+              fluidRow(
+                ratingInput2(inputId = "basic4", label = "i_width = '1.5em'", i_width = "1.5em"),
+                ratingInput2(inputId = "basic5", label = "i_height = '30px'", i_height = '30px'),
+                ratingInput2(inputId = "basic6", label = "i_width = '1em', i_height = '1.5em'", i_width = '1em', i_height = '1.5em')
+              ),
+              br(),
+              # type
+              div(class = "fw-bold m-1 text-success",
+                  "The type of icons is set with the ",
+                  tags$code("i_name"),
+                  " parameter. Available icons are those from fontawesome 6.1.2."
+              ),
+              fluidRow(
+                ratingInput2(inputId = "basic7", label = "i_name = 'heart'", i_name = "heart"),
+                ratingInput2(inputId = "basic8", label = "i_name = 'cloud'", i_name = 'cloud'),
+                ratingInput2(inputId = "basic9", label = "i_name = 'cat'", i_name = 'cat')
+              ),
+              br(),
+              # color
+              div(class = "fw-bold m-1 text-success",
+                  "The off and on colors of icons are set with the ",
+                  tags$code("i_color_off"),
+                  " and ",
+                  tags$code("i_color_off"),
+                  " parameters (boostrap 5 names or hex codes)."),
+              fluidRow(
+                ratingInput2(inputId = "basic10", label = "i_on_color = '#D5AB55'", i_on_color = "#D5AB55"),
+                ratingInput2(inputId = "basic11", label = "i_off_color = 'light'", i_off_color = "light"),
+                ratingInput2(inputId = "basic12", label = "i_on_color = '#D5AB55', i_off_color = 'light'", i_on_color = "#D5AB55", i_off_color = "light")
+              )
             )
           )
-        )
       ),
-      # value
-      card_suite(
+      # value page
+      nav("Value",card_suite(
         title = "Value",
         body = tagList(
-          p("An initial value can be specified to the widget with the 'value' parameter of ratingInput()."),
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("intro1", label = "value = NA")
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("intro2", label = "value = 3", value = 3)
-            )
+          div(class = "fw-bold m-1 text-success",
+              "An initial value can be specified to the widget with the",
+              tags$code("value"),
+              " parameter of ",
+              tags$code("ratingInput()"),
+              "."),
+          div(class = "fw-bold m-1 text-success",
+              "Icon values can also be personnalized with the ",
+              tags$code("i_value"),
+              " parameter."),
+          fluidRow(
+            ratingInput2(inputId = "Value1", label = "value = NA"),
+            ratingInput2(inputId = "Value2", label = "value = 3", value = 3),
+            ratingInput2(inputId = "Value3", label = "i_value = c('A', 'B', 'C', 'D', 'E')", i_value = c('A','B','C','D','E'))
+          ),
+          fluidRow(
+            div(class = "col-md-4",textOutput("update1")),
+            div(class = "col-md-4",textOutput("update2")),
+            div(class = "col-md-4",textOutput("update3"))
           ),
           br(),
-          p("This value can be update from the server with the 'value' parameter of updateRatingInput()"),
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("intro3", label = "value = NA", value = 5),
-              actionButton("update1", "Reset", class = "btn-primary")
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("intro4", label = "value = 3"),
-              actionButton("update2", "Update", class = "btn-primary")
-            )
+          div(class = "fw-bold m-1 text-success",
+              "The widget value can be accessed from the server with ",
+              tags$code("input$InputId"),
+              "."),
+          div(class = "fw-bold m-1 text-success",
+              "This value can also be updated from the server with the ",
+              tags$code("value"),
+              " parameter of ",
+              tags$code("updateRatingInput()"),
+              "."),
+          fluidRow(
+            ratingInput2(inputId = "Value4", label = "Observe on input$InputId"),
+            ratingInput2(inputId = "Value5", label = "value = NA", value = NA),
+            ratingInput2(inputId = "Value6", label = "value = 5", value = NA),
+          ),
+          fluidRow(
+            div(class = "col-md-4",textOutput("update4")),
+            actionButton2(inputId = "reset", label = "Reset", class = "btn-primary"),
+            actionButton2(inputId = "update", label = "Update", class = "btn-primary")
           )
         )
-      ),
-      # colors
-      card_suite(
-        title = "Colors",
-        body = tagList(
-          p("To parameter your widgets, you can also specify the off and on colors of icons. Colors can be specified as Boostrap 5 names or Hex code."),
-          # on color
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("color1", label = "i_on_color = 'danger'", i_on_color = "danger")
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("color2", label = "i_on_color = '#D5AB55'", i_on_color = "#D5AB55")
-            )
-          ),
-          # off color
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("color3", label = "i_off_color = 'light'", i_off_color = "light")
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("color4", label = "i_off_color = '#add8e6'", i_off_color = "#add8e6")
-            )
-          ),
-          # off on color
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput(
-                inputId = "color5",
-                label = "i_on_color = '#D5AB55', i_off_color = 'light'",
-                i_off_color = "light",
-                i_on_color = "#D5AB55"
-              )
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput(
-                inputId = "color6",
-                label = "i_on_color = '#D5AB55', i_off_color = 'black'",
-                i_off_color = "black",
-                i_on_color = "#D5AB55"
-              )
-            )
-          )
-        )
-      ),
-      # animation
-      card_suite(
-        title = "Animations & tooltips",
-        body = tagList(
-          p("To develop emphasis you can add animations on icons click as well as tooltips on hover.
-          Available animations are those from the ", tags$a(href = "https://animate.style/", target = "_blank", "animate.css"), "website."),
-          # Animations
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("anim1", label = "i_anim = 'swing'", i_anim = "swing")
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("anim2", label = "i_anim = 'swing', i_duration = 8", i_anim = "swing", i_duration = 8)
-            )
-          ),
-          # tooltips
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("tlp1", label = "tlp = TRUE", tlp = TRUE)
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("tlp2", label = "tlp = TRUE, tlp_color = 'success'", tlp = TRUE, tlp_color = "success")
-            )
-          ),
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("tlp3", label = "tlp = TRUE, tlp_position = 'top'", tlp = TRUE, tlp_position = "top")
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("tlp4", label = "tlp = TRUE, i_value = c('A','B','C','D','E')", tlp = TRUE, i_value = c("A", "B", "C", "D", "E"))
-            )
-          )
-        )
-      ),
-      # Cumul hover
-      card_suite(
-        title = "Others options",
-        body = tagList(
-          p("Others available options to personnalize rating widgets are read-only, hover and cumulation modes, as well as the possibility to individualize previous parameters for each icon."),
-          # cumul
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("opt1", label = "cumul = TRUE", cumul = TRUE)
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("opt2", label = "cumul = FALSE", cumul = FALSE)
-            )
-          ),
-          # hover
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("opt3", label = "hover = FALSE", hover = FALSE)
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("opt4", label = "hover = TRUE", hover = TRUE)
-            )
-          ),
-          # read_only
-          div(
-            class = "row",
-            div(
-              class = "col-md-6",
-              ratingInput("opt5", label = "read_only = FALSE", value = 3, read_only = FALSE)
-            ),
-            div(
-              class = "col-md-6",
-              ratingInput("opt6", label = "read_only = TRUE", value = 3, read_only = TRUE)
-            )
-          ),
-          ratingInput(
-            inputId = "Mood",
-            label = "Individual parameters (see README)",
-            number = 5,
-            cumul = FALSE,
-            hover = TRUE,
-            i_width =  "2em",
-            i_on_color = c("danger", "warning", "dark", "info", "success"),
-            i_off_color = "light",
-            i_name = c("face-angry", "face-frown", "face-meh", "face-smile", "face-laugh"),
-            i_lib = "fontawesome",
-            i_anim = "pulse",
-            i_duration = 1,
-            tlp = TRUE,
-            tlp_color = c("danger", "warning", "dark", "info", "success"),
-            tlp_position = "bottom",
-            i_value = c("Angry", "Frown", "Neutral", "Happy", "Excited")
-          )
-        )
-      )
-    ),
-    br(),
-    br()
-  ),
+      )),
+      nav("Visual effects",
+          card_suite(title = "Visual effects",
+                     body = tagList(
+                       div(class = "fw-bold m-1 text-success",
+                           "You can add animations on icons click with ",
+                           tags$code("i_anim"),
+                           " and ",
+                           tags$code("i_duration"),
+                           " parameters. Available animations are those from the ",
+                           tags$a(href = "https://animate.style/", target = "_blank", "animate.css"),
+                           "website."
+                       ),
+                       fluidRow(
+                         ratingInput2(inputId = "effect1", label = "i_anim = 'swing'", i_anim = "swing"),
+                         ratingInput2(inputId = "effect2", label = "i_anim = 'tada'", i_anim = "tada"),
+                         ratingInput2(inputId = "effect3", label = "i_anim = 'swing', i_duration = 8", i_anim = "swing", i_duration = 8)
+                       ),
+                       br(),
+                       div(class = "fw-bold m-1 text-success",
+                           "You can add tootip on icons hover with ",
+                           tags$code("tlp"),
+                           ", ",
+                           tags$code("tlp_color"),
+                           " and ",
+                           tags$code("tlp_position"),
+                           " parameters (only bootstrap 5 colors)."
+                       ),
+                       fluidRow(
+                         ratingInput2(inputId = "tlp1", label = "tlp = TRUE", tlp = TRUE),
+                         ratingInput2(inputId = "tlp2", label = "tlp = TRUE, tlp_color = 'success'", tlp = TRUE, tlp_color = "success"),
+                         ratingInput2(inputId = "tlp3", label = "tlp = TRUE, tlp_position = 'top'", tlp = TRUE, tlp_position = "top")
+                       ),
+                       br(),
+                       div(class = "fw-bold m-1 text-success",
+                           "read-only, hover and cumulation modes are available with ",
+                           tags$code("read_only"),
+                           ", ",
+                           tags$code("hover"),
+                           " and ",
+                           tags$code("cumul"),
+                           " parameters."
+                       )
+                     )
+          ))
+      # cards
+      # div(
+      #   class = "row row-cols-1 row-cols-md-3 g-4",
+      #         # Cumul hover
+      #   card_suite(
+      #     title = "Others options",
+      #     body = tagList(
+      #       div("Others available options to personnalize rating widgets are read-only, hover and cumulation modes, as well as the possibility to individualize previous parameters for each icon."),
+      #       # cumul
+      #       div(
+      #         class = "row",
+      #         div(
+      #           class = "col-md-6",
+      #           ratingInput("opt1", label = "cumul = TRUE", cumul = TRUE)
+      #         ),
+      #         div(
+      #           class = "col-md-6",
+      #           ratingInput("opt2", label = "cumul = FALSE", cumul = FALSE)
+      #         )
+      #       ),
+      #       # hover
+      #       div(
+      #         class = "row",
+      #         div(
+      #           class = "col-md-6",
+      #           ratingInput("opt3", label = "hover = FALSE", hover = FALSE)
+      #         ),
+      #         div(
+      #           class = "col-md-6",
+      #           ratingInput("opt4", label = "hover = TRUE", hover = TRUE)
+      #         )
+      #       ),
+      #       # read_only
+      #       div(
+      #         class = "row",
+      #         div(
+      #           class = "col-md-6",
+      #           ratingInput("opt5", label = "read_only = FALSE", value = 3, read_only = FALSE)
+      #         ),
+      #         div(
+      #           class = "col-md-6",
+      #           ratingInput("opt6", label = "read_only = TRUE", value = 3, read_only = TRUE)
+      #         )
+      #       ),
+      #       ratingInput(
+      #         inputId = "Mood",
+      #         label = "Individual parameters (see README)",
+      #         number = 5,
+      #         cumul = FALSE,
+      #         hover = TRUE,
+      #         i_width =  "2em",
+      #         i_on_color = c("danger", "warning", "dark", "info", "success"),
+      #         i_off_color = "light",
+      #         i_name = c("face-angry", "face-frown", "face-meh", "face-smile", "face-laugh"),
+      #         i_lib = "fontawesome",
+      #         i_anim = "pulse",
+      #         i_duration = 1,
+      #         tlp = TRUE,
+      #         tlp_color = c("danger", "warning", "dark", "info", "success"),
+      #         tlp_position = "bottom",
+      #         i_value = c("Angry", "Frown", "Neutral", "Happy", "Excited")
+      #       )
+      #     )
+      #   )
+      # ),
+      # br(),
+      # br()
+    )),
   nav_spacer(),
   nav_item(tags$a(href = "https://github.com/mhanf/ShinyRating", icon("github", class = "fa-1x")))
 )

@@ -11,9 +11,9 @@ theme <- bslib::bs_theme(
 card_suite <- function(title,
                        body) {
   div(
-    class = "col",
+    class = "col h-100",
     tags$div(
-      class = "card text-center h-100",
+      class = "card text-center ",
       tags$div(
         class = "card-header primary-text fw-bold",
         title
@@ -23,5 +23,20 @@ card_suite <- function(title,
         body
       )
     )
+  )
+}
+
+
+# rating input with col
+
+ratingInput2 <- function(col_size = 4,...){
+  div(class = sprintf("col-md-%s", col_size),
+      ratingInput(...)
+  )
+}
+
+actionButton2 <- function(col_size = 4,...){
+  div(class = sprintf("col-md-%s", col_size),
+      actionButton(...)
   )
 }
