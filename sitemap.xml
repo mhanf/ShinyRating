@@ -1,54 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/index.html</loc>
   </url>
   <url>
-    <loc>/reference/addTooltip.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/news/index.html</loc>
   </url>
   <url>
-    <loc>/reference/createIcon.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/reference/addTooltip.html</loc>
   </url>
   <url>
-    <loc>/reference/createRating.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/reference/createIcon.html</loc>
   </url>
   <url>
-    <loc>/reference/dot-onLoad.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/reference/createRating.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/reference/dot-onLoad.html</loc>
   </url>
   <url>
-    <loc>/reference/isHex.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/ratingInput.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/reference/isHex.html</loc>
   </url>
   <url>
-    <loc>/reference/run_gallery.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/reference/ratingInput.html</loc>
   </url>
   <url>
-    <loc>/reference/test_character.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/reference/read_icon.html</loc>
   </url>
   <url>
-    <loc>/reference/test_logical.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/reference/run_gallery.html</loc>
   </url>
   <url>
-    <loc>/reference/test_pos_integer.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/reference/test_character.html</loc>
   </url>
   <url>
-    <loc>/reference/updateRatingInput.html</loc>
+    <loc>https://mhanf.github.io/ShinyRating/reference/test_length.html</loc>
+  </url>
+  <url>
+    <loc>https://mhanf.github.io/ShinyRating/reference/test_logical.html</loc>
+  </url>
+  <url>
+    <loc>https://mhanf.github.io/ShinyRating/reference/test_na.html</loc>
+  </url>
+  <url>
+    <loc>https://mhanf.github.io/ShinyRating/reference/test_null.html</loc>
+  </url>
+  <url>
+    <loc>https://mhanf.github.io/ShinyRating/reference/test_pos_integer.html</loc>
+  </url>
+  <url>
+    <loc>https://mhanf.github.io/ShinyRating/reference/updateRatingInput.html</loc>
+  </url>
+  <url>
+    <loc>https://mhanf.github.io/ShinyRating/reference/xml2tags.html</loc>
   </url>
 </urlset>
