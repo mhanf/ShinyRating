@@ -146,83 +146,58 @@ ui <- shiny::navbarPage(
                        ),
                        br(),
                        div(class = "fw-bold m-1 text-success",
-                           "read-only, hover and cumulation modes are available with ",
+                           "Read-only, hover and cumulation modes are available with ",
                            tags$code("read_only"),
                            ", ",
                            tags$code("hover"),
                            " and ",
                            tags$code("cumul"),
                            " parameters."
+                       ),
+                       fluidRow(
+                         ratingInput2(inputId = "effect4", label = "read_only = TRUE", value = 3, read_only = TRUE),
+                         ratingInput2(inputId = "effect5", label = "hover = TRUE", hover = TRUE),
+                         ratingInput2(inputId = "effect6", label = "cumul = TRUE", cumul = TRUE)
+                       ),
+                       br(),
+                       div(class = "fw-bold m-1 text-success",
+                           "The left and right margins of icons are specified with the ",
+                           tags$code("i_margin_left"),
+                           " and ",
+                           tags$code("i_margin_right"),
+                           " parameters (CSS units)."
+                       ),
+                       fluidRow(
+                         ratingInput2(inputId = "effect7", label = "i_margin_left = '0.5em'", i_margin_left = '0.5em'),
+                         ratingInput2(inputId = "effect8", label = "i_margin_right = '20px'", i_margin_right = '20px'),
+                         ratingInput2(inputId = "effect9", label = "i_margin_left = '0.5em', i_margin_right = '0.5em'", i_margin_left = '0.5em', i_margin_right = '0.5em')
                        )
                      )
-          ))
-      # cards
-      # div(
-      #   class = "row row-cols-1 row-cols-md-3 g-4",
-      #         # Cumul hover
-      #   card_suite(
-      #     title = "Others options",
-      #     body = tagList(
-      #       div("Others available options to personnalize rating widgets are read-only, hover and cumulation modes, as well as the possibility to individualize previous parameters for each icon."),
-      #       # cumul
-      #       div(
-      #         class = "row",
-      #         div(
-      #           class = "col-md-6",
-      #           ratingInput("opt1", label = "cumul = TRUE", cumul = TRUE)
-      #         ),
-      #         div(
-      #           class = "col-md-6",
-      #           ratingInput("opt2", label = "cumul = FALSE", cumul = FALSE)
-      #         )
-      #       ),
-      #       # hover
-      #       div(
-      #         class = "row",
-      #         div(
-      #           class = "col-md-6",
-      #           ratingInput("opt3", label = "hover = FALSE", hover = FALSE)
-      #         ),
-      #         div(
-      #           class = "col-md-6",
-      #           ratingInput("opt4", label = "hover = TRUE", hover = TRUE)
-      #         )
-      #       ),
-      #       # read_only
-      #       div(
-      #         class = "row",
-      #         div(
-      #           class = "col-md-6",
-      #           ratingInput("opt5", label = "read_only = FALSE", value = 3, read_only = FALSE)
-      #         ),
-      #         div(
-      #           class = "col-md-6",
-      #           ratingInput("opt6", label = "read_only = TRUE", value = 3, read_only = TRUE)
-      #         )
-      #       ),
-      #       ratingInput(
-      #         inputId = "Mood",
-      #         label = "Individual parameters (see README)",
-      #         number = 5,
-      #         cumul = FALSE,
-      #         hover = TRUE,
-      #         i_width =  "2em",
-      #         i_on_color = c("danger", "warning", "dark", "info", "success"),
-      #         i_off_color = "light",
-      #         i_name = c("face-angry", "face-frown", "face-meh", "face-smile", "face-laugh"),
-      #         i_lib = "fontawesome",
-      #         i_anim = "pulse",
-      #         i_duration = 1,
-      #         tlp = TRUE,
-      #         tlp_color = c("danger", "warning", "dark", "info", "success"),
-      #         tlp_position = "bottom",
-      #         i_value = c("Angry", "Frown", "Neutral", "Happy", "Excited")
-      #       )
-      #     )
-      #   )
-      # ),
-      # br(),
-      # br()
+          )),
+      nav("Advanced use",
+          card_suite(title = "Advanced use",
+                     body = tagList(
+                       div(class = "fw-bold m-1 text-success",
+                           "You can use user-defined svg icons with the ",
+                           tags$code("i_name"),
+                           " and ",
+                           tags$code("i_lib"),
+                           " parameters."
+                       ),
+                       fluidRow(
+                         ratingInput2(inputId = "svg1", label = "i_name = 'www/starwars.svg', i_lib = 'local'", i_name = 'www/starwars.svg', i_lib = 'local'),
+                         ratingInput2(inputId = "svg2", label = "i_name = 'www/dragon.svg', i_lib = 'local'", i_name = 'www/dragon.svg', i_lib = 'local'),
+                         ratingInput2(inputId = "svg3", label = "i_name = 'www/minion.svg', i_lib = 'local'", i_name = 'www/minion.svg', i_lib = 'local')
+                       ),
+                       br(),
+                       div(class = "fw-bold m-1 text-success",
+                           "All ",
+                           tags$code("i_"),
+                           " parameters can be defined individually for each icon."
+                       )
+                     )
+          )
+      )
     )),
   nav_spacer(),
   nav_item(tags$a(href = "https://github.com/mhanf/ShinyRating", icon("github", class = "fa-1x")))

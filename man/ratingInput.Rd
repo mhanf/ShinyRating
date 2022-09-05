@@ -46,13 +46,9 @@ ratingInput(
 
 \item{hover}{Logical, whether or not to use a hover mode for the icons.}
 
-\item{i_on_color}{The icon colors when selected (hex or Bootstrap 5 color).}
+\item{i_on_color, i_off_color}{The off and on icon colors (hex or Bootstrap 5 color).}
 
-\item{i_off_color}{The icon colors when deselected (hex or Bootstrap 5 color).}
-
-\item{i_width}{The icons width in css units.}
-
-\item{i_height}{The icons height in css units.}
+\item{i_width, i_height}{The icons width and height in css units.}
 
 \item{i_name}{The icon name (fontawesome) or path (local).}
 

@@ -2,14 +2,12 @@
 #' @description Create a rating widget for usage in a Shiny UI.
 #' @param inputId The rating widget id.
 #' @param number The number of icons in the rating widget.
-#' @param i_on_color The icon colors when selected (hex or Bootstrap 5 color).
-#' @param i_off_color The icon colors when deselected (hex or Bootstrap 5 color).
+#' @param width The width of the input, e.g. '400px', or '100%'; see validateCssUnit()
+#' @param i_on_color,i_off_color The off and on icon colors (hex or Bootstrap 5 color).
 #' @param label Display label for the control.
-#' @param i_width The icons width in css units.
-#' @param i_height The icons height in css units.
+#' @param i_width,i_height  The icons width and height in css units.
 #' @param i_name The icon name (fontawesome) or path (local).
 #' @param i_lib The icon library to use. Either "fontawesome" or "local".
-#' @param width The width of the input, e.g. '400px', or '100%'; see validateCssUnit()
 #' @param value The Initial value.
 #' @param i_anim The type of animations see \href{https://animate.style/}{Animate.css}.
 #' @param i_duration The animation duration in seconds.
