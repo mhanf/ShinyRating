@@ -58,12 +58,8 @@ ratingInput <- function( # global parameters
                         tlp = FALSE,
                         tlp_position = "bottom",
                         tlp_color = "black") {
-
-  # width
-  width <- shiny::validateCssUnit(width)
   # test_pos_integer
   test_pos_integer(number, na_rm = FALSE)
-  test_pos_integer(value, na_rm = TRUE)
   # test_logical
   test_logical(tlp)
   test_logical(cumul)
@@ -88,6 +84,8 @@ ratingInput <- function( # global parameters
   test_length(i_value, number)
   test_length(tlp_position, number)
   test_length(tlp_color, number)
+  test_length(i_margin_left, number)
+  test_length(i_margin_right, number)
   # test color
   lapply(i_on_color, function(i) {
     if (!i %in% valid_bs5 & !isHex(i)) {
@@ -99,119 +97,46 @@ ratingInput <- function( # global parameters
       stop("i_off_color must be a bootstrap or a hex color")
     }
   })
-  # match.arg
-  match.arg(
-    arg = i_lib,
-    choices = c("fontawesome", "local"),
-    several.ok = TRUE
-  )
-  match.arg(
-    arg = tlp_position,
-    choices = c("top", "bottom", "left", "right"),
-    several.ok = TRUE
-  )
-  match.arg(
-    arg = tlp_color,
-    choices = valid_bs5,
-    several.ok = TRUE
-  )
-  # test icon dimension
-  shiny::validateCssUnit(i_width)
-  shiny::validateCssUnit(i_height)
-  # test icon margin
-  shiny::validateCssUnit(i_margin_left)
-  shiny::validateCssUnit(i_margin_right)
 
-  # # test global parameters
-  # # inputId
-  # test_null(inputId)
-  # test_na(inputId)
-  # test_character(inputId)
-  # # label
-  # if (is.character(label) == FALSE & is.null(label) == FALSE){ stop("label must be NULL or a character string") }
-  #
-  # # number
-  # test_null(number)
-  # test_na(number)
-  # test_pos_integer(number)
-  # # value
-  # test_null(number)
-  # test_pos_integer(number)
-  #
-  # # test icon parameters
-  #
-  # ## on_color
-  # if (FALSE %in% is.character(on_color)){ stop("on_color must be a character string") }
-  # test_length(on_color, number)
-  # lapply(on_color,function(i){
-  #   if (! i %in% valid_bs5 & !isHex(i)){
-  #     stop("on_color must be a bootstrap or a hex color")
-  #   }
-  # })
-  # ## i_off_color
-  # if (FALSE %in% is.character(i_off_color)){ stop("i_off_color must be a character string") }
-  # test_length(i_off_color, number)
-  # lapply(i_off_color,function(i){
-  #   if (! i %in% valid_bs5 & !isHex(i)){
-  #     stop("i_off_color must be a bootstrap or a hex color")
-  #   }
-  # })
-  # ## size
-  # test_length(size, number)
-  # match.arg(
-  #   arg = size,
-  #   choices = 1:5,
-  #   several.ok = TRUE
-  # )
-  # ## i_name
-  # test_null(i_name)
-  # test_na(i_name)
-  # test_length(i_name, number)
-  # test_character(i_name)
-  # ## i_lib
-  # test_null(i_lib)
-  # test_na(i_lib)
-  # test_length(i_lib, number)
-  # ## i_anim
-  # test_null(i_anim)
-  # test_na(i_anim)
-  # test_length(i_anim, number)
-  # test_character(i_anim)
-  # ## i_duration
-  # test_null(i_duration)
-  # test_length(i_duration, number)
-  # ## tlp
-  # test_null(tlp)
-  # test_na(anim)
-  # test_length(tlp, number)
-  # test_logical(tlp)
-  # ## i_value
-  # test_null(i_value)
-  # test_na(i_value)
-  # test_length(i_value, number)
-  # test_character(i_value)
-  # ## tlp_position
-  # test_null(tlp_position)
-  # test_na(tlp_position)
-  # test_length(tlp_position, number)
-  # match.arg(
-  #   arg = tlp_position,
-  #   choices = c("top","bottom","left","right"),
-  #   several.ok = TRUE
-  #   )
-  # ## tlp_color
-  # test_null(tlp_color)
-  # test_na(tlp_color)
-  # test_length(tlp_color, number)
-  # match.arg(
-  #   arg = tlp_color,
-  #   choices = valid_bs5,
-  #   several.ok = TRUE
-  # )
+  lapply(i_lib, function(i) {
+    # match.arg
+    match.arg(
+      arg = i,
+      choices = c("fontawesome", "local"),
+      several.ok = TRUE
+    )
+  })
+  lapply(tlp_position, function(i) {
+    match.arg(
+      arg = i,
+      choices = c("top", "bottom", "left", "right"),
+      several.ok = TRUE
+    )
+  })
+  lapply(tlp_color, function(i) {
+    match.arg(
+      arg = i,
+      choices = valid_bs5,
+      several.ok = TRUE
+    )
+  })
+  # test icon dimension
+  lapply(i_width, function(i) {
+    shiny::validateCssUnit(i)
+  })
+  lapply(i_height, function(i) {
+    shiny::validateCssUnit(i)
+  })
+  # test icon margin
+  lapply(i_margin_left, function(i) {
+    shiny::validateCssUnit(i)
+  })
+  lapply(i_margin_right, function(i) {
+    shiny::validateCssUnit(i)
+  })
   # transform bs color
   i_on_color[i_on_color %in% valid_bs5 == TRUE] <- paste0("var(--bs-", i_on_color[i_on_color %in% valid_bs5 == TRUE], ")")
   i_off_color[i_off_color %in% valid_bs5 == TRUE] <- paste0("var(--bs-", i_off_color[i_off_color %in% valid_bs5 == TRUE], ")")
-
   # create list of clickable icons
   rating_tag <- shiny::tagList(
     shiny::div(label),
@@ -244,9 +169,7 @@ ratingInput <- function( # global parameters
       inputId = inputId,
       label = rating_tag,
       value = value,
-      width = width # ,
-      # min = 1,
-      # max = number
+      width = width
     )
   )$
     find("label")$

@@ -8,11 +8,11 @@ ui <- shiny::navbarPage(
       fluid = FALSE,
       widths = c(2, 10),
       # basics page
-      nav("Basics",
+      nav("Overview",
           card_suite(
-            title = "Basics",
+            title = "Overview",
             body = tagList(
-              div(class = "fw-bold m-1 text-success",
+              div(class = "bg-light p-1",
                   "The number of icons is set with the ",
                   tags$code("number"),
                   " parameter."
@@ -24,7 +24,7 @@ ui <- shiny::navbarPage(
                 ratingInput2(inputId = "basic3", label = "number = 7", number = 7)
               ),
               br(),
-              div(class = "fw-bold m-1 text-success",
+              div(class = "bg-light p-1",
                   "The width and height of icons are specified with the ",
                   tags$code("i_width"),
                   " and ",
@@ -39,7 +39,7 @@ ui <- shiny::navbarPage(
               ),
               br(),
               # type
-              div(class = "fw-bold m-1 text-success",
+              div(class = "bg-light p-1",
                   "The type of icons is set with the ",
                   tags$code("i_name"),
                   " parameter. Available icons are those from fontawesome 6.1.2."
@@ -51,7 +51,7 @@ ui <- shiny::navbarPage(
               ),
               br(),
               # color
-              div(class = "fw-bold m-1 text-success",
+              div(class = "bg-light p-1",
                   "The off and on colors of icons are set with the ",
                   tags$code("i_color_off"),
                   " and ",
@@ -69,13 +69,13 @@ ui <- shiny::navbarPage(
       nav("Value",card_suite(
         title = "Value",
         body = tagList(
-          div(class = "fw-bold m-1 text-success",
+          div(class = "bg-light p-1",
               "An initial value can be specified to the widget with the",
               tags$code("value"),
               " parameter of ",
               tags$code("ratingInput()"),
               "."),
-          div(class = "fw-bold m-1 text-success",
+          div(class = "bg-light p-1",
               "Icon values can also be personnalized with the ",
               tags$code("i_value"),
               " parameter."),
@@ -90,11 +90,11 @@ ui <- shiny::navbarPage(
             div(class = "col-md-4",textOutput("update3"))
           ),
           br(),
-          div(class = "fw-bold m-1 text-success",
+          div(class = "bg-light p-1",
               "The widget value can be accessed from the server with ",
               tags$code("input$InputId"),
               "."),
-          div(class = "fw-bold m-1 text-success",
+          div(class = "bg-light p-1",
               "This value can also be updated from the server with the ",
               tags$code("value"),
               " parameter of ",
@@ -115,7 +115,7 @@ ui <- shiny::navbarPage(
       nav("Visual effects",
           card_suite(title = "Visual effects",
                      body = tagList(
-                       div(class = "fw-bold m-1 text-success",
+                       div(class = "bg-light p-1",
                            "You can add animations on icons click with ",
                            tags$code("i_anim"),
                            " and ",
@@ -130,7 +130,7 @@ ui <- shiny::navbarPage(
                          ratingInput2(inputId = "effect3", label = "i_anim = 'swing', i_duration = 8", i_anim = "swing", i_duration = 8)
                        ),
                        br(),
-                       div(class = "fw-bold m-1 text-success",
+                       div(class = "bg-light p-1",
                            "You can add tootip on icons hover with ",
                            tags$code("tlp"),
                            ", ",
@@ -145,7 +145,7 @@ ui <- shiny::navbarPage(
                          ratingInput2(inputId = "tlp3", label = "tlp = TRUE, tlp_position = 'top'", tlp = TRUE, tlp_position = "top")
                        ),
                        br(),
-                       div(class = "fw-bold m-1 text-success",
+                       div(class = "bg-light p-1",
                            "Read-only, hover and cumulation modes are available with ",
                            tags$code("read_only"),
                            ", ",
@@ -160,7 +160,7 @@ ui <- shiny::navbarPage(
                          ratingInput2(inputId = "effect6", label = "cumul = TRUE", cumul = TRUE)
                        ),
                        br(),
-                       div(class = "fw-bold m-1 text-success",
+                       div(class = "bg-light p-1",
                            "The left and right margins of icons are specified with the ",
                            tags$code("i_margin_left"),
                            " and ",
@@ -177,7 +177,7 @@ ui <- shiny::navbarPage(
       nav("Advanced use",
           card_suite(title = "Advanced use",
                      body = tagList(
-                       div(class = "fw-bold m-1 text-success",
+                       div(class = "bg-light p-1",
                            "You can use user-defined svg icons with the ",
                            tags$code("i_name"),
                            " and ",
@@ -190,15 +190,77 @@ ui <- shiny::navbarPage(
                          ratingInput2(inputId = "svg3", label = "i_name = 'www/minion.svg', i_lib = 'local'", i_name = 'www/minion.svg', i_lib = 'local')
                        ),
                        br(),
-                       div(class = "fw-bold m-1 text-success",
+                       div(class = "bg-light p-1",
                            "All ",
                            tags$code("i_"),
+                           " and ",
+                           tags$code("tlp_"),
                            " parameters can be defined individually for each icon."
+                       ),
+                       fluidRow(
+                         ratingInput2(inputId = "svg4", label = "i_on_color = c('danger','warning','primary','info','success')", i_on_color = c('danger','warning','primary','info','success')),
+                         ratingInput2(inputId = "svg5", label = "i_name = c('cow','hippo','otter','cat','dog')", i_name = c('cow','hippo','otter','cat','dog')),
+                         ratingInput2(inputId = "svg6", label = "tlp_color = c('danger','warning','primary','info','success')", tlp = TRUE, tlp_color = c('danger','warning','primary','info','success'))
+                       ),
+                       fluidRow(
+                         ratingInput2(inputId = "svg7", label = "i_width = c('1.2em','1.4em','1.6em','1.8em','2em')", i_width = c('1.2em','1.4em','1.6em','1.8em','2em')),
+                         ratingInput2(inputId = "svg8", label = "i_margin_left = c('0em','0.4em','0.8em','1.2em','1.6em')", i_margin_left = c('0em','0.4em','0.8em','1.2em','1.6em')),
+                         ratingInput2(inputId = "svg9", label = "i_anim = c('bounce','flash','pulse','tada','jello')", i_anim = c('bounce','flash','pulse','tada','jello'))
+                       ),
+                       br(),
+                       div(class = "bg-light p-1", "You can now play with ShinyRating, have fun !"),
+                       fluidRow(
+                         ratingInput2(
+                           inputId = "mood",
+                           label = "How do you feel ?",
+                           number = 5,
+                           value = NA,
+                           cumul = FALSE,
+                           hover = TRUE,
+                           i_on_color = c("danger","warning","dark","info","success"),
+                           i_off_color = "light",
+                           i_name = c("face-angry","face-frown","face-meh","face-smile","face-laugh"),
+                           i_lib = "fontawesome",
+                           i_anim = "pulse",
+                           i_duration = 1,
+                           tlp = TRUE,
+                           tlp_color = c("danger","warning","dark","info","success"),
+                           tlp_position = "bottom",
+                           i_value = c("Angry","Frown","Neutral","Happy","Excited")
+                         ),
+                         ratingInput2(
+                           inputId = "star",
+                           label = "Where is shinyRating on the fun scale ?",
+                           i_anim = "tada",
+                           i_width = "2em",
+                           i_name = "star",
+                           i_lib = "fontawesome",
+                           i_on_color = "#D5AB55",
+                           cumul = TRUE,
+                           hover = TRUE
+                         ),
+                         ratingInput2(
+                           inputId = "animal",
+                           label = "What is your favorite animal ?",
+                           i_width = "2.5em",
+                           i_name = c("cow","hippo","otter","cat","dog"),
+                           i_anim = "heartBeat",
+                           i_margin_left = "0.5em",
+                           i_margin_right = "0.5em",
+                           i_off_color = "black",
+                           i_on_color = "danger",
+                           tlp = TRUE,
+                           tlp_color = "white",
+                           i_value = c("Cow","Hippo","Otter","Cat","Dog")
+                         ),
+                         br()
                        )
-                     )
+
+
+                           )
           )
       )
     )),
   nav_spacer(),
-  nav_item(tags$a(href = "https://github.com/mhanf/ShinyRating", icon("github", class = "fa-1x")))
+  nav_item(tags$a(href = "https://github.com/mhanf/ShinyRating", fontawesome::fa("github", width = "1.3em",position = "relative")))
 )

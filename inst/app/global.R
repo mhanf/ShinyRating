@@ -15,7 +15,7 @@ card_suite <- function(title,
     tags$div(
       class = "card text-center ",
       tags$div(
-        class = "card-header primary-text fw-bold",
+        class = "card-header bg-primary fw-bold",
         title
       ),
       tags$div(

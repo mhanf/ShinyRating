@@ -56,4 +56,4 @@ xml2tags <- function(x) {
   )
 }
 
-#essai = read_icon("C:/Users/mhanf/Downloads/298963_fighter_rebel_x-wing_icon.svg")
+# essai = read_icon("C:/Users/mhanf/Downloads/298963_fighter_rebel_x-wing_icon.svg")

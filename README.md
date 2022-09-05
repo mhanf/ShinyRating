@@ -156,6 +156,8 @@ You can run a gallery with :
 ShinyRating::run_gallery()
 ```
 
+A live version is available here : <http://>…
+
 ## Prior art & philosophy
 
 The core functionnalities of this package are similar to those of the
