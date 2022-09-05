@@ -21,25 +21,25 @@ Change the value of a rating input on the client
 }
 \examples{
 if (interactive()) {
-library(shiny)
-library(bslib)
-library(ShinyRating)
+  library(shiny)
+  library(bslib)
+  library(ShinyRating)
 
-ui <- fluidPage(
-theme = bslib::bs_theme(version = 5, bootwatch = "flatly"),
-ratingInput(
-  inputId = "id1",
-  i_name = "star",
-  i_on_color = "danger"
-  ),
-  shiny::actionButton("update","Update")
-)
-server <- function(input, output, session) {
-shiny::observeEvent(input$update, {
-updateRatingInput(session = session, inputId = "id1",value = 4)
-})
+  ui <- fluidPage(
+    theme = bslib::bs_theme(version = 5, bootwatch = "flatly"),
+    ratingInput(
+      inputId = "id1",
+      i_name = "star",
+      i_on_color = "danger"
+    ),
+    shiny::actionButton("update", "Update")
+  )
+  server <- function(input, output, session) {
+    shiny::observeEvent(input$update, {
+      updateRatingInput(session = session, inputId = "id1", value = 4)
+    })
+  }
+  shiny::shinyApp(ui, server)
+}
 
-}
-shiny::shinyApp(ui, server)
-}
 }

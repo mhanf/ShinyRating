@@ -23,39 +23,6 @@ test_length <- function(x, number) {
   }
 }
 
-#' Test if a vector of values is null
-#' @param x Vector of values
-#' @return An error if the vector is null
-test_null <- function(x) {
-  if (TRUE %in% is.null(x)) {
-    stop(
-      sprintf("%s must not be null", deparse(substitute(x)))
-    )
-  }
-}
-
-#' Test if values in a vector are NA
-#' @param x Vector of values
-#' @return An error if at least one value is NA
-test_na <- function(x) {
-  if (TRUE %in% is.na(x)) {
-    stop(
-      sprintf("%s must not be na", deparse(substitute(x)))
-    )
-  }
-}
-
-#' Test if values in a vector are a string
-#' @param x Vector of values
-#' @return An error if at least one value is not a string
-test_character <- function(x) {
-  if (FALSE %in% is.character(x) == TRUE) {
-    stop(
-      sprintf("%s must be a string", deparse(substitute(x)))
-    )
-  }
-}
-
 #' Test if values in a vector are logical
 #' @param x Vector of values
 #' @return An error if at least one value is not logical
