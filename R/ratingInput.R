@@ -49,7 +49,7 @@
 #'   }
 #'   shiny::shinyApp(ui, server)
 #' }
-#'
+
 ratingInput <- function( # global parameters
                         inputId,
                         label = NULL,

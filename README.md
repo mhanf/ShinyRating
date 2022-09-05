@@ -189,6 +189,6 @@ By contributing to this project, you agree to abide by its terms.
 ## License
 
 The ShinyRating package as a whole is licensed under the
-[GPLv3](https://www.fsf.org/) license.The animate.css library used in
-this package is licensed under the [HL3](https://firstdonoharm.dev/)
-license.
+[MIT](https://opensource.org/licenses/mit-license.php) license.The
+animate.css library used in this package is licensed under the
+[HL3](https://firstdonoharm.dev/) license.

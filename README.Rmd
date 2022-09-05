@@ -167,8 +167,8 @@ The core functionnalities of this package are similar to those of the [ShinyRati
 
 ## Contributions
 
-The developer and maintainer is [mhanf](https://github.com/mhanf). External contributions are welcome. Please keep in mind that I am not a professional R developer but an enthusiastic R data scientist who plays with shiny and javascript as a pretext to learn new stuffs. Unfortunately, so is my code. Please note that the ShinyRating project is released with a [Contributor Code of Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+The developer and maintainer is [mhanf](https://github.com/mhanf). External contributions are welcome. Please keep in mind that I am not a professional R developer but an enthusiastic R data scientist who plays with shiny and javascript as a pretext to learn new stuffs. Unfortunately, so is my code. Please note that the ShinyRating project is released with a [Contributor Code of Conduct](https://mhanf.github.io/ShinyRating/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
 ## License
 
-The ShinyRating package as a whole is licensed under the [GPLv3](https://www.fsf.org/) license.The animate.css library used in this package is licensed under the [HL3](https://firstdonoharm.dev/) license.
+The ShinyRating package as a whole is licensed under the [MIT](https://opensource.org/licenses/mit-license.php) license.The animate.css library used in this package is licensed under the [HL3](https://firstdonoharm.dev/) license.
