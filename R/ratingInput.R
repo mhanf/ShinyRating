@@ -1,7 +1,7 @@
-#' Create a rating widget
-#' @description Create a rating widget for usage in a Shiny UI.
-#' @param inputId The rating widget id.
-#' @param number The number of icons in the rating widget.
+#' Create a rating input
+#' @description Create a rating input for usage in a Shiny UI.
+#' @param inputId The rating input id.
+#' @param number The number of icons in the rating input.
 #' @param width The width of the input, e.g. '400px', or '100%'; see validateCssUnit()
 #' @param i_on_color,i_off_color The off and on icon colors (hex or Bootstrap 5 color).
 #' @param label Display label for the control.
@@ -23,16 +23,34 @@
 #' properties. If space is needed on either side then a length of \code{"0.2em"} is
 #' recommended as a starting point.
 #' @import shiny
-#' @return A rating widget for usage in Shiny UI.
+#' @importFrom bslib bs_theme
+#' @return A rating input for usage in Shiny UI.
 #' @export
 #'
 #' @examples
-#' ratingInput(
-#'   inputId = "like",
-#'   i_name = "heart",
-#'   i_on_color = "danger"
-#' )
+#' if (interactive()) {
+#' library(shiny)
+#' library(bslib)
+#' library(ShinyRating)
 #'
+#' ui <- fluidPage(
+#' theme = bslib::bs_theme(version = 5, bootwatch = "flatly"),
+#' ratingInput(
+#'   inputId = "id1",
+#'   i_name = "star",
+#'   i_on_color = "danger"
+#'   ),
+#'   shiny::actionButton("update","Update")
+#' )
+#' server <- function(input, output, session) {
+#' shiny::observeEvent(input$update, {
+#' updateRatingInput(session = session, inputId = "id1",value = 4)
+#' })
+#'
+#' }
+#' shiny::shinyApp(ui, server)
+#' }
+
 ratingInput <- function( # global parameters
                         inputId,
                         label = NULL,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/ratingInput.R
 \name{ratingInput}
 \alias{ratingInput}
-\title{Create a rating widget}
+\title{Create a rating input}
 \usage{
 ratingInput(
   inputId,
@@ -30,13 +30,13 @@ ratingInput(
 )
 }
 \arguments{
-\item{inputId}{The rating widget id.}
+\item{inputId}{The rating input id.}
 
 \item{label}{Display label for the control.}
 
 \item{width}{The width of the input, e.g. '400px', or '100\%'; see validateCssUnit()}
 
-\item{number}{The number of icons in the rating widget.}
+\item{number}{The number of icons in the rating input.}
 
 \item{value}{The Initial value.}
 
@@ -72,16 +72,32 @@ recommended as a starting point.}
 \item{tlp_color}{The tooltip colors, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.}
 }
 \value{
-A rating widget for usage in Shiny UI.
+A rating input for usage in Shiny UI.
 }
 \description{
-Create a rating widget for usage in a Shiny UI.
+Create a rating input for usage in a Shiny UI.
 }
 \examples{
-ratingInput(
-  inputId = "like",
-  i_name = "heart",
-  i_on_color = "danger"
-)
+if (interactive()) {
+library(shiny)
+library(bslib)
+library(ShinyRating)
 
+ui <- fluidPage(
+theme = bslib::bs_theme(version = 5, bootwatch = "flatly"),
+ratingInput(
+  inputId = "id1",
+  i_name = "star",
+  i_on_color = "danger"
+  ),
+  shiny::actionButton("update","Update")
+)
+server <- function(input, output, session) {
+shiny::observeEvent(input$update, {
+updateRatingInput(session = session, inputId = "id1",value = 4)
+})
+
+}
+shiny::shinyApp(ui, server)
+}
 }

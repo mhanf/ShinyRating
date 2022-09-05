@@ -10,5 +10,5 @@ run_gallery()
 No returned value, this function just runs a Shiny app.
 }
 \description{
-Shiny app demonstrating the rating widget capabilities.
+Shiny app demonstrating the rating input capabilities.
 }

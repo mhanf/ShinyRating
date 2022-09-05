@@ -28,15 +28,15 @@ createRating(
 )
 }
 \arguments{
-\item{rating_id}{The rating widget id.}
+\item{rating_id}{The rating input id.}
 
 \item{i_name}{The icon name (fontawesome) or path (local).}
 
 \item{i_lib}{The icon library to use. Either "fontawesome" or "local".}
 
-\item{number}{The number of icons in the rating widget.}
+\item{number}{The number of icons in the rating input.}
 
-\item{init_value}{The Initial value of the rating widget.}
+\item{init_value}{The Initial value of the rating input.}
 
 \item{i_on_color}{The icon colors when selected (hex or Bootstrap 5 color).}
 

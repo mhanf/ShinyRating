@@ -28,7 +28,7 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/ShinyRating)](https://CRAN.R-project.org/package=ShinyRating)
 <!-- badges: end -->
 
-Easy creation of rating widgets in Shiny.
+Easy creation of rating inputs in Shiny.
 
 ## Features
 

@@ -1,10 +1,10 @@
 #' Create rating icons
 #' @description Create rating icons for usage in \code{\link{ratingInput}}.
-#' @param rating_id The rating widget id.
+#' @param rating_id The rating input id.
 #' @param i_name The icon name (fontawesome) or path (local).
 #' @param i_lib The icon library to use. Either "fontawesome" or "local".
-#' @param number The number of icons in the rating widget.
-#' @param init_value The Initial value of the rating widget.
+#' @param number The number of icons in the rating input.
+#' @param init_value The Initial value of the rating input.
 #' @param i_on_color The icon colors when selected (hex or Bootstrap 5 color).
 #' @param i_off_color The icon colors when deselected (hex or Bootstrap 5 color).
 #' @param i_width The icons width in css units.

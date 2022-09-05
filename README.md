@@ -18,7 +18,7 @@ GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://opensource.
 status](https://www.r-pkg.org/badges/version/ShinyRating)](https://CRAN.R-project.org/package=ShinyRating)
 <!-- badges: end -->
 
-Easy creation of rating widgets in Shiny.
+Easy creation of rating inputs in Shiny.
 
 ## Features
 

@@ -1,5 +1,5 @@
 
-#' load an svg file
+#' Load an svg file
 #'
 #' @param i_width svg width
 #' @param i_height svg height
@@ -10,7 +10,6 @@
 #' recommended as a starting point.
 #' @importFrom xml2 read_xml xml_attrs xml_set_attrs
 #' @return svg in tag
-#' @export
 
 read_icon <- function(i_name,
                       i_width = "2em",
@@ -39,14 +38,12 @@ read_icon <- function(i_name,
   return(icon)
 }
 
-#' transform xml into tags
+#' Transform xml into tags
 #'
 #' @param x xml
 #' @importFrom htmltools tag tagAppendChildren
 #' @importFrom xml2 xml_name xml_attrs xml_children
 #' @return xml in tags
-#' @export
-#'
 
 xml2tags <- function(x) {
   out <- htmltools::tag(xml2::xml_name(x), varArgs = as.list(xml2::xml_attrs(x)))

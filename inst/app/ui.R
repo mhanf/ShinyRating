@@ -70,7 +70,7 @@ ui <- shiny::navbarPage(
         title = "Value",
         body = tagList(
           div(class = "bg-light p-1",
-              "An initial value can be specified to the widget with the",
+              "An initial value can be specified to the input with the",
               tags$code("value"),
               " parameter of ",
               tags$code("ratingInput()"),
@@ -91,7 +91,7 @@ ui <- shiny::navbarPage(
           ),
           br(),
           div(class = "bg-light p-1",
-              "The widget value can be accessed from the server with ",
+              "The input value can be accessed from the server with ",
               tags$code("input$InputId"),
               "."),
           div(class = "bg-light p-1",

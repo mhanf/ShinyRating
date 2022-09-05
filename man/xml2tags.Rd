@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_svg.R
 \name{xml2tags}
 \alias{xml2tags}
-\title{transform xml into tags}
+\title{Transform xml into tags}
 \usage{
 xml2tags(x)
 }
@@ -13,5 +13,5 @@ xml2tags(x)
 xml in tags
 }
 \description{
-transform xml into tags
+Transform xml into tags
 }

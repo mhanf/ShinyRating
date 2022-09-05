@@ -1,9 +1,9 @@
-#' load package dependencies
+#' Load package dependencies
 #'
 #' @param libname libname
 #' @param pkgname pkgname
 #' @importFrom shiny addResourcePath
-#' @return load package dependencies
+#' @return Load package dependencies
 #'
 
 .onLoad <- function(libname, pkgname) {

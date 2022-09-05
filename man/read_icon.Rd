@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_svg.R
 \name{read_icon}
 \alias{read_icon}
-\title{load an svg file}
+\title{Load an svg file}
 \usage{
 read_icon(
   i_name,
@@ -28,5 +28,5 @@ recommended as a starting point.}
 svg in tag
 }
 \description{
-load an svg file
+Load an svg file
 }

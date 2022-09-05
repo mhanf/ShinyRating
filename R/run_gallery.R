@@ -1,5 +1,5 @@
 #' Shiny app: shinyRating capabilities
-#' @description Shiny app demonstrating the rating widget capabilities.
+#' @description Shiny app demonstrating the rating input capabilities.
 #'
 #' @return No returned value, this function just runs a Shiny app.
 #'

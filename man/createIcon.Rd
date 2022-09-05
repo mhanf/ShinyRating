@@ -32,9 +32,9 @@ createIcon(
 \arguments{
 \item{id}{The icon id.}
 
-\item{number}{The total number of icons in the rating widget.}
+\item{number}{The total number of icons in the rating input.}
 
-\item{rating_id}{The rating widget id.}
+\item{rating_id}{The rating input id.}
 
 \item{cumul}{Logical, whether or not to use cumulative color for the icon.}
 
@@ -48,7 +48,7 @@ createIcon(
 
 \item{i_lib}{The icon library to use. Either "fontawesome" or "local".}
 
-\item{i_number}{The icon place in the rating widget.}
+\item{i_number}{The icon place in the rating input.}
 
 \item{i_on_color}{The icon color when selected (hex or Bootstrap 5 color).}
 

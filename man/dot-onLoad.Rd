@@ -2,7 +2,7 @@
 % Please edit documentation in R/zzz.R
 \name{.onLoad}
 \alias{.onLoad}
-\title{load package dependencies}
+\title{Load package dependencies}
 \usage{
 .onLoad(libname, pkgname)
 }
@@ -12,8 +12,8 @@
 \item{pkgname}{pkgname}
 }
 \value{
-load package dependencies
+Load package dependencies
 }
 \description{
-load package dependencies
+Load package dependencies
 }
