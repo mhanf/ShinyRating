@@ -13,7 +13,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!--[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.org/web/licenses/MIT)-->
 [![R-CMD-check](https://github.com/mhanf/ShinyRating/workflows/R-CMD-check/badge.svg)](https://github.com/mhanf/ShinyRating/actions)
 [![License:
-GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://opensource.org/licenses/GPL-3.0)
+MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/GPL-3.0)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ShinyRating)](https://CRAN.R-project.org/package=ShinyRating)
 <!-- badges: end -->
@@ -22,17 +22,17 @@ Easy creation of rating inputs in Shiny.
 
 ## Features
 
--   Optimized for [Bootstrap 5](https://getbootstrap.com/)
+-   Optimized for [Bootstrap 5](https://getbootstrap.com/).
 -   Possibility to use [fontawesome
     6.1.2](https://fontawesome.com/icons) icons as well as user-defined
-    SVG images
+    SVG images.
 -   Simple definition of the number, size (height and width), type,
-    margin (left and right), color and animation of icons
--   Possibility to add tooltips
--   Read only, hover and accumulation modes
--   Possibility to define individual setting rules for icons
+    margin (left and right), color and animation of icons.
+-   Possibility to add tooltips.
+-   Read only, hover and accumulation modes.
+-   Possibility to define individual setting rules for icons.
 -   Compatible with server validation of inputs based on
-    [shinyvalidate](https://rstudio.github.io/shinyvalidate) package
+    [shinyvalidate](https://rstudio.github.io/shinyvalidate) package.
 
 ## Installation
 
