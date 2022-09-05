@@ -183,8 +183,8 @@ professional R developer but an enthusiastic R data scientist who plays
 with shiny and javascript as a pretext to learn new stuffs.
 Unfortunately, so is my code. Please note that the ShinyRating project
 is released with a [Contributor Code of
-Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
-By contributing to this project, you agree to abide by its terms.
+Conduct](https://mhanf.github.io/ShinyRating/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.
 
 ## License
 
