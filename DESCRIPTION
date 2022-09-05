@@ -7,7 +7,7 @@ Authors@R:
 Description: This package  allows the use of rating widgets in R Shiny.
 URL: https://github.com/mhanf/ShinyRating
 BugReports: https://github.com/mhanf/ShinyRating/issues
-License: GPL (>= 3) + file LICENSE
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
