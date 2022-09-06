@@ -10,6 +10,7 @@
 #' recommended as a starting point.
 #' @importFrom xml2 read_xml xml_attrs xml_set_attrs
 #' @return svg in tag
+#' @keyword internal
 
 read_icon <- function(i_name,
                       i_width = "2em",
@@ -44,6 +45,7 @@ read_icon <- function(i_name,
 #' @importFrom htmltools tag tagAppendChildren
 #' @importFrom xml2 xml_name xml_attrs xml_children
 #' @return xml in tags
+#' @keyword internal
 
 xml2tags <- function(x) {
   out <- htmltools::tag(xml2::xml_name(x), varArgs = as.list(xml2::xml_attrs(x)))
