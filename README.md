@@ -100,26 +100,11 @@ ui <- function(){
           hover = TRUE
         ),
         br(),
-        ratingInput(
-          inputId = "animal",
-          label = "What is your favorite animal ?",
-          i_width = "2.5em",
-          i_name = c("cow","hippo","otter","cat","dog"),
-          i_anim = "heartBeat",
-          i_margin_left = "0.5em",
-          i_margin_right = "0.5em",
-          i_off_color = "black",
-          tlp = TRUE,
-          tlp_color = "white",
-          i_value = c("Cow","Hippo","Otter","Cat","Dog")
-        ),
-        br(),
         actionButton("go","Reset",class="btn-success m-1"),
         actionButton("update","Update",class="btn-success m-1"),
         br(),
         textOutput("rating1"),
-        textOutput("rating2"),
-        textOutput("rating3")
+        textOutput("rating2")
       )
     )
   )
@@ -130,20 +115,17 @@ server <- function(input, output, session) {
     input$go , {
       updateRatingInput(session, "star")
       updateRatingInput(session, "mood")
-      updateRatingInput(session, "animal")
     }
   )
   observeEvent( 
     input$update , {
       updateRatingInput(session, "star",value = 5)
       updateRatingInput(session, "mood", value = "Excited")
-      updateRatingInput(session, "animal", value = "Cat")
     }
   )
   observe({
-    output$rating1 <- renderText(paste0("response mood: ",input$mood))
-    output$rating2 <- renderText(paste0("response star: ",input$star))
-    output$rating3 <- renderText(paste0("response animal: ",input$animal))
+    output$rating1 <- renderText(paste0("response 1: ",input$mood))
+    output$rating2 <- renderText(paste0("response 2: ",input$star))
     })
 }
 # launch the app
