@@ -27,7 +27,7 @@
 #' recommended as a starting point.
 #' @importFrom fontawesome fa
 #' @return  A \code{shiny.tag} object for usage in \code{\link{createRating}}
-#' @keyword internal
+#' @noRd
 
 createIcon <- function(id,
                        # global

@@ -24,7 +24,7 @@
 #' recommended as a starting point.
 #' @import shiny
 #' @return A \code{shiny.tag} object for usage in \code{\link{ratingInput}}
-#' @keyword internal
+#' @noRd
 createRating <- function(rating_id,
                          i_name = "star",
                          i_lib = "fontawesome",

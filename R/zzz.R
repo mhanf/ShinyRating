@@ -4,7 +4,7 @@
 #' @param pkgname pkgname
 #' @importFrom shiny addResourcePath
 #' @return Load package dependencies
-#' @keyword internal
+#' @noRd
 
 .onLoad <- function(libname, pkgname) {
   shiny::addResourcePath(

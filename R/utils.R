@@ -1,7 +1,7 @@
 #' Test if a text is a hex color
 #' @param x text
 #' @return logical,TRUE or FALSE
-#' @keyword internal
+#' @noRd
 isHex <- function(x) {
   grepl("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", x)
 }
@@ -26,7 +26,7 @@ test_length <- function(x, number) {
 #' Test if values in a vector are logical
 #' @param x Vector of values
 #' @return An error if at least one value is not logical
-#' @keyword internal
+#' @noRd
 test_logical <- function(x) {
   if (FALSE %in% is.logical(x) == TRUE) {
     stop(
