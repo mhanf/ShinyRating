@@ -10,7 +10,7 @@ isHex <- function(x) {
 #' @param number Desired number of values
 #' @param x Vector of values
 #' @return An error if the vector has a length != 1 and different to a given number
-#' @keyword internal
+#' @noRd
 test_length <- function(x, number) {
   if ((length(x) > 1 & length(x) != number) | length(x) == 0) {
     stop(
@@ -39,7 +39,7 @@ test_logical <- function(x) {
 #' @param x Vector of values
 #' @param na_rm Logical, are NA be removed ?
 #' @return An error if at least one value is not an integer
-#' @keyword internal
+#' @noRd
 test_pos_integer <- function(x, na_rm = FALSE) {
   # test na in x
   if ((TRUE %in% is.na(x)) & na_rm == FALSE) {
