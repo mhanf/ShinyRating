@@ -2,3 +2,9 @@ url: https://mhanf.github.io/ShinyRating/
 template:
   bootstrap: 5
 
+reference:
+- title: All functions
+- contents:
+  - ratingInput
+  - updateRatingInput
+  - run_gallery
