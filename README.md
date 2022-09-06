@@ -133,7 +133,8 @@ You can run a gallery with :
 ShinyRating::run_gallery()
 ```
 
-A live version is available here : <http://>…
+A live version is available
+[here](https://mhanf.shinyapps.io/shinyRating/).
 
 ## Prior art & philosophy
 
