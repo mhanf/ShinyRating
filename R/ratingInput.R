@@ -206,9 +206,8 @@ ratingInput <- function( # global parameters
     version = "0.0.1",
     package = "ShinyRating",
     src = "assets",
-    script = "rating.js",
-    stylesheet = c(file = "rating.css")
-  )
+    script = "rating.js"
+    )
   # animate dependency
   animate_dep <- htmltools::htmlDependency(
     name = "animate",

@@ -72,8 +72,6 @@ ui <- function(){
         ratingInput(
           inputId = "mood",
           label = "How do you feel ?",
-          number = 5,
-          value = NA,
           cumul = FALSE,
           hover = TRUE,
           i_on_color = c("danger","warning","dark","info","success"),
@@ -81,7 +79,6 @@ ui <- function(){
           i_name = c("face-angry","face-frown","face-meh","face-smile","face-laugh"),
           i_lib = "fontawesome",
           i_anim = "pulse",
-          i_duration = 1,
           tlp = TRUE,
           tlp_color = c("danger","warning","dark","info","success"),
           tlp_position = "bottom",
@@ -92,15 +89,13 @@ ui <- function(){
           inputId = "star",
           label = "Where is shinyRating on the fun scale ?",
           i_anim = "tada",
-          i_width = "2em",
           i_name = "star",
-          i_lib = "fontawesome",
           i_on_color = "#D5AB55",
           cumul = TRUE,
           hover = TRUE
         ),
         br(),
-        actionButton("go","Reset",class="btn-success m-1"),
+        actionButton("reset","Reset",class="btn-success m-1"),
         actionButton("update","Update",class="btn-success m-1"),
         br(),
         textOutput("rating1"),
@@ -112,7 +107,7 @@ ui <- function(){
 # Server part
 server <- function(input, output, session) {
   observeEvent( 
-    input$go , {
+    input$reset , {
       updateRatingInput(session, "star")
       updateRatingInput(session, "mood")
     }
