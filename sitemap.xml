@@ -22,28 +22,10 @@
     <loc>https://mhanf.github.io/ShinyRating/news/index.html</loc>
   </url>
   <url>
-    <loc>https://mhanf.github.io/ShinyRating/reference/addTooltip.html</loc>
-  </url>
-  <url>
-    <loc>https://mhanf.github.io/ShinyRating/reference/createIcon.html</loc>
-  </url>
-  <url>
-    <loc>https://mhanf.github.io/ShinyRating/reference/createRating.html</loc>
-  </url>
-  <url>
-    <loc>https://mhanf.github.io/ShinyRating/reference/dot-onLoad.html</loc>
-  </url>
-  <url>
     <loc>https://mhanf.github.io/ShinyRating/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://mhanf.github.io/ShinyRating/reference/isHex.html</loc>
-  </url>
-  <url>
     <loc>https://mhanf.github.io/ShinyRating/reference/ratingInput.html</loc>
-  </url>
-  <url>
-    <loc>https://mhanf.github.io/ShinyRating/reference/read_icon.html</loc>
   </url>
   <url>
     <loc>https://mhanf.github.io/ShinyRating/reference/run_gallery.html</loc>
@@ -52,15 +34,9 @@
     <loc>https://mhanf.github.io/ShinyRating/reference/test_length.html</loc>
   </url>
   <url>
-    <loc>https://mhanf.github.io/ShinyRating/reference/test_logical.html</loc>
-  </url>
-  <url>
     <loc>https://mhanf.github.io/ShinyRating/reference/test_pos_integer.html</loc>
   </url>
   <url>
     <loc>https://mhanf.github.io/ShinyRating/reference/updateRatingInput.html</loc>
-  </url>
-  <url>
-    <loc>https://mhanf.github.io/ShinyRating/reference/xml2tags.html</loc>
   </url>
 </urlset>
