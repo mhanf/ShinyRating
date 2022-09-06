@@ -25,10 +25,9 @@
 #' left or right of the icon. By default, \code{"auto"} is used for both
 #' properties. If space is needed on either side then a length of \code{"0.2em"} is
 #' recommended as a starting point.
-#'
 #' @importFrom fontawesome fa
 #' @return  A \code{shiny.tag} object for usage in \code{\link{createRating}}
-#'
+#' @keyword internal
 
 createIcon <- function(id,
                        # global

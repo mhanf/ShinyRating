@@ -99,5 +99,4 @@ if (interactive()) {
   }
   shiny::shinyApp(ui, server)
 }
-
 }
