@@ -2,7 +2,7 @@ pandoc: 2.14.2
 pkgdown: 2.0.6
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-09-06T10:49Z
+last_built: 2022-09-06T10:56Z
 urls:
   reference: https://mhanf.github.io/ShinyRating/reference
   article: https://mhanf.github.io/ShinyRating/articles
