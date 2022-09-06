@@ -112,8 +112,6 @@
 <span>        <span class="fu"><a href="reference/ratingInput.html">ratingInput</a></span><span class="op">(</span></span>
 <span>          inputId <span class="op">=</span> <span class="st">"mood"</span>,</span>
 <span>          label <span class="op">=</span> <span class="st">"How do you feel ?"</span>,</span>
-<span>          number <span class="op">=</span> <span class="fl">5</span>,</span>
-<span>          value <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>          cumul <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>          hover <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>          i_on_color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"danger"</span>,<span class="st">"warning"</span>,<span class="st">"dark"</span>,<span class="st">"info"</span>,<span class="st">"success"</span><span class="op">)</span>,</span>
@@ -121,7 +119,6 @@
 <span>          i_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"face-angry"</span>,<span class="st">"face-frown"</span>,<span class="st">"face-meh"</span>,<span class="st">"face-smile"</span>,<span class="st">"face-laugh"</span><span class="op">)</span>,</span>
 <span>          i_lib <span class="op">=</span> <span class="st">"fontawesome"</span>,</span>
 <span>          i_anim <span class="op">=</span> <span class="st">"pulse"</span>,</span>
-<span>          i_duration <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>          tlp <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>          tlp_color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"danger"</span>,<span class="st">"warning"</span>,<span class="st">"dark"</span>,<span class="st">"info"</span>,<span class="st">"success"</span><span class="op">)</span>,</span>
 <span>          tlp_position <span class="op">=</span> <span class="st">"bottom"</span>,</span>
@@ -132,15 +129,13 @@
 <span>          inputId <span class="op">=</span> <span class="st">"star"</span>,</span>
 <span>          label <span class="op">=</span> <span class="st">"Where is shinyRating on the fun scale ?"</span>,</span>
 <span>          i_anim <span class="op">=</span> <span class="st">"tada"</span>,</span>
-<span>          i_width <span class="op">=</span> <span class="st">"2em"</span>,</span>
 <span>          i_name <span class="op">=</span> <span class="st">"star"</span>,</span>
-<span>          i_lib <span class="op">=</span> <span class="st">"fontawesome"</span>,</span>
 <span>          i_on_color <span class="op">=</span> <span class="st">"#D5AB55"</span>,</span>
 <span>          cumul <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>          hover <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span>        <span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"go"</span>,<span class="st">"Reset"</span>,class<span class="op">=</span><span class="st">"btn-success m-1"</span><span class="op">)</span>,</span>
+<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"reset"</span>,<span class="st">"Reset"</span>,class<span class="op">=</span><span class="st">"btn-success m-1"</span><span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span><span class="st">"update"</span>,<span class="st">"Update"</span>,class<span class="op">=</span><span class="st">"btn-success m-1"</span><span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html" class="external-link">br</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textOutput.html" class="external-link">textOutput</a></span><span class="op">(</span><span class="st">"rating1"</span><span class="op">)</span>,</span>
@@ -152,7 +147,7 @@
 <span><span class="co"># Server part</span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html" class="external-link">observeEvent</a></span><span class="op">(</span> </span>
-<span>    <span class="va">input</span><span class="op">$</span><span class="va">go</span> , <span class="op">{</span></span>
+<span>    <span class="va">input</span><span class="op">$</span><span class="va">reset</span> , <span class="op">{</span></span>
 <span>      <span class="fu"><a href="reference/updateRatingInput.html">updateRatingInput</a></span><span class="op">(</span><span class="va">session</span>, <span class="st">"star"</span><span class="op">)</span></span>
 <span>      <span class="fu"><a href="reference/updateRatingInput.html">updateRatingInput</a></span><span class="op">(</span><span class="va">session</span>, <span class="st">"mood"</span><span class="op">)</span></span>
 <span>    <span class="op">}</span></span>
