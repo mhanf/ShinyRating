@@ -140,8 +140,9 @@ A live version is available
 
 The core functionnalities of this package are similar to those of the
 [ShinyRatingInput](https://github.com/stefanwilhelm/ShinyRatingInput).
-This package tries to overcome some limitations by being compatible with
-the shinyverse packages developed by Rstudio (mostly
+This package tries to overcome some limitations by being optimized for
+[Bootstrap 5](https://getbootstrap.com/) and compatible with the
+shinyverse packages developed by Rstudio (mostly
 [shinyvalidate](https://rstudio.github.io/shinyvalidate/),
 [bslib](https://rstudio.github.io/bslib/) and
 [fontawesome](https://github.com/rstudio/fontawesome)) as well as
