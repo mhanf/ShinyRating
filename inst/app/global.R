@@ -5,7 +5,7 @@ library(shinyvalidate)
 
 theme <- bslib::bs_theme(
   version = 5,
-  bootswatch = "cosmo"
+  bootswatch = "flatly"
 )
 
 # a basic card function

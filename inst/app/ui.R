@@ -115,9 +115,9 @@ ui <- shiny::navbarPage(
               tags$a("shinyvalidate", href="https://rstudio.github.io/shinyvalidate/",  target = "_blank"),
               " package."),
           fluidRow(
-            ratingInput2(inputId = "validate1",label = "Required value"),
-            ratingInput2(inputId = "validate2", label = "Value > 3"),
-            ratingInput2(inputId = "validate3", label = "value == 2")
+            ratingInput2(inputId = "validate1",label = "Value is required"),
+            ratingInput2(inputId = "validate2", label = "Value must be greater than 3"),
+            ratingInput2(inputId = "validate3", label = "value must be equal to 2")
           )
         )
       )),
