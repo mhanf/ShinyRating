@@ -109,6 +109,15 @@ ui <- shiny::navbarPage(
             div(class = "col-md-4",textOutput("update4")),
             actionButton2(inputId = "reset", label = "Reset", class = "btn-primary"),
             actionButton2(inputId = "update", label = "Update", class = "btn-primary")
+          ),
+          br(),
+          div(class = "bg-light p-1", "Rating inputs are compatible with input validation from ",
+              tags$a("shinyvalidate", href="https://rstudio.github.io/shinyvalidate/",  target = "_blank"),
+              " package."),
+          fluidRow(
+            ratingInput2(inputId = "validate1",label = "Required value"),
+            ratingInput2(inputId = "validate2", label = "Value > 3"),
+            ratingInput2(inputId = "validate3", label = "value == 2")
           )
         )
       )),
@@ -257,7 +266,7 @@ ui <- shiny::navbarPage(
                        )
 
 
-                           )
+                     )
           )
       )
     )),

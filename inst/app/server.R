@@ -1,5 +1,12 @@
 # serveur
 server <- function(input, output, session) {
+
+  iv <- InputValidator$new()
+  iv$add_rule("validate1", sv_required())
+  iv$add_rule("validate2", sv_gt(3))
+  iv$add_rule("validate3", sv_equal(2))
+  iv$enable()
+
   observeEvent(
     input$reset,
     {
