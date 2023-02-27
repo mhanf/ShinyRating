@@ -104,20 +104,24 @@ ratingInput <- function( # global parameters
   test_length(tlp_color, number)
   test_length(i_margin_left, number)
   test_length(i_margin_right, number)
-  # color
-  lapply(1:length(i_on_color), function(i) {
+  # test on color
+  for(i in 1:length(i_on_color)){
     if (!i_on_color[i] %in% valid_bs5){
       i_on_color[i] <- htmltools::parseCssColors(i_on_color[i], mustWork = TRUE)
     }
     else {
-      i_on_color[i] <- bslib::bs_get_variables(getCurrentTheme(), varnames = i_on_color[i])
+      i_on_color[i] <- sprintf("var(--bs-%s)",i_on_color[i])
     }
-  })
-  lapply(1:length(i_off_color), function(i) {
+  }
+  # test off color
+  for(i in 1:length(i_off_color)){
     if (!i_off_color[i] %in% valid_bs5){
       i_off_color[i] <- htmltools::parseCssColors(i_off_color[i], mustWork = TRUE)
     }
-  })
+    else {
+      i_off_color[i] <- sprintf("var(--bs-%s)",i_off_color[i])
+    }
+  }
   # test icon library
   lapply(i_lib, function(i) {
     match.arg(

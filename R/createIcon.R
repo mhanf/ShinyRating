@@ -78,7 +78,8 @@ createIcon <- function(id,
       height = i_height,
       width = i_width,
       margin_left = i_margin_left,
-      margin_right = i_margin_right
+      margin_right = i_margin_right,
+      prefer_type = "solid"
     )
   } else if (i_lib == "local") {
     tag <- read_icon(

@@ -1,6 +1,9 @@
 ui <- shiny::navbarPage(
   "ShinyRating",
-  theme = theme,
+  theme = bslib::bs_theme(
+    version = 5,
+    bootswatch = "flatly"
+  ),
   tabPanel(
     "Gallery",
     bslib::navs_pill_list(

@@ -3,10 +3,10 @@ library(bslib)
 library(ShinyRating)
 library(shinyvalidate)
 
-theme <- bslib::bs_theme(
-  version = 5,
-  bootswatch = "flatly"
-)
+# theme <- bslib::bs_theme(
+#   version = 5,
+#   bootswatch = "flatly"
+# )
 
 # a basic card function
 card_suite <- function(
