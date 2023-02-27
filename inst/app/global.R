@@ -39,7 +39,7 @@ ratingInput2 <- function(col_size = 4,...){
 }
 
 actionButton2 <- function(col_size = 4,...){
-  div(class = sprintf("col-md-%s", col_size),
+  div(class = sprintf("col-md-%s m-1", col_size),
       actionButton(...)
   )
 }
