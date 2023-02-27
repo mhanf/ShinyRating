@@ -125,7 +125,7 @@ createRating <- function(rating_id,
     )
   })
   # margin adaptation
-  tag <- div(class = "m-0 mt-2 p-0", tag)
+  tag <- div(class = "m-0 mt-2 p-0", tag, style = "margin: 2 0 0 0; padding: 0;")
   # return
   return(tag)
 }

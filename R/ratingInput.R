@@ -24,6 +24,7 @@
 #' recommended as a starting point.
 #' @import shiny
 #' @importFrom bslib bs_theme
+#' @importFrom htmltools parseCssColors
 #' @return A rating input for usage in Shiny UI.
 #' @export
 #'
@@ -103,26 +104,29 @@ ratingInput <- function( # global parameters
   test_length(tlp_color, number)
   test_length(i_margin_left, number)
   test_length(i_margin_right, number)
-  # test color
-  lapply(i_on_color, function(i) {
-    if (!i %in% valid_bs5 & !isHex(i)) {
-      stop("i_on_color must be a bootstrap or a hex color")
+  # color
+  lapply(1:length(i_on_color), function(i) {
+    if (!i_on_color[i] %in% valid_bs5){
+      i_on_color[i] <- htmltools::parseCssColors(i_on_color[i], mustWork = TRUE)
+    }
+    else {
+      i_on_color[i] <- bslib::bs_get_variables(getCurrentTheme(), varnames = i_on_color[i])
     }
   })
-  lapply(i_off_color, function(i) {
-    if (!i %in% valid_bs5 & !isHex(i)) {
-      stop("i_off_color must be a bootstrap or a hex color")
+  lapply(1:length(i_off_color), function(i) {
+    if (!i_off_color[i] %in% valid_bs5){
+      i_off_color[i] <- htmltools::parseCssColors(i_off_color[i], mustWork = TRUE)
     }
   })
-
+  # test icon library
   lapply(i_lib, function(i) {
-    # match.arg
     match.arg(
       arg = i,
       choices = c("fontawesome", "local"),
       several.ok = TRUE
     )
   })
+  # test tooltip position
   lapply(tlp_position, function(i) {
     match.arg(
       arg = i,
@@ -130,6 +134,7 @@ ratingInput <- function( # global parameters
       several.ok = TRUE
     )
   })
+  # test tooltip color
   lapply(tlp_color, function(i) {
     match.arg(
       arg = i,
@@ -151,9 +156,6 @@ ratingInput <- function( # global parameters
   lapply(i_margin_right, function(i) {
     shiny::validateCssUnit(i)
   })
-  # transform bs color
-  i_on_color[i_on_color %in% valid_bs5 == TRUE] <- paste0("var(--bs-", i_on_color[i_on_color %in% valid_bs5 == TRUE], ")")
-  i_off_color[i_off_color %in% valid_bs5 == TRUE] <- paste0("var(--bs-", i_off_color[i_off_color %in% valid_bs5 == TRUE], ")")
   # create list of clickable icons
   rating_tag <- shiny::tagList(
     shiny::div(label),
@@ -190,15 +192,15 @@ ratingInput <- function( # global parameters
     )
   )$
     find("label")$
-    addClass("m-0 p-0")$
+    #addClass("m-0 p-0")$
+    addAttrs("style" = "margin: 0; padding: 0;")$
     allTags()
   # add attributes and class to the hidden numeric input
   num_tag <- htmltools::tagQuery(num_tag)$
     find("input")$
     addAttrs("number" = number)$
     addClass("rating_input")$
-    addClass("d-none")$
-    addClass("m-0 p-0")$
+    addAttrs("style" = "display: none; margin: 0; padding: 0;")$
     allTags()
   # ratingInput dependency
   rating_dep <- htmltools::htmlDependency(

@@ -8,7 +8,8 @@
 #' @import shiny
 #' @return A \code{shiny.tag} object with a tooltip.
 #' @noRd
-#' @example addTooltip(
+#' @examples
+#' addTooltip(
 #' div("test"),
 #' tlp_msg = "test"
 #' )
