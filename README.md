@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ShinyRating
+# ShinyRating <a href="https://mhanf.github.io/ShinyRating/"><img src="man/figures/logo.png" align="right" height="139" /></a>
 
 <!-- ex : https://metroui.org.ua/rating.html -->
 <!-- ex : https://www.wbotelhos.com/raty -->
