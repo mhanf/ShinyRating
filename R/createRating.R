@@ -134,7 +134,7 @@ createRating <- function(rating_id,
   tag <- div(
     class = "d-flex justify-content-center align-items-center m-0 mt-2 p-0",
     tag
-    )
+  )
   # return
   return(tag)
 }

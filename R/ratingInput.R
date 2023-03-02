@@ -51,7 +51,7 @@
 #'   }
 #'   shiny::shinyApp(ui, server)
 #' }
-
+#'
 ratingInput <- function( # global parameters
                         inputId,
                         label = NULL,
@@ -108,21 +108,19 @@ ratingInput <- function( # global parameters
   test_length(i_margin_right, number)
   test_length(i_prefer_type, number)
   # test on color
-  for(i in 1:length(i_on_color)){
-    if (!i_on_color[i] %in% valid_bs5){
+  for (i in 1:length(i_on_color)) {
+    if (!i_on_color[i] %in% valid_bs5) {
       i_on_color[i] <- htmltools::parseCssColors(i_on_color[i], mustWork = TRUE)
-    }
-    else {
-      i_on_color[i] <- sprintf("var(--bs-%s)",i_on_color[i])
+    } else {
+      i_on_color[i] <- sprintf("var(--bs-%s)", i_on_color[i])
     }
   }
   # test off color
-  for(i in 1:length(i_off_color)){
-    if (!i_off_color[i] %in% valid_bs5){
+  for (i in 1:length(i_off_color)) {
+    if (!i_off_color[i] %in% valid_bs5) {
       i_off_color[i] <- htmltools::parseCssColors(i_off_color[i], mustWork = TRUE)
-    }
-    else {
-      i_off_color[i] <- sprintf("var(--bs-%s)",i_off_color[i])
+    } else {
+      i_off_color[i] <- sprintf("var(--bs-%s)", i_off_color[i])
     }
   }
   # test icon library
@@ -207,7 +205,7 @@ ratingInput <- function( # global parameters
     )
   )$
     find("label")$
-    #addClass("m-0 p-0")$
+    # addClass("m-0 p-0")$
     addAttrs("style" = "margin: 0; padding: 0;")$
     allTags()
   # add attributes and class to the hidden numeric input
@@ -224,7 +222,7 @@ ratingInput <- function( # global parameters
     package = "ShinyRating",
     src = "assets",
     script = "rating.js"
-    )
+  )
   # animate dependency
   animate_dep <- htmltools::htmlDependency(
     name = "animate",

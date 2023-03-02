@@ -10,10 +10,10 @@
 #' @noRd
 #' @examples
 #' addTooltip(
-#' div("test"),
-#' tlp_msg = "test"
+#'   div("test"),
+#'   tlp_msg = "test"
 #' )
-
+#'
 addTooltip <- function(el,
                        tlp_color = "black",
                        tlp_msg,
