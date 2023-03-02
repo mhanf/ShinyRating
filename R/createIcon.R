@@ -20,11 +20,13 @@
 #' @param tlp_color The tooltip color, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.
 #' @param cumul Logical, whether or not to use cumulative color for the icon.
 #' @param read_only Logical, whether or not to use a read only mode for the icon.
-#' @param hover Logical, whether or not to use a hover mode for the icon.
+#' @param i_prefer_type The type of icon returned in case of fontawesome lib, \code{"regular"} or \code{"solid"}
 #' @param i_margin_left,i_margin_right The length value for the margin that's either
 #' left or right of the icon. By default, \code{"auto"} is used for both
 #' properties. If space is needed on either side then a length of \code{"0.2em"} is
 #' recommended as a starting point.
+#' @param hover Logical, whether or not to use a hover mode for the icon.
+#'
 #' @importFrom fontawesome fa
 #' @return  A \code{shiny.tag} object for usage in \code{\link{createRating}}
 #' @noRd
@@ -39,6 +41,7 @@ createIcon <- function(id,
                        hover = FALSE,
                        # icon
                        i_name = "star",
+                       i_prefer_type = "solid",
                        i_lib = "fontawesome",
                        i_number = 1,
                        i_on_color = "primary",
@@ -79,7 +82,8 @@ createIcon <- function(id,
       width = i_width,
       margin_left = i_margin_left,
       margin_right = i_margin_right,
-      prefer_type = "solid"
+      prefer_type = i_prefer_type,
+      vertical_align = "top"
     )
   } else if (i_lib == "local") {
     tag <- read_icon(
@@ -91,7 +95,7 @@ createIcon <- function(id,
     )
   }
   # span of svg
-  tag <- tags$span(
+  tag <- tags$div(
     id = id,
     name = i_name,
     lib = i_lib,
@@ -106,7 +110,7 @@ createIcon <- function(id,
     i_anim = i_anim,
     type = "button",
     class = sprintf(
-      "action-button btn_rating %s",
+      "d-flex justify-content-center align-items-center action-button btn_rating %s",
       hover_class
     ),
     style = sprintf(

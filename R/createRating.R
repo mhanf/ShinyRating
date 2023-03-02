@@ -17,6 +17,7 @@
 #' @param tlp_color The tooltip colors, \code{"primary"}, \code{"secondary"}, \code{"light"}, \code{"dark"}, \code{"info"}, \code{"warning"}, \code{"danger"}, \code{"success"}, \code{"white"}, or \code{"black"}.
 #' @param cumul Logical, whether or not to use cumulative color for the icons.
 #' @param read_only Logical, whether or not to use a read only mode for the icons.
+#' @param i_prefer_type The type of icon returned in case of fontawesome lib, \code{"regular"} or \code{"solid"}
 #' @param hover Logical, whether or not to use a hover mode for the icons.
 #' @param i_margin_left,i_margin_right The length value for the margin that's either
 #' left or right of the icon. By default, \code{"auto"} is used for both
@@ -27,6 +28,7 @@
 #' @noRd
 createRating <- function(rating_id,
                          i_name = "star",
+                         i_prefer_type = "solid",
                          i_lib = "fontawesome",
                          number = 10,
                          init_value = 0,
@@ -48,6 +50,9 @@ createRating <- function(rating_id,
   # transform parameters into vectors
   if (length(i_name) == 1) {
     i_name <- rep(i_name, number)
+  }
+  if (length(i_prefer_type) == 1) {
+    i_prefer_type <- rep(i_prefer_type, number)
   }
   if (length(i_value) == 1) {
     i_value <- rep(i_value, number)
@@ -102,6 +107,7 @@ createRating <- function(rating_id,
     createIcon(
       id = paste0(rating_id, i),
       i_name = as.character(i_name[i]),
+      i_prefer_type = i_prefer_type[i],
       i_lib = i_lib,
       i_number = i,
       number = number,
@@ -124,8 +130,11 @@ createRating <- function(rating_id,
       hover = hover
     )
   })
-  # margin adaptation
-  tag <- div(class = "m-0 mt-2 p-0", tag, style = "margin: 2 0 0 0; padding: 0;")
+  # margin adaptation and flex
+  tag <- div(
+    class = "d-flex justify-content-center align-items-center m-0 mt-2 p-0",
+    tag
+    )
   # return
   return(tag)
 }

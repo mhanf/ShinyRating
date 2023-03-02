@@ -26,6 +26,8 @@ Easy creation of rating inputs in Shiny.
 -   Possibility to use [fontawesome
     6.1.2](https://fontawesome.com/icons) icons as well as user-defined
     SVG images.
+-   Possibility to use animations from
+    [Animate.css](https://animate.style/)
 -   Simple definition of the number, size (height and width), type,
     margin (left and right), color and animation of icons.
 -   Possibility to add tooltips.

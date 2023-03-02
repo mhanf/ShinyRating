@@ -9,14 +9,14 @@ var originalColors = [];
           // cumul is true
           if (i_click.attr('cumulation') == 'true'){
             for (var i = 1; i<= i_click.attr('i_number'); i++){
-            var icon_id = $('span[id=' + i_click.attr('rating_id') + i + ']');
+            var icon_id = $('div[id=' + i_click.attr('rating_id') + i + ']');
             originalColors[i-1] = icon_id.css('color');
             icon_id.css('color', icon_id.attr('i_on_color'));
           }
           // when clicked during hover
           i_click.on('click',function(){
             for (var i = 1; i<= i_click.attr('i_number'); i++){
-              var icon_id = $('span[id=' + i_click.attr('rating_id') + i + ']');
+              var icon_id = $('div[id=' + i_click.attr('rating_id') + i + ']');
               var color = icon_id.attr('i_on_color')
               originalColors[i-1] = color;
               icon_id.css('color', color)
@@ -39,7 +39,7 @@ var originalColors = [];
           // cumul is true
           if (i_click.attr('cumulation') == 'true'){
             for (var i = 1; i<= $(this).attr('i_number'); i++){
-              var icon_id = $('span[id=' + $(this).attr('rating_id') + i + ']');
+              var icon_id = $('div[id=' + $(this).attr('rating_id') + i + ']');
               icon_id.css('color', originalColors[i-1]);
             }
           }
@@ -55,7 +55,7 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
 // We create a Promise and return it
   new Promise((resolve, reject) => {
     const animationName = `${prefix}${animation}`;
-    const node = document.querySelector('span[id =' + element +']');
+    const node = document.querySelector('div[id =' + element +']');
 
     node.classList.add(`${prefix}animated`, animationName);
 
@@ -88,13 +88,13 @@ const i_anim = el_icon.attr('i_anim');
 const cumul = el_icon.attr('cumulation');
 // change color
 for (var i = 1; i<= number; i++){
-  icon_id = $('span[id=' + rating_id + i + ']');
+  icon_id = $('div[id=' + rating_id + i + ']');
   var i_on_color = icon_id.attr('i_on_color');
   var i_off_color = icon_id.attr('i_off_color');
 
-  if (cumul == 'true' && i <= i_number) {$('span[id=' + rating_id + i + ']').css("color", i_on_color);}
-  else if (cumul == 'false' && i == i_number) {$('span[id=' + rating_id + i + ']').css("color", i_on_color);}
-  else { $('span[id=' + rating_id + i + ']').css("color", i_off_color);}
+  if (cumul == 'true' && i <= i_number) {$('div[id=' + rating_id + i + ']').css("color", i_on_color);}
+  else if (cumul == 'false' && i == i_number) {$('div[id=' + rating_id + i + ']').css("color", i_on_color);}
+  else { $('div[id=' + rating_id + i + ']').css("color", i_off_color);}
   }
 // animation of clicked icon
 animateCSS(id, i_anim);
@@ -147,7 +147,7 @@ $.extend(rating_input, {
     // find the i_number value associated with i_value
     var i_number = null
     if (i_value != null){
-      i_number = $('#' + rating_id + "-label").find('span[i_value =' + i_value + ']').attr('i_number')
+      i_number = $('#' + rating_id + "-label").find('div[i_value =' + i_value + ']').attr('i_number')
       if (i_number == null){
         i_value = ""
       }
@@ -160,7 +160,7 @@ $.extend(rating_input, {
     this.setValue(el, i_value);
     // change color
     for (var i = 1; i<= number; i++){
-      var icon_id = $('span[id=' + rating_id + i + ']');
+      var icon_id = $('div[id=' + rating_id + i + ']');
       var i_on_color = icon_id.attr('i_on_color');
       var i_off_color = icon_id.attr('i_off_color');
       var cumul = icon_id.attr('cumulation');

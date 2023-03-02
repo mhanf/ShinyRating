@@ -18,6 +18,7 @@
 #' @param cumul Logical, whether or not to use cumulative color for the icons.
 #' @param read_only Logical, whether or not to use a read only mode for the icons.
 #' @param hover Logical, whether or not to use a hover mode for the icons.
+#' @param i_prefer_type The type of icon returned in case of fontawesome lib, \code{"regular"} or \code{"solid"}
 #' @param i_margin_left,i_margin_right The length value for the margin that's either
 #' left or right of the icon. By default, \code{"auto"} is used for both
 #' properties. If space is needed on either side then a length of \code{"0.2em"} is
@@ -66,6 +67,7 @@ ratingInput <- function( # global parameters
                         i_width = NULL,
                         i_height = NULL,
                         i_name = "star",
+                        i_prefer_type = "solid",
                         i_lib = "fontawesome",
                         i_anim = "none",
                         i_duration = 2,
@@ -104,6 +106,7 @@ ratingInput <- function( # global parameters
   test_length(tlp_color, number)
   test_length(i_margin_left, number)
   test_length(i_margin_right, number)
+  test_length(i_prefer_type, number)
   # test on color
   for(i in 1:length(i_on_color)){
     if (!i_on_color[i] %in% valid_bs5){
@@ -127,6 +130,14 @@ ratingInput <- function( # global parameters
     match.arg(
       arg = i,
       choices = c("fontawesome", "local"),
+      several.ok = TRUE
+    )
+  })
+  # test i_prefer_type
+  lapply(i_prefer_type, function(i) {
+    match.arg(
+      arg = i,
+      choices = c("regular", "solid"),
       several.ok = TRUE
     )
   })

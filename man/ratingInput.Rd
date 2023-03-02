@@ -18,6 +18,7 @@ ratingInput(
   i_width = NULL,
   i_height = NULL,
   i_name = "star",
+  i_prefer_type = "solid",
   i_lib = "fontawesome",
   i_anim = "none",
   i_duration = 2,
@@ -51,6 +52,8 @@ ratingInput(
 \item{i_width, i_height}{The icons width and height in css units.}
 
 \item{i_name}{The icon name (fontawesome) or path (local).}
+
+\item{i_prefer_type}{The type of icon returned in case of fontawesome lib, \code{"regular"} or \code{"solid"}}
 
 \item{i_lib}{The icon library to use. Either "fontawesome" or "local".}
 
