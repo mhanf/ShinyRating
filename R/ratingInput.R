@@ -72,8 +72,8 @@ ratingInput <- function( # global parameters
                         i_anim = "none",
                         i_duration = 2,
                         i_value = 1:number,
-                        i_margin_left = "auto",
-                        i_margin_right = "auto",
+                        i_margin_left = "0.1em",
+                        i_margin_right = "0.1em",
                         # tooltip parameters
                         tlp = FALSE,
                         tlp_position = "bottom",
