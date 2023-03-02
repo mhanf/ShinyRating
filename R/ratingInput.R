@@ -190,6 +190,7 @@ ratingInput <- function( # global parameters
       i_height = i_height,
       i_anim = i_anim,
       i_duration = i_duration,
+      i_prefer_type = i_prefer_type,
       i_value = i_value,
       tlp_position = tlp_position,
       tlp_color = tlp_color

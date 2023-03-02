@@ -49,12 +49,14 @@ ui <- shiny::navbarPage(
               class = "bg-light p-1",
               "The type of icons is set with the ",
               tags$code("i_name"),
-              " parameter. Available icons are those from fontawesome 6.1.2."
+              " and ",
+              tags$code("i_prefer_type"),
+              " parameters. Available icons are those from fontawesome 6.1.2."
             ),
             fluidRow(
               ratingInput2(inputId = "basic7", label = "i_name = 'heart'", i_name = "heart"),
               ratingInput2(inputId = "basic8", label = "i_name = 'cloud'", i_name = "cloud"),
-              ratingInput2(inputId = "basic9", label = "i_name = 'cat'", i_name = "cat")
+              ratingInput2(inputId = "basic9", label = "i_name = 'heart', i_prefer_type = 'regular'", i_name = "heart",i_prefer_type = "regular")
             ),
             br(),
             # color
@@ -118,16 +120,28 @@ ui <- shiny::navbarPage(
             "."
           ),
           fluidRow(
-            ratingInput2(inputId = "Value4", label = "Observe on input$InputId"),
-            ratingInput2(inputId = "Value5", label = "value = NA", value = NA),
-            ratingInput2(inputId = "Value6", label = "value = 5", value = NA),
+            column(
+              width = 4,
+              align="center",
+              ratingInput(inputId = "Value4", label = "Observe on input$InputId"),
+              textOutput("update4"),
+              br()
+              ),
+            column(
+              width = 4,
+              align="center",
+              ratingInput(inputId = "Value5", label = "Reset value = NA", value = NA),
+              actionButton(inputId = "reset", label = "Reset", class = "btn-primary"),
+              br()
+              ),
+            column(
+              width = 4,
+              align="center",
+              ratingInput(inputId = "Value6", label = "Updated value = 5", value = NA),
+              actionButton(inputId = "update", label = "Update", class = "btn-primary"),
+              br()
+            )
           ),
-          fluidRow(
-            div(class = "col-md-4", textOutput("update4")),
-            actionButton2(inputId = "reset", label = "Reset", class = "btn-primary"),
-            actionButton2(inputId = "update", label = "Update", class = "btn-primary")
-          ),
-          br(),
           div(
             class = "bg-light p-1", "Rating inputs are compatible with input validation from ",
             tags$a("shinyvalidate", href = "https://rstudio.github.io/shinyvalidate/", target = "_blank"),
