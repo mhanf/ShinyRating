@@ -10,13 +10,13 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-<!--[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://cran.r-project.org/web/licenses/MIT)-->
-[![R-CMD-check](https://github.com/mhanf/ShinyRating/workflows/R-CMD-check/badge.svg)](https://github.com/mhanf/ShinyRating/actions)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/GPL-3.0)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ShinyRating)](https://CRAN.R-project.org/package=ShinyRating)
 [![R-CMD-check](https://github.com/mhanf/ShinyRating/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mhanf/ShinyRating/actions/workflows/R-CMD-check.yaml)
+[![R
+badge](https://img.shields.io/badge/Build%20with-♥%20and%20R-blue)](https://github.com/mhanf/ShinyRating)
 <!-- badges: end -->
 
 Easy creation of rating inputs in Shiny.
@@ -28,7 +28,7 @@ Easy creation of rating inputs in Shiny.
     6.1.2](https://fontawesome.com/icons) icons as well as user-defined
     SVG images.
 -   Possibility to use animations from
-    [Animate.css](https://animate.style/)
+    [Animate.css](https://animate.style/).
 -   Simple definition of the number, size (height and width), type,
     margin (left and right), color and animation of icons.
 -   Possibility to add tooltips.
