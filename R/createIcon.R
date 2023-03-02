@@ -110,11 +110,11 @@ createIcon <- function(id,
     i_anim = i_anim,
     type = "button",
     class = sprintf(
-      "d-flex justify-content-center align-items-center action-button btn_rating %s",
+      "action-button btn_rating %s",
       hover_class
     ),
     style = sprintf(
-      fmt = "color: %s; --animate-duration: %ss; %s; margin: 0; padding: 0;",
+      fmt = "display: flex; justify-content: center;align-items: center; color: %s; --animate-duration: %ss; %s; margin: 0; padding: 0;",
       init_color,
       i_duration,
       read_style

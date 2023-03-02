@@ -132,7 +132,7 @@ createRating <- function(rating_id,
   })
   # margin adaptation and flex
   tag <- div(
-    class = "d-flex justify-content-center align-items-center m-0 mt-2 p-0",
+    style = "display: flex; justify-content: center;align-items: center; margin: 2 0 0 0; padding: 0;",
     tag
   )
   # return
