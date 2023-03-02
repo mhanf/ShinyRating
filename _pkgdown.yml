@@ -1,3 +1,6 @@
 url: https://mhanf.github.io/ShinyRating/
 template:
   bootstrap: 5
+structure:
+    left:  [intro, reference, news]
+    right: [search, github]
