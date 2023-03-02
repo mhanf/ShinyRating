@@ -16,6 +16,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/GPL-3.0)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ShinyRating)](https://CRAN.R-project.org/package=ShinyRating)
+[![R-CMD-check](https://github.com/mhanf/ShinyRating/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mhanf/ShinyRating/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Easy creation of rating inputs in Shiny.
