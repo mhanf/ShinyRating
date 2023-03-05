@@ -56,7 +56,7 @@ ui <- shiny::navbarPage(
             fluidRow(
               ratingInput2(inputId = "basic7", label = "i_name = 'heart'", i_name = "heart"),
               ratingInput2(inputId = "basic8", label = "i_name = 'cloud'", i_name = "cloud"),
-              ratingInput2(inputId = "basic9", label = "i_name = 'heart', i_prefer_type = 'regular'", i_name = "heart",i_prefer_type = "regular")
+              ratingInput2(inputId = "basic9", label = "i_name = 'heart', i_prefer_type = 'regular'", i_name = "heart", i_prefer_type = "regular")
             ),
             br(),
             # color
@@ -95,16 +95,28 @@ ui <- shiny::navbarPage(
             " parameter."
           ),
           fluidRow(
-            ratingInput2(inputId = "Value1", label = "value = NA"),
-            ratingInput2(inputId = "Value2", label = "value = 3", value = 3),
-            ratingInput2(inputId = "Value3", label = "i_value = c('A', 'B', 'C', 'D', 'E')", i_value = c("A", "B", "C", "D", "E"))
+            column(
+              width = 4,
+              align = "center",
+              ratingInput(inputId = "Value1", label = "value = NA"),
+              div(class = "col-md-4", textOutput("update1")),
+              br()
+            ),
+            column(
+              width = 4,
+              align = "center",
+              ratingInput(inputId = "Value2", label = "value = 3", value = 3),
+              div(class = "col-md-4", textOutput("update2")),
+              br()
+            ),
+            column(
+              width = 4,
+              align = "center",
+              ratingInput(inputId = "Value3", label = "i_value = c('A', 'B', 'C', 'D', 'E')", i_value = c("A", "B", "C", "D", "E")),
+              div(class = "col-md-4", textOutput("update3")),
+              br()
+            )
           ),
-          fluidRow(
-            div(class = "col-md-4", textOutput("update1")),
-            div(class = "col-md-4", textOutput("update2")),
-            div(class = "col-md-4", textOutput("update3"))
-          ),
-          br(),
           div(
             class = "bg-light p-1",
             "The input value can be accessed from the server with ",
@@ -122,21 +134,21 @@ ui <- shiny::navbarPage(
           fluidRow(
             column(
               width = 4,
-              align="center",
+              align = "center",
               ratingInput(inputId = "Value4", label = "Observe on input$InputId"),
               textOutput("update4"),
               br()
-              ),
+            ),
             column(
               width = 4,
-              align="center",
+              align = "center",
               ratingInput(inputId = "Value5", label = "Reset value = NA", value = NA),
               actionButton(inputId = "reset", label = "Reset", class = "btn-primary"),
               br()
-              ),
+            ),
             column(
               width = 4,
-              align="center",
+              align = "center",
               ratingInput(inputId = "Value6", label = "Updated value = 5", value = NA),
               actionButton(inputId = "update", label = "Update", class = "btn-primary"),
               br()
